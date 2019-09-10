@@ -25,19 +25,19 @@ public class P4CallUtility {
 		AlgorithmUtility utility = new AlgorithmUtility();
 		// performing particular tasks
 		AlgorithmUtility.intInsertionSort(intArr);
-		utility.printIntArr(intArr);
+		AlgorithmUtility.printIntArr(intArr);
 		long time3 = utility.elapsedTime();
 		System.out.println("elapsed time for insertion sort of integer is : " + (time3 - utility.start) / 1000.0);
 		AlgorithmUtility.intBubbleSort(intArr2);
-		utility.printIntArr(intArr2);
+		AlgorithmUtility.printIntArr(intArr2);
 		long time4 = utility.elapsedTime();
 		System.out.println("elapsed time for bubble sort of integer is : " + (time4 - utility.start) / 1000.0);
 		AlgorithmUtility.stringInsertionSort(stringArr);
-		utility.printStringArr(stringArr);
+		AlgorithmUtility.printStringArr(stringArr);
 		long time5 = utility.elapsedTime();
 		System.out.println("elapsed time for insertion sort of String is : " + (time5 - utility.start) / 1000.0);
 		AlgorithmUtility.stringBubbleSort(stringArr2);
-		utility.printStringArr(stringArr2);
+		AlgorithmUtility.printStringArr(stringArr2);
 		long time6 = utility.elapsedTime();
 		System.out.println("elapsed time for bubble sort of string is : " + (time6 - utility.start) / 1000.0);
 		// binary search

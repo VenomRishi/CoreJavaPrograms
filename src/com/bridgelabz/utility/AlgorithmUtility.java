@@ -135,8 +135,10 @@ public class AlgorithmUtility {
 	}
 
 	/**
-	 * @param arr
-	 * @return
+	 * Purpose: method for insertion sort
+	 * 
+	 * @param arr array from user
+	 * @return returns sorted array
 	 */
 	public static int[] intInsertionSort(int[] arr) {
 		/*
@@ -163,6 +165,12 @@ public class AlgorithmUtility {
 		return arr;
 	}
 
+	/**
+	 * Purpose: method for insertion sort of String
+	 * 
+	 * @param arr array from user
+	 * @return returns sorted array
+	 */
 	public static String[] stringInsertionSort(String[] arr) {
 		String key;
 		int j = 0;
@@ -178,6 +186,12 @@ public class AlgorithmUtility {
 		return arr;
 	}
 
+	/**
+	 * Purpose: method for bubble sort
+	 * 
+	 * @param arr array from user
+	 * @return returns sorted array
+	 */
 	public static int[] intBubbleSort(int[] arr) {
 		for (int i = 0; i < arr.length - 1; i++) {
 			for (int j = 0; j < arr.length - i - 1; j++) {
@@ -247,38 +261,51 @@ public class AlgorithmUtility {
 
 	}
 
-	public void printIntArr(int[] arr) {
+	/**
+	 * Purpose: method for printing integer array
+	 * 
+	 * @param arr array from user
+	 */
+	public static void printIntArr(int[] arr) {
 		for (int i = 0; i < arr.length; i++) {
 			System.out.print(arr[i] + " ");
 		}
 		System.out.println();
 	}
 
+	/**
+	 * Purpose: method for printing String array
+	 * 
+	 * @param arr array from user
+	 */
 	public static void printStringArr(String[] arr) {
 		for (int i = 0; i < arr.length; i++) {
 			System.out.print(arr[i] + " ");
 		}
 		System.out.println();
 	}
+
 	/**
-	 * @return
+	 * Purpose: method for calculating elapsedTime
+	 * 
+	 * @return system current time in millis
 	 */
 	public long elapsedTime() {
 		long now = System.currentTimeMillis();
 		return now;
 	}
-	
 
 	/**
-	 * @param path
-	 * @return
+	 * Purpose: method for taking information from file
+	 * 
+	 * @param path directory path given by program
+	 * @return String of information which is there in file
 	 */
 	public static String getFromFile(String path) {
 		BufferedReader bufferedReader = null;
 		String str = "";
 		try {
-			bufferedReader = new BufferedReader(
-					new FileReader(path));
+			bufferedReader = new BufferedReader(new FileReader(path));
 			str = bufferedReader.readLine();
 			bufferedReader.close();
 		} catch (IOException e) {
@@ -286,6 +313,127 @@ public class AlgorithmUtility {
 			e.printStackTrace();
 		}
 		return str;
+	}
+
+	public static void vendingMachine(int money, int[] notes) {
+		//1000, 500, 100, 50, 10, 5, 2, 1
+		int i = 0, rem;
+		while (money > 0) {
+			if (money >= notes[i]) {
+				int calcNotes = money / notes[i];
+				rem = money % notes[i];
+				money = rem;
+				System.out.println(notes[i] + " Notes ---> " + calcNotes);
+			}
+			i++;
+		}
+
+	}
+
+	/**
+	 * Purpose: method for finding year is leap or not
+	 * 
+	 * Identifier:
+	 * 
+	 * @param year input taken from user
+	 * @return
+	 */
+
+	public boolean isLeapYear(int year) {
+		if (year % 4 == 0 || year % 400 == 0 && year % 100 != 0) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
+	/**
+	 * Purpose: To Calculate Day Of a Week
+	 * 
+	 * @param day   input taken from user
+	 * @param month input taken from user
+	 * @param year  input taken from user
+	 * @return dayOfWeek return day for week like Monday Tuesday
+	 */
+	public int calculateDayOfWeek(int day, int month, int year) {
+		int y1, x, m, d1;
+		y1 = year - (14 - month) / 12;
+		x = y1 + (y1 / 4) - (y1 / 100) + (y1 / 400);
+		m = month + 12 * ((14 - month) / 12) - 2;
+		d1 = (day + x + 31 * m / 12) % 7;
+		return d1;
+	}
+
+	/**
+	 * Purpose: Method is written for Converting Temperature Fahrenheit to Celsius
+	 * 
+	 * @param temperatureInFerenheit
+	 * @return temperatureInCelcius return temperature in celsius
+	 */
+	public double FahrenheitToCelsius(double temperatureInFerenheit) {
+		double temperatureInCelcius;
+		temperatureInCelcius = ((temperatureInFerenheit - 32) * 5) / 9;
+		return temperatureInCelcius;
+	}
+
+	/**
+	 * Purpose: Method is written for Converting Temperature Celcius to Fahrenheit
+	 * 
+	 * 
+	 * @param temperatureInCelsius
+	 * @return temperatureInFahrenheit return temperature in fahrenheit
+	 */
+	public double CelsiusToFahrenheit(double temperatureInCelsius) {
+		double temperatureInFahrenheit;
+		temperatureInFahrenheit = ((temperatureInCelsius * 9) / 5) + 32;
+		return temperatureInFahrenheit;
+	}
+
+	/**
+	 * Purpose: This method will calculate the EMI for the month on the basis of
+	 * loan amount for particular year and it will be depend upon the rate of
+	 * interest given for the loan.
+	 * 
+	 * @param principalLoanAmount input taken for principal amount of loan
+	 * @param year                input taken for how much year of loan
+	 * @param rOI                 input taken for interest for the loan
+	 * @return paymentAmountForMonth
+	 * 
+	 *         in this it calculating the amount to pay for every month
+	 */
+	public double LoanCalculator(int principalLoanAmount, int year, double rOI) {
+
+		double payment, r;
+		int n;
+		n = 12 * year;
+		r = (rOI / (12 * 100));
+
+		payment = (principalLoanAmount * r) / (1 - Math.pow(1 + r, -n));
+		return payment;
+	}
+
+	/**
+	 * Purpose: method for finding square root using newton's law
+	 * 
+	 * @param c input from user
+	 * @return returns the square root
+	 */
+	public double findSquareRootUsingNewtonsMethod(int c) {
+		double t, epsilon;
+		t = c;
+
+		epsilon = 1e-15;
+
+		while (Math.abs(t - c / t) > epsilon * t) {
+			t = (c / t + t) / 2.0;
+		}
+		return t;
+	}
+
+	public int SwapNibbles(int decToBinary) {
+		return (((decToBinary & 0x0F) << 4) | ((decToBinary & 0xF0) >> 4));
+
 	}
 
 }

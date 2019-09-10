@@ -14,6 +14,7 @@ package com.bridgelabz.utility;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class FunctionalUtility {
@@ -208,8 +209,7 @@ public class FunctionalUtility {
 	 * Identifier: P8DistinctCoupon
 	 * 
 	 * @param range for number of coupon generated
-	 * @return	return the count of times run loop to 
-	 * 			generate each distinct coupon
+	 * @return return the count of times run loop to generate each distinct coupon
 	 */
 	public int distinctCoupon(int range) {
 		boolean[] arr = new boolean[range];
@@ -238,9 +238,10 @@ public class FunctionalUtility {
 	 * Purpose: method for taking input for int matrix
 	 * 
 	 * Identifier: P9Matrix
+	 * 
 	 * @param m row
-	 * @param n	col
-	 * @return	return the input array
+	 * @param n col
+	 * @return return the input array
 	 */
 	public int[][] matrixInputInt(int m, int n) {
 		int[][] arr = new int[m][n];
@@ -269,30 +270,31 @@ public class FunctionalUtility {
 	 * Purpose: method for printing int matrix
 	 * 
 	 * Identifier: P9Matrix
+	 * 
 	 * @param result array for printing
 	 */
-	
+
 	public void print2dArrayInt(int[][] result) {
 		System.out.println("Printing result matrix");
-		//PrintWriter pw = new PrintWriter(new OutputStreamWriter(null));
+		// PrintWriter pw = new PrintWriter(new OutputStreamWriter(null));
 		for (int i = 0; i < result.length; i++) {
 			for (int j = 0; j < result[i].length; j++) {
-				//pw.print(result[i][j]+" ");
-				System.out.print(result[i][j]+" ");
-			}//pw.print("\n");
+				// pw.print(result[i][j]+" ");
+				System.out.print(result[i][j] + " ");
+			} // pw.print("\n");
 			System.out.println();
 		}
-		
-		
 
 	}
+
 	/**
 	 * Purpose: method for taking input for double matrix
 	 * 
 	 * Identifier: P9Matrix
+	 * 
 	 * @param m row
-	 * @param n	col
-	 * @return	return the input array
+	 * @param n col
+	 * @return return the input array
 	 */
 	public double[][] matrixInputDouble(int m, int n) {
 		double[][] arr = new double[m][n];
@@ -309,24 +311,27 @@ public class FunctionalUtility {
 	 * Purpose: method for printing double matrix
 	 * 
 	 * Identifier: P9Matrix
+	 * 
 	 * @param result array for printing
 	 */
 	public void print2dArrayDouble(double[][] resultDouble) {
 		System.out.println("Printing result matrix");
 		for (int i = 0; i < resultDouble.length; i++) {
 			for (int j = 0; j < resultDouble[i].length; j++) {
-				System.out.print(resultDouble[i][j]+" ");
+				System.out.print(resultDouble[i][j] + " ");
 			}
 			System.out.println();
 		}
 	}
+
 	/**
 	 * Purpose: method for taking input for boolean matrix
 	 * 
 	 * Identifier: P9Matrix
+	 * 
 	 * @param m row
-	 * @param n	col
-	 * @return	return the input array
+	 * @param n col
+	 * @return return the input array
 	 */
 	public boolean[][] matrixInputBoolean(int m, int n) {
 		boolean[][] arr = new boolean[m][n];
@@ -339,46 +344,47 @@ public class FunctionalUtility {
 		return arr;
 	}
 
-	
 	/**
 	 * Purpose: method for printing boolean matrix
 	 * 
 	 * Identifier: P9Matrix
+	 * 
 	 * @param result array for printing
 	 */
 	public void print2dArrayBoolean(boolean[][] resultBoolean) {
 		System.out.println("Printing result matrix");
 		for (int i = 0; i < resultBoolean.length; i++) {
 			for (int j = 0; j < resultBoolean[i].length; j++) {
-				System.out.print(resultBoolean[i][j]+" ");
+				System.out.print(resultBoolean[i][j] + " ");
 			}
 			System.out.println();
 		}
-		
+
 	}
 
 	/**
 	 * Purpose: method for finding triplets
 	 * 
 	 * Identifier: P10SumOfThreeIsZero
+	 * 
 	 * @param arr input from user
 	 */
 	public void sumOfThreeIsZero(int[] arr) {
 		System.out.println("Array : ");
 		for (int i = 0; i < arr.length; i++) {
-			System.out.print(arr[i]+" ");
+			System.out.print(arr[i] + " ");
 		}
 		System.out.println();
-		for (int i = 0; i < arr.length-2; i++) {
-			for (int j = i+1; j < arr.length-1; j++) {
-				for (int k = j+1; k < arr.length; k++) {
-					if(arr[i]+arr[j]+arr[k]==0) {
-						System.out.println(arr[i]+" "+arr[j]+" "+arr[k]+" is distinct triplets");
+		for (int i = 0; i < arr.length - 2; i++) {
+			for (int j = i + 1; j < arr.length - 1; j++) {
+				for (int k = j + 1; k < arr.length; k++) {
+					if (arr[i] + arr[j] + arr[k] == 0) {
+						System.out.println(arr[i] + " " + arr[j] + " " + arr[k] + " is distinct triplets");
 					}
 				}
 			}
 		}
-		
+
 	}
 
 	/**
@@ -386,10 +392,10 @@ public class FunctionalUtility {
 	 * 
 	 * Identifier: P11Distance
 	 * 
-	 * @param x1	0
-	 * @param y1	0
-	 * @param x2	input from user
-	 * @param y2	input from user
+	 * @param x1 0
+	 * @param y1 0
+	 * @param x2 input from user
+	 * @param y2 input from user
 	 * @return
 	 */
 	public double EuclideanDistance(int x1, int y1, int x2, int y2) {
@@ -405,6 +411,7 @@ public class FunctionalUtility {
 		distance = Math.sqrt(sumOfPowerXY);
 		return distance;
 	}
+
 	/**
 	 * Purpose: find permutation using iteration
 	 * 
@@ -518,7 +525,7 @@ public class FunctionalUtility {
 		else
 			System.out.println("Two permutation is not equal");
 	}
-	
+
 	/**
 	 * Purpose: Method is written for finding delta for Quadratic Equation
 	 * 
@@ -569,10 +576,6 @@ public class FunctionalUtility {
 		return equation2;
 	}
 
-	
-	
-	
-
 	/**
 	 * Purpose: method for calculating wind chill
 	 * 
@@ -587,11 +590,32 @@ public class FunctionalUtility {
 		a = 0.6215 * temperature;
 		b = 0.4275 * temperature;
 		c = b - 35.75;
-		windChill = 35.74 + a + c * (Math.pow(windspeed,0.16));
+		windChill = 35.74 + a + c * (Math.pow(windspeed, 0.16));
 		// windchill cannot be negative
 		windChill = Math.abs(windChill);
 		return windChill;
 	}
-	
+
+	public char[][] initializeBoard() {
+		char[][] board = new char[3][3];
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board[i].length; j++) {
+				board[i][j] = '-';
+			}
+		}
+		return board;
+		// TODO Auto-generated method stub
+
+	}
+
+	public void printBoard(char[][] board) {
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board[i].length; j++) {
+				System.out.print(board[i][j] + " ");
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}
 
 }
