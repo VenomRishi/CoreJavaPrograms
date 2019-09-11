@@ -14,7 +14,6 @@ package com.bridgelabz.utility;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 import java.util.Scanner;
 
 public class FunctionalUtility {
@@ -22,7 +21,7 @@ public class FunctionalUtility {
 	Scanner scanner = new Scanner(System.in);
 
 	/**
-	 * Purpose: for replacing the regex into string given by user
+	 * Purpose: for replacing the regular expression into string given by user
 	 * 
 	 * Identifier: P1RegEx
 	 * 
@@ -123,7 +122,7 @@ public class FunctionalUtility {
 	 * 
 	 * Identifier: P6PrimeFactor
 	 * 
-	 * @param n range uptil finding prime factors
+	 * @param n range until finding prime factors
 	 */
 	public void primeFactor(int n) {
 		if (n == 0 || n == 1) {
@@ -139,7 +138,7 @@ public class FunctionalUtility {
 	}
 
 	/**
-	 * Purpose: method for gamling simulation
+	 * Purpose: method for gambling simulation
 	 * 
 	 * Identifier: P7Gambler
 	 * 
@@ -235,12 +234,12 @@ public class FunctionalUtility {
 	}
 
 	/**
-	 * Purpose: method for taking input for int matrix
+	 * Purpose: method for taking input for integer matrix
 	 * 
 	 * Identifier: P9Matrix
 	 * 
 	 * @param m row
-	 * @param n col
+	 * @param n column
 	 * @return return the input array
 	 */
 	public int[][] matrixInputInt(int m, int n) {
@@ -254,20 +253,8 @@ public class FunctionalUtility {
 		return arr;
 	}
 
-//	public int[][] matrixMulInt(int[][] arr, int[][] arr2, int m, int n) {
-//		int[][] result = new int[m][n];
-//		for (int i = 0; i < m; i++) {
-//			for (int j = 0; j < n; j++) {
-//				for (int k = 0; k < m; k++) {
-//					result[i][j] += arr[i][k] * arr2[k][j];
-//				}
-//
-//			}
-//		}
-//		return result;
-//	}
 	/**
-	 * Purpose: method for printing int matrix
+	 * Purpose: method for printing integer matrix
 	 * 
 	 * Identifier: P9Matrix
 	 * 
@@ -293,7 +280,7 @@ public class FunctionalUtility {
 	 * Identifier: P9Matrix
 	 * 
 	 * @param m row
-	 * @param n col
+	 * @param n column
 	 * @return return the input array
 	 */
 	public double[][] matrixInputDouble(int m, int n) {
@@ -396,7 +383,7 @@ public class FunctionalUtility {
 	 * @param y1 0
 	 * @param x2 input from user
 	 * @param y2 input from user
-	 * @return
+	 * @return returns the distance from the calculation
 	 */
 	public double EuclideanDistance(int x1, int y1, int x2, int y2) {
 		double distance, powerofx, powerofy, sumOfPowerXY;
@@ -417,7 +404,7 @@ public class FunctionalUtility {
 	 * 
 	 * Identifier: P12StringPermutation
 	 * 
-	 * @param str
+	 * @param str input from user end
 	 */
 	static List<String> listPermutationIterative = new ArrayList<String>();
 
@@ -461,56 +448,63 @@ public class FunctionalUtility {
 	}
 
 	/**
-	 * Purpose: function to swap two characters in a character array
+	 * Purpose: method for swapping characters of iterative permute
 	 * 
-	 * Identifier: P12StringPermutation
-	 * 
-	 * @param arr
-	 * @param i
-	 * @param j
+	 * @param arr character array of string
+	 * @param i   index which passed from iterative method
+	 * @param j   index which passed from iterative method
 	 */
 	private static void swap(char[] arr, int i, int j) {
 		char c = arr[i];
 		arr[i] = arr[j];
 		arr[j] = c;
+
 	}
 
 	/**
-	 * Purpose: find permutation using recursion
+	 * Purpose: find permutation using recursive
 	 * 
 	 * Identifier: P12StringPermutation
 	 * 
-	 * @param str input from user
-	 * @param ans empty string passed for computation
+	 * @param str input from user end
+	 * @param l   lower index of string
+	 * @param r   higher index of string
 	 */
 	static List<String> listPermutationRecursion = new ArrayList<String>();
 
-	public static void permutationRecursion(String str, String ans) {
-
-		// If string is empty
-		if (str.length() == 0) {
-			System.out.print(ans + " ");
-			listPermutationRecursion.add(ans);
-			return;
-		}
-
-		for (int i = 0; i < str.length(); i++) {
-
-			// ith character of str
-			char ch = str.charAt(i);
-
-			// Rest of the string after excluding
-			// the ith character
-			String temp = str.substring(0, i) + str.substring(i + 1);
-
-			// Recurvise call
-			permutationRecursion(temp, ans + ch);
+	public static void permutationRecursion(String str, int l, int r) {
+		if (l == r) {
+			System.out.print(str + " ");
+			listPermutationRecursion.add(str);
+		} else {
+			for (int i = l; i <= r; i++) {
+				str = swap(str, l, i);
+				permutationRecursion(str, l + 1, r);
+				str = swap(str, l, i);
+			}
 		}
 
 	}
 
 	/**
-	 * Purpose: method for comparing Both permutation
+	 * Purpose: method for swapping the element of recursive permute
+	 * 
+	 * @param str string given by method
+	 * @param l   lower index
+	 * @param i   operation on which swapping is doing
+	 * @return returns the value of indexed swapped
+	 */
+	private static String swap(String str, int l, int i) {
+		char temp;
+		char[] charArray = str.toCharArray();
+		temp = charArray[l];
+		charArray[l] = charArray[i];
+		charArray[i] = temp;
+		return String.valueOf(charArray);
+	}
+
+	/**
+	 * Purpose: compare two type of permutation iterative and recursive
 	 * 
 	 * Identifier: P12StringPermutation
 	 * 
@@ -521,9 +515,9 @@ public class FunctionalUtility {
 		Collections.sort(listPermutationRecursion);
 		// System.out.println(listPermutationRecursion);
 		if (listPermutationIterative.equals(listPermutationRecursion))
-			System.out.println("\nTwo permutation is equal");
+			System.out.println("\n--->Two permutation is equal<---");
 		else
-			System.out.println("\nTwo permutation is not equal");
+			System.out.println("\n--->Two permutation is not equal<---");
 	}
 
 	/**
@@ -547,10 +541,10 @@ public class FunctionalUtility {
 	 * 
 	 * Identifier: P15Quadratic
 	 * 
-	 * @param a
-	 * @param b
-	 * @param sqrtDelta
-	 * @return
+	 * @param a     input
+	 * @param b     input
+	 * @param delta delta of a b and c
+	 * @return returns of quadratic equation answer
 	 */
 	public double QuadraticEquation1(int a, int b, double delta) {
 		double absDelta = Math.abs(delta);
@@ -564,10 +558,10 @@ public class FunctionalUtility {
 	 * 
 	 * Identifier: P15Quadratic
 	 * 
-	 * @param a
-	 * @param b
-	 * @param delta
-	 * @return
+	 * @param a     input
+	 * @param b     input
+	 * @param delta delta of a b and c
+	 * @return returns of quadratic equation answer
 	 */
 	public double QuadraticEquation2(int a, int b, double delta) {
 		double absDelta = Math.abs(delta);
@@ -581,9 +575,9 @@ public class FunctionalUtility {
 	 * 
 	 * Identifier: P16WindChill
 	 * 
-	 * @param temperature
-	 * @param windspeed
-	 * @return
+	 * @param temperature temperature in celcius
+	 * @param windspeed   speed in velocity
+	 * @return return the calculated windchill
 	 */
 	public double CalculateWindChill(double temperature, double windspeed) {
 		double a, windChill, b, c;
@@ -594,28 +588,6 @@ public class FunctionalUtility {
 		// windchill cannot be negative
 		windChill = Math.abs(windChill);
 		return windChill;
-	}
-
-	public char[][] initializeBoard() {
-		char[][] board = new char[3][3];
-		for (int i = 0; i < board.length; i++) {
-			for (int j = 0; j < board[i].length; j++) {
-				board[i][j] = '-';
-			}
-		}
-		return board;
-		// TODO Auto-generated method stub
-
-	}
-
-	public void printBoard(char[][] board) {
-		for (int i = 0; i < board.length; i++) {
-			for (int j = 0; j < board[i].length; j++) {
-				System.out.print(board[i][j] + " ");
-			}
-			System.out.println();
-		}
-		System.out.println();
 	}
 
 }

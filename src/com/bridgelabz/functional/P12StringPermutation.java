@@ -5,7 +5,7 @@
  *
  *  @author  Rishikesh Mhatre
  *  @version 1.0
- *  @since   10-09-2019
+ *  @since   11-09-2019
  *
  ******************************************************************************/
 
@@ -15,24 +15,22 @@ import java.util.Scanner;
 
 import com.bridgelabz.utility.FunctionalUtility;
 
-
-
 public class P12StringPermutation {
 
 	public static void main(String[] args) {
 		String str;
-		Scanner scanner=new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter String");
-		str=scanner.next();
-		
+		str = scanner.next();
+
 		System.out.println("Printing Iterative Permutation");
 		FunctionalUtility.permutationIterative(str);
-		
+
 		System.out.println("\nPrinting Recursive Permutation");
-		FunctionalUtility.permutationRecursion(str, "");
-		
+		FunctionalUtility.permutationRecursion(str, 0, str.length() - 1);
+
 		FunctionalUtility.compareTwoPermutation();
-		
+
 		scanner.close();
 
 	}

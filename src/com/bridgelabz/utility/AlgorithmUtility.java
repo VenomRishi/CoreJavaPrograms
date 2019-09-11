@@ -27,6 +27,8 @@ public class AlgorithmUtility {
 	/**
 	 * Purpose: method for finding two string are anagram or not
 	 * 
+	 * Identifier: P1AnagramDetection
+	 * 
 	 * @param str1 input from user
 	 * @param str2 input from user
 	 * @return true or false depending upon anagram or not
@@ -49,6 +51,8 @@ public class AlgorithmUtility {
 	/**
 	 * Purpose: method for finding prime number or not
 	 * 
+	 * Identifier: P2PrimeNumber
+	 * 
 	 * @param num input from user
 	 * @return returns true if prime else not prime
 	 */
@@ -67,6 +71,8 @@ public class AlgorithmUtility {
 
 	/**
 	 * Purpose: method is check for palindrome number
+	 * 
+	 * Identifier: P3PrimeAnagram
 	 * 
 	 * @param num input taken
 	 * @return return true is num is palindrome else false
@@ -87,7 +93,9 @@ public class AlgorithmUtility {
 	}
 
 	/**
-	 * Purpose: method for int binary search
+	 * Purpose: method for integer binary search
+	 * 
+	 * Identifier: P4CallUtility, P6BinarySearchIO
 	 * 
 	 * @param arr input from user
 	 * @param key input from user
@@ -113,6 +121,8 @@ public class AlgorithmUtility {
 	/**
 	 * Purpose: method for String binary search
 	 * 
+	 * Identifier: P4CallUtility
+	 * 
 	 * @param arr input from user
 	 * @param key input from user
 	 * @return returns index of key searched else returns -1
@@ -136,6 +146,8 @@ public class AlgorithmUtility {
 
 	/**
 	 * Purpose: method for insertion sort
+	 * 
+	 * Identifier: P4CallUtility, P7InsertionSort
 	 * 
 	 * @param arr array from user
 	 * @return returns sorted array
@@ -168,6 +180,8 @@ public class AlgorithmUtility {
 	/**
 	 * Purpose: method for insertion sort of String
 	 * 
+	 * Identifier: P4CallUtility
+	 * 
 	 * @param arr array from user
 	 * @return returns sorted array
 	 */
@@ -189,10 +203,12 @@ public class AlgorithmUtility {
 	/**
 	 * Purpose: method for bubble sort
 	 * 
+	 * Identifier: P4CallUtility, P8BubbleSort
+	 * 
 	 * @param arr array from user
 	 * @return returns sorted array
 	 */
-	public static int[] intBubbleSort(int[] arr) {
+	public static void intBubbleSort(int[] arr) {
 		for (int i = 0; i < arr.length - 1; i++) {
 			for (int j = 0; j < arr.length - i - 1; j++) {
 				if (arr[j] > arr[j + 1]) {
@@ -202,11 +218,13 @@ public class AlgorithmUtility {
 				}
 			}
 		}
-		return arr;
+
 	}
 
 	/**
-	 * Purpose: String bubble sort
+	 * Purpose: method for string bubble sort
+	 * 
+	 * Identifier: P4CallUtility
 	 * 
 	 * @param arr array from user
 	 * @return returns the sorted array
@@ -226,6 +244,8 @@ public class AlgorithmUtility {
 
 	/**
 	 * Purpose: to finding magic number
+	 * 
+	 * Identifier: P5MagicNumber
 	 * 
 	 * @param range command line args taken
 	 */
@@ -288,6 +308,8 @@ public class AlgorithmUtility {
 	/**
 	 * Purpose: method for calculating elapsedTime
 	 * 
+	 * Identifier: P4CallUtility
+	 * 
 	 * @return system current time in millis
 	 */
 	public long elapsedTime() {
@@ -309,19 +331,25 @@ public class AlgorithmUtility {
 			str = bufferedReader.readLine();
 			bufferedReader.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return str;
 	}
 
+	/**
+	 * Purpose: method for calculating notes
+	 * 
+	 * @param money
+	 * @param notes
+	 */
 	public static void vendingMachine(int money, int[] notes) {
 		// 1000, 500, 100, 50, 10, 5, 2, 1
+		// 6221
 		int i = 0, rem;
 		while (money > 0) {
 			if (money >= notes[i]) {
-				int calcNotes = money / notes[i];
-				rem = money % notes[i];
+				int calcNotes = money / notes[i];// 2
+				rem = money % notes[i];// 21
 				money = rem;
 				System.out.println(notes[i] + " Notes ---> " + calcNotes);
 			}
@@ -462,7 +490,7 @@ public class AlgorithmUtility {
 				newArr[j++] = arr[q++];
 		}
 		for (int k = 0; k < j; k++) {
-			arr[start++]=newArr[k];
+			arr[start++] = newArr[k];
 		}
 
 	}
