@@ -521,9 +521,9 @@ public class FunctionalUtility {
 		Collections.sort(listPermutationRecursion);
 		// System.out.println(listPermutationRecursion);
 		if (listPermutationIterative.equals(listPermutationRecursion))
-			System.out.println("Two permutation is equal");
+			System.out.println("\nTwo permutation is equal");
 		else
-			System.out.println("Two permutation is not equal");
+			System.out.println("\nTwo permutation is not equal");
 	}
 
 	/**

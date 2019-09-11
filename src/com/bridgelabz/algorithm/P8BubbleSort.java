@@ -19,7 +19,7 @@ public class P8BubbleSort {
 		int[] intArr = { 1, 5, 2, 6, 7, 9, 3 };
 		System.out.println("Before sorting");
 		AlgorithmUtility.printIntArr(intArr);
-		AlgorithmUtility.intInsertionSort(intArr);
+		AlgorithmUtility.intBubbleSort(intArr);
 		System.out.println("After sorting");
 		AlgorithmUtility.printIntArr(intArr);
 	}

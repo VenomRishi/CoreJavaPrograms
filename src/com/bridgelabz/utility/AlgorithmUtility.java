@@ -316,7 +316,7 @@ public class AlgorithmUtility {
 	}
 
 	public static void vendingMachine(int money, int[] notes) {
-		//1000, 500, 100, 50, 10, 5, 2, 1
+		// 1000, 500, 100, 50, 10, 5, 2, 1
 		int i = 0, rem;
 		while (money > 0) {
 			if (money >= notes[i]) {
@@ -433,6 +433,37 @@ public class AlgorithmUtility {
 
 	public int SwapNibbles(int decToBinary) {
 		return (((decToBinary & 0x0F) << 4) | ((decToBinary & 0xF0) >> 4));
+
+	}
+
+	public void mergeSort(String[] arr, int start, int end) {
+		if (start < end) {
+			int mid = (start + end) / 2;
+			mergeSort(arr, start, mid);
+			mergeSort(arr, mid + 1, end);
+
+			merge(arr, start, mid, end);
+		}
+
+	}
+
+	private void merge(String[] arr, int start, int mid, int end) {
+		int p = start, q = mid + 1;
+		String[] newArr = new String[end - start + 1];
+		int j = 0;
+		for (int i = start; i <= end; i++) {
+			if (p > mid)
+				newArr[j++] = arr[q++];
+			else if (q > end)
+				newArr[j++] = arr[p++];
+			else if (arr[p].compareTo(arr[q]) < 0)
+				newArr[j++] = arr[p++];
+			else
+				newArr[j++] = arr[q++];
+		}
+		for (int k = 0; k < j; k++) {
+			arr[start++]=newArr[k];
+		}
 
 	}
 

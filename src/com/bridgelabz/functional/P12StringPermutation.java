@@ -28,7 +28,7 @@ public class P12StringPermutation {
 		System.out.println("Printing Iterative Permutation");
 		FunctionalUtility.permutationIterative(str);
 		
-		System.out.println("Printing Recursive Permutation");
+		System.out.println("\nPrinting Recursive Permutation");
 		FunctionalUtility.permutationRecursion(str, "");
 		
 		FunctionalUtility.compareTwoPermutation();
