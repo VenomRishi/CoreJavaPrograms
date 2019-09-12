@@ -1,3 +1,13 @@
+/******************************************************************************
+ *  Purpose: Program is for calculate days of a week.
+ *  		 
+ *
+ *  @author  Rishikesh Mhatre
+ *  @version 1.0
+ *  @since   10-09-2019
+ *
+ ******************************************************************************/
+
 package com.bridgelabz.algorithm;
 
 import java.util.Scanner;

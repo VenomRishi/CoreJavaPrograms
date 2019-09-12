@@ -1,7 +1,6 @@
 package com.bridgelabz.cohortPrograms;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Problem3 {
 	public static void main(String[] args) {
@@ -20,7 +19,7 @@ public class Problem3 {
 		 * -5,1,-1,3,5,100
 		 */
 //		System.out.println("Enter elements count");
-		//Scanner scanner = new Scanner(System.in);
+		// Scanner scanner = new Scanner(System.in);
 		// int n = scanner.nextInt();
 		// int[] arr = new int[n];
 		int[] arr = { 1, 3, 5, -1, -5, 100, 80, -8, -10, 1000, 2000 };
@@ -58,6 +57,6 @@ public class Problem3 {
 			}
 
 		}
-		//scanner.close();
+		// scanner.close();
 	}
 }

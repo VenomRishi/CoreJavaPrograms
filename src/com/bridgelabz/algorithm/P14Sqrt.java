@@ -1,3 +1,13 @@
+/******************************************************************************
+ *  Purpose: Program is for finding square root using newton's law.
+ *  		 
+ *
+ *  @author  Rishikesh Mhatre
+ *  @version 1.0
+ *  @since   11-09-2019
+ *
+ ******************************************************************************/
+
 package com.bridgelabz.algorithm;
 
 import java.util.Scanner;
