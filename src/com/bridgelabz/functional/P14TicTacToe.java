@@ -3,8 +3,6 @@ package com.bridgelabz.functional;
 import java.util.Random;
 import java.util.Scanner;
 
-import com.bridgelabz.utility.FunctionalUtility;
-
 public class P14TicTacToe {
 	public static char board[][] = new char[3][3];
 	public static int counter = 1;
@@ -13,7 +11,7 @@ public class P14TicTacToe {
 	public static char win;
 
 	public static void main(String[] args) throws InterruptedException {
-		// TODO Auto-generated method stub
+
 		Scanner scanner = new Scanner(System.in);
 
 		// start we assign board as - everywhere in array
@@ -29,7 +27,7 @@ public class P14TicTacToe {
 		// to decide who will play first
 		System.out.println("Tossing");
 		String first;
-		Thread.sleep(4000);
+
 		if (Math.random() > 0.5)
 			first = "c";
 		else
@@ -40,7 +38,6 @@ public class P14TicTacToe {
 			move();
 			// end false
 			while (!end) {
-				Thread.sleep(4000);
 
 				printBoard();
 
@@ -70,7 +67,9 @@ public class P14TicTacToe {
 					board[2][2] = 'O';
 				} else {
 					System.out.println("Invalid move");
+
 				}
+
 				System.out.println();
 				// getting computers input
 				move();
@@ -158,10 +157,13 @@ public class P14TicTacToe {
 			}
 
 			if (win == 'X') {
+				printBoard();
 				System.out.println("Computer Won");
 			} else if (win == 'o') {
+				printBoard();
 				System.out.println("Human Won");
 			} else if (win == 'd') {
+				printBoard();
 				System.out.println("Game is a Draw");
 			}
 		} else {
@@ -226,11 +228,13 @@ public class P14TicTacToe {
 
 		// third move
 		if (counter == 3) {
-			int second[] = thirdMove();
+			// checks users move in corresponding line then stop user
+			int second[] = stopUserFromWinningMove();
+			// this condition will tell user not draw O in correspondance row or column
 			if (second[0] != 5) {
 				board[second[0]][second[1]] = 'X';
 			} else {
-				int secondMy[] = thirdMyMove();
+				int secondMy[] = userNotWinningMyMove();
 				if (secondMy[0] != 5) {
 					board[secondMy[0]][secondMy[1]] = 'X';
 				} else {
@@ -244,12 +248,12 @@ public class P14TicTacToe {
 		// fourth move
 		if (counter == 4) {
 			if (!end) {
-				int second[] = thirdMove();
+				int second[] = stopUserFromWinningMove();
 				if (second[0] != 5) {
 					// System.out.println("CHECK");
 					board[second[0]][second[1]] = 'X';
 				} else {
-					int secondMy[] = thirdMyMove();
+					int secondMy[] = userNotWinningMyMove();
 					if (secondMy[0] != 5) {
 						board[secondMy[0]][secondMy[1]] = 'X';
 					} else {
@@ -263,12 +267,12 @@ public class P14TicTacToe {
 		// fifth move
 		if (counter == 5) {
 			if (!end) {
-				int second[] = thirdMove();
+				int second[] = stopUserFromWinningMove();
 				if (second[0] != 5) {
 					// System.out.println("CHECK");
 					board[second[0]][second[1]] = 'X';
 				} else {
-					int secondMy[] = thirdMyMove();
+					int secondMy[] = userNotWinningMyMove();
 					if (secondMy[0] != 5) {
 						board[secondMy[0]][secondMy[1]] = 'X';
 					} else {
@@ -282,7 +286,7 @@ public class P14TicTacToe {
 		counter++;
 	}
 
-	public static int[] thirdMove() {
+	public static int[] stopUserFromWinningMove() {
 
 		int[] ret = new int[2];
 		ret[0] = 5;
@@ -363,7 +367,7 @@ public class P14TicTacToe {
 		return ret;
 	}
 
-	public static int[] thirdMyMove() {
+	public static int[] userNotWinningMyMove() {
 		int[] ret = new int[2];
 		ret[0] = 5;
 		if (board[0][0] == 'X' && board[0][1] == 'X' && board[0][2] == '-') {
@@ -495,15 +499,24 @@ public class P14TicTacToe {
 					firstMove = "22";
 					// System.out.println("CHECK");
 				}
+			} else if (board[0][0] == 'O') {
+				board[0][1] = 'X';
+				firstMove = "01";
+			} else if (board[0][2] == 'O') {
+				board[0][1] = 'X';
+				firstMove = "01";
+			} else if (board[2][0] == 'O') {
+				board[2][1] = 'X';
+				firstMove = "21";
 			} else {
-				board[1][1] = 'X';
-				firstMove = "11";
+				board[2][1] = 'X';
+				firstMove = "21";
 			}
 
 		}
 
 		if (counter == 2) {
-			int second[] = thirdMove();
+			int second[] = stopUserFromWinningMove();
 			// if there is no defensice move
 			if (second[0] == 5) {
 				if (board[1][1] != 'X') {
@@ -546,12 +559,12 @@ public class P14TicTacToe {
 
 		if (counter == 3) {
 			if (!end) {
-				int second[] = thirdMove();
+				int second[] = stopUserFromWinningMove();
 				if (second[0] != 5) {
 					// System.out.println("CHECK");
 					board[second[0]][second[1]] = 'X';
 				} else {
-					int secondMy[] = thirdMyMove();
+					int secondMy[] = userNotWinningMyMove();
 					if (secondMy[0] != 5) {
 						board[secondMy[0]][secondMy[1]] = 'X';
 					} else {
@@ -570,12 +583,12 @@ public class P14TicTacToe {
 		if (counter == 4) {
 
 			if (!end) {
-				int second[] = thirdMove();
+				int second[] = stopUserFromWinningMove();
 				if (second[0] != 5) {
 					// System.out.println("CHECK");
 					board[second[0]][second[1]] = 'X';
 				} else {
-					int secondMy[] = thirdMyMove();
+					int secondMy[] = userNotWinningMyMove();
 					if (secondMy[0] != 5) {
 						board[secondMy[0]][secondMy[1]] = 'X';
 					} else {
@@ -596,12 +609,12 @@ public class P14TicTacToe {
 			won();
 
 			if (!end) {
-				int second[] = thirdMove();
+				int second[] = stopUserFromWinningMove();
 				if (second[0] != 5) {
 					// System.out.println("CHECK");
 					board[second[0]][second[1]] = 'X';
 				} else {
-					int secondMy[] = thirdMyMove();
+					int secondMy[] = userNotWinningMyMove();
 					if (secondMy[0] != 5) {
 						board[secondMy[0]][secondMy[1]] = 'X';
 					} else {
