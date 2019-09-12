@@ -20,38 +20,44 @@ public class Problem3 {
 		 * -5,1,-1,3,5,100
 		 */
 //		System.out.println("Enter elements count");
-		Scanner scanner = new Scanner(System.in);
-		//int n = scanner.nextInt();
-		//int[] arr = new int[n];
-		int[] arr= {1,3,5,-1,-5,100};
+		//Scanner scanner = new Scanner(System.in);
+		// int n = scanner.nextInt();
+		// int[] arr = new int[n];
+		int[] arr = { 1, 3, 5, -1, -5, 100, 80, -8, -10, 1000, 2000 };
 //		for (int i = 0; i < arr.length; i++) {
 //			System.out.println("Enter element " + i);
 //			arr[i] = scanner.nextInt();
 //		}
 		Arrays.sort(arr);
 		System.out.println(Arrays.toString(arr));
-		int temp1,temp2,count1 = 0,count2=0;
-		int counter=0;
+		int negativeindex = 0, positiveindex = 0, saveNeg = 0, savePos = 0;
+		boolean isFirst = true;
+		// -8, -5, -1, 1, 3, 5, 80, 100
 		for (int i = 0; i < arr.length; i++) {
-			if(arr[i]<0) {
-				temp1=arr[i];
-				count1++;
-				for (int j = i+1; j < arr.length; j++) {
-					if(arr[j]>0&&count1==0) {
-						temp2=arr[j];
-						System.out.print(temp1 + " "+temp2);
-						count1=j+1;
+			if (arr[i] < 0 && isFirst) {
+				negativeindex = i;
+				saveNeg = negativeindex;
+				for (int j = 0; j < arr.length; j++) {
+					if (arr[j] > 0) {
+						positiveindex = j;
+						savePos = positiveindex;
 						break;
-					}else if(arr[j]>0) {
-						temp2=arr[count1];
-						System.out.print(temp1 + " "+temp2);
 					}
 				}
-			}else {
-				System.out.println(arr[counter]);
+
+				System.out.print(arr[negativeindex] + " " + arr[positiveindex] + " ");
+				isFirst = false;
+
 			}
-			counter++;
+			if (!isFirst && arr[negativeindex] < -1) {
+				System.out.print(arr[++saveNeg] + " " + arr[++savePos] + " ");
+				negativeindex++;
+			} else {
+				if (savePos != arr.length - 1)
+					System.out.print(arr[++savePos] + " ");
+			}
+
 		}
-		scanner.close();
+		//scanner.close();
 	}
 }
