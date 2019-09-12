@@ -1,15 +1,22 @@
 /**
- * Purpose: Linked list class implemented to how the linked list functionality
- * 
- * @author Rishikesh Mhatre
+ * Purpose: Linked list class implemented for linked list functionality
  *
  * @param <T> generic type class
+ * 
+ *  @author  Rishikesh Mhatre
+ *  @version 1.0
+ *  @since   12-09-2019
  */
 package com.bridgelabz.Handler;
 
 public class LinkedList<T> {
 	Node<T> head;
 
+	/**
+	 * Purpose: method for insert node
+	 * 
+	 * @param data input from user
+	 */
 	public void insert(T data) {
 		Node<T> nodenew = new Node<T>();
 		nodenew.data = data;
@@ -24,6 +31,11 @@ public class LinkedList<T> {
 		}
 	}
 
+	/**
+	 * Purpose: method for insert node at start
+	 * 
+	 * @param data input from user
+	 */
 	public void insertAtStart(T data) {
 		Node<T> nodenew = new Node<T>();
 		nodenew.data = data;
@@ -32,7 +44,13 @@ public class LinkedList<T> {
 		head = nodenew;
 	}
 
-	public void insertAr(int index, T data) {
+	/**
+	 * Purpose: method for insert node at specific index
+	 * 
+	 * @param index input from user
+	 * @param data  input from user
+	 */
+	public void insertAt(int index, T data) {
 		Node<T> nodenew = new Node<T>();
 		nodenew.data = data;
 		if (index == 0)
@@ -47,10 +65,18 @@ public class LinkedList<T> {
 		}
 	}
 
+	/**
+	 * Purpose: method for delete node at start
+	 */
 	public void deleteAtStart() {
 		head = head.next;
 	}
 
+	/**
+	 * Purpose: method for delete node at start
+	 * 
+	 * @param index input from user
+	 */
 	public void deleteAt(int index) {
 		if (index == 0) {
 			head = head.next;
@@ -68,6 +94,9 @@ public class LinkedList<T> {
 
 	}
 
+	/**
+	 * Purpose: method for display the nodes
+	 */
 	public void show() {
 		Node<T> n = head;
 		while (n.next != null) {
@@ -77,6 +106,11 @@ public class LinkedList<T> {
 		System.out.println(n.data);
 	}
 
+	/**
+	 * Purpose: method which convert list in string and return it
+	 * 
+	 * @return returns the list in string
+	 */
 	public String returnListInString() {
 		String str = "";
 		Node<T> n = head;
@@ -88,6 +122,13 @@ public class LinkedList<T> {
 		return str;
 	}
 
+	/**
+	 * Purpose: method for search node from list
+	 * 
+	 * @param key  input from user
+	 * @param size input from user
+	 * @return updated size if delete then size-- else size++
+	 */
 	public int searchNode(T key, int size) {
 		boolean isFound = false;
 		int counter = -1;
@@ -117,6 +158,11 @@ public class LinkedList<T> {
 		return size;
 	}
 
+	/**
+	 * Purpose: method for sort the integer list
+	 * 
+	 * @param size size of an array
+	 */
 	public void sort(int size) {
 		Node<T> n = head;
 		Node<T> n1 = n.next;
