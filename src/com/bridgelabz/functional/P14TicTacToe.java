@@ -500,17 +500,17 @@ public class P14TicTacToe {
 					// System.out.println("CHECK");
 				}
 			} else if (board[0][0] == 'O') {
-				board[0][1] = 'X';
-				firstMove = "01";
+				board[1][1] = 'X';
+				firstMove = "11";
 			} else if (board[0][2] == 'O') {
-				board[0][1] = 'X';
-				firstMove = "01";
+				board[1][1] = 'X';
+				firstMove = "11";
 			} else if (board[2][0] == 'O') {
-				board[2][1] = 'X';
-				firstMove = "21";
+				board[1][1] = 'X';
+				firstMove = "11";
 			} else {
-				board[2][1] = 'X';
-				firstMove = "21";
+				board[1][1] = 'X';
+				firstMove = "11";
 			}
 
 		}
