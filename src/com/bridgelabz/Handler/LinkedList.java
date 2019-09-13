@@ -17,7 +17,7 @@ public class LinkedList<T> {
 	 * 
 	 * @param data input from user
 	 */
-	public void insert(T data) {
+	public void add(T data) {
 		Node<T> nodenew = new Node<T>();
 		nodenew.data = data;
 		if (head == null)
@@ -36,7 +36,7 @@ public class LinkedList<T> {
 	 * 
 	 * @param data input from user
 	 */
-	public void insertAtStart(T data) {
+	public void addAtStart(T data) {
 		Node<T> nodenew = new Node<T>();
 		nodenew.data = data;
 		nodenew.next = null;
@@ -50,7 +50,7 @@ public class LinkedList<T> {
 	 * @param index input from user
 	 * @param data  input from user
 	 */
-	public void insertAt(int index, T data) {
+	public void addAt(int index, T data) {
 		Node<T> nodenew = new Node<T>();
 		nodenew.data = data;
 		if (index == 0)
@@ -63,6 +63,21 @@ public class LinkedList<T> {
 			nodenew.next = n.next;
 			n.next = nodenew;
 		}
+	}
+	
+	public T get(int index) {
+		if (index == 0)
+			return head.data;
+		else {
+			Node<T> n = head;
+			for (int i = 0; i < index - 1; i++) {
+				n = n.next;
+			}
+			return n.data;
+			
+		}
+		
+		
 	}
 
 	/**
@@ -153,7 +168,7 @@ public class LinkedList<T> {
 		} else {
 			System.out.println("key not found and inserting...");
 			size++;
-			insert(key);
+			add(key);
 		}
 		return size;
 	}

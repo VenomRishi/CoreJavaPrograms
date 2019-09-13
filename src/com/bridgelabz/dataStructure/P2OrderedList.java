@@ -33,7 +33,7 @@ public class P2OrderedList {
 		int[] integerArr = new int[strArr.length];
 		for (int i = 0; i < strArr.length; i++) {
 			integerArr[i] = Integer.parseInt(strArr[i]);
-			list.insert(integerArr[i]);
+			list.add(integerArr[i]);
 		}
 		int size = integerArr.length;
 		list.show();

@@ -16,51 +16,37 @@ public class P5PalindromeChecker {
 	public static void main(String[] args) {
 		String str = "madam";
 		String revFront = "";
-		String revRear="";
+		String revRear = "";
 		Deque<Character> deque = new Deque<Character>(str.length());
-
+		// inserting element in deque
 		for (int i = 0; i < str.length(); i++) {
 			deque.insertRear(str.charAt(i));
 		}
 
-//		System.out.println(deque.getFront());
-//		deque.deleteFront();
-//		System.out.println(deque.getFront());
-//		deque.deleteFront();
-//		System.out.println(deque.getFront());
-//		deque.deleteFront();
-//		System.out.println(deque.getFront());
-//		deque.deleteFront();
-//		System.out.println(deque.getFront());
-//		deque.deleteFront();
-
+		// removing element from front and getting the front values
 		for (int i = 0; i < str.length(); i++) {
 			revFront += deque.getFront();
 			deque.deleteFront();
 		}
+
+		// inserting element again in deque
 		for (int i = 0; i < str.length(); i++) {
 			deque.insertRear(str.charAt(i));
 		}
+
+		// removing element from rear and getting the rear values
 		for (int i = 0; i < str.length(); i++) {
 			revRear += deque.getRear();
 			deque.deleteRear();
 		}
-		System.out.println("Front delete : "+revFront);
-		System.out.println("Rear delete : "+revRear);
-//		for (int i = 0; i < str.length(); i++) {
-//			deque.insertRear(str.charAt(i));
-//		}
-//		for (int i = 0; i < str.length(); i++) {
-//			revRear += deque.getRear();
-//			deque.deleteRear();
-//		}
-//		
-		if(revFront.equals(revRear)) {
+		System.out.println("Front delete : " + revFront);
+		System.out.println("Rear delete : " + revRear);
+
+		if (revFront.equals(revRear)) {
 			System.out.println("String is palindrome");
-		}else {
+		} else {
 			System.out.println("String is not palindrome");
 		}
-
 
 	}
 

@@ -136,7 +136,7 @@ public class Deque<T> {
 	public T getFront() {
 		// check whether Deque is empty or not
 		if (isEmpty()) {
-			System.out.println(" Underflow");
+			System.out.println(" Underflow front");
 
 		}
 		return (T) deque[front];
@@ -147,7 +147,7 @@ public class Deque<T> {
 	public T getRear() {
 		// check whether Deque is empty or not
 		if (isEmpty() || rear < 0) {
-			System.out.println(" Underflow\n");
+			System.out.println(" Underflow rear");
 		}
 		return (T) deque[rear];
 	}
