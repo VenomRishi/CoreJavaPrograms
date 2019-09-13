@@ -163,15 +163,17 @@ public class LinkedList<T> {
 	 * 
 	 * @param size size of an array
 	 */
-	public void sort(int size) {
-		Node<T> n = head;
+	@SuppressWarnings("hiding")
+	public <T extends Comparable<T>> void sort(int size) {
+		@SuppressWarnings("unchecked")
+		Node<T> n = (Node<T>) head;
 		Node<T> n1 = n.next;
 		T temp;
 
 		for (int i = 0; i < size - 1; i++) {
 			for (int j = 0; j <= size - 1 - i - 1; j++) {
 
-				if ((int) n.data > (int) n1.data) {
+				if (n.data.compareTo(n1.data) > 0) {
 					temp = n.data;
 					n.data = n1.data;
 					n1.data = temp;

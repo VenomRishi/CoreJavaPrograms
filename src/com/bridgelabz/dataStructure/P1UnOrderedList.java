@@ -29,6 +29,7 @@ public class P1UnOrderedList {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		int size=strArray.length;
 		for (int i = 0; i < strArray.length; i++) {
 			list.insert(strArray[i]);
 		}
@@ -36,8 +37,9 @@ public class P1UnOrderedList {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter key to search");
 		String key = scanner.next();
-		list.searchNode(key,0);
+		size=list.searchNode(key,size);
 		list.show();
+		
 		
 		try {
 			utility.writeFile("/home/admin1/eclipse-workspace/BridgeLabzFellowshipPrograms/src/com/bridgelabz/files/namesoutput", list.returnListInString());

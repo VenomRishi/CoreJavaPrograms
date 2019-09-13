@@ -1,3 +1,13 @@
+/**
+ * Purpose: Queue class implemented for Queue functionality
+ * 
+ *  @author  Rishikesh Mhatre
+ *  @version 1.0
+ *  @since   12-09-2019
+ *
+ * @param <T> generic type class
+ */
+
 package com.bridgelabz.Handler;
 
 import java.util.Scanner;
@@ -7,7 +17,7 @@ public class Queue<T> {
 	int front;
 	int rear;
 	int size;
-	int bankBalance = 500000;
+	public int bankBalance = 500000;
 	Scanner scanner = new Scanner(System.in);
 	int counter=1;
 
