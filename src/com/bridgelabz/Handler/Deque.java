@@ -35,6 +35,11 @@ public class Deque<T> {
 	int rear;
 	int size;
 
+	/**
+	 * Purpose: constructor of class
+	 * 
+	 * @param size size of deque is specified
+	 */
 	public Deque(int size) {
 		deque = new Object[size];
 		front = -1;
@@ -42,8 +47,13 @@ public class Deque<T> {
 		this.size = size;
 	}
 
+	/**
+	 * Purpose: inserting data from front of deque
+	 * 
+	 * @param data input from user
+	 */
 	public void insertFront(T data) {
-		// check whether Deque if full or not
+
 		if (isFull()) {
 			System.out.println("Overflow");
 			return;
@@ -63,6 +73,11 @@ public class Deque<T> {
 
 	}
 
+	/**
+	 * Purpose: inserting data from rear end of deque
+	 * 
+	 * @param data input from user
+	 */
 	public void insertRear(T data) {
 		if (isFull()) {
 			System.out.println(" Overflow ");
@@ -81,8 +96,11 @@ public class Deque<T> {
 		// insert current element into Deque
 	}
 
+	/**
+	 * Purpose: delete front data of deque
+	 */
 	public void deleteFront() {
-		// check whether Deque is empty or not
+
 		if (isEmpty()) {
 			System.out.println("Queue Underflow\n");
 			return;
@@ -101,6 +119,9 @@ public class Deque<T> {
 
 	}
 
+	/**
+	 * Purpose: delete rear data of deque
+	 */
 	public void deleteRear() {
 		if (isEmpty()) {
 			System.out.println(" Underflow");
@@ -117,12 +138,22 @@ public class Deque<T> {
 
 	}
 
-	// checked
+
+	/**
+	 * Purpose: checks deque is full or not
+	 * 
+	 * @return returns true if full of deque else returns false
+	 */
 	public boolean isFull() {
 		return ((front == 0 && rear == size - 1) || front == rear + 1);
 	}
 
-	// checked
+
+	/**
+	 * Purpose: checks deque is empty or not
+	 * 
+	 * @return returns true if empty of deque else returns false
+	 */
 	public boolean isEmpty() {
 		if (rear == 0)
 			return true;
@@ -131,10 +162,15 @@ public class Deque<T> {
 		return false;
 	}
 
-	// Returns front element of Deque
+
+	/**
+	 * Purpose: getting front value of deque
+	 * 
+	 * @return returns the front value of deque
+	 */
 	@SuppressWarnings("unchecked")
 	public T getFront() {
-		// check whether Deque is empty or not
+
 		if (isEmpty()) {
 			System.out.println(" Underflow front");
 
@@ -142,7 +178,12 @@ public class Deque<T> {
 		return (T) deque[front];
 	}
 
-	// function return rear element of Deque
+
+	/**
+	 * Purpose: getting rear value of deque
+	 * 
+	 * @return returns the rear value of deque
+	 */
 	@SuppressWarnings("unchecked")
 	public T getRear() {
 		// check whether Deque is empty or not

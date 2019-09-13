@@ -1,3 +1,15 @@
+/**
+ * Purpose: Hash Map class implemented for hash ma[ functionality
+ *
+ * 
+ *  @author  Rishikesh Mhatre
+ *  @version 1.0
+ *  @since   13-09-2019
+ *  
+ *	@param <K>	key	type
+ * 	@param <V>	value type
+ */
+
 package com.bridgelabz.Handler;
 
 import java.util.ArrayList;
@@ -5,6 +17,7 @@ import java.util.ArrayList;
 import com.bridgelabz.dataStructure.P6HashSlot;
 
 //hash table class
+
 public class HashMap<K, V> {
 	// it contains the chain
 	public ArrayList<HashNode<K, V>> arrList;
@@ -13,6 +26,9 @@ public class HashMap<K, V> {
 	// size of array list
 	public int size;
 
+	/**
+	 * Purpose: constructor of class
+	 */
 	public HashMap() {
 		arrList = new ArrayList<>();
 		arrCapacity = 10;
@@ -23,20 +39,42 @@ public class HashMap<K, V> {
 		}
 	}
 
+	/**
+	 * Purpose: getting size of array list
+	 * 
+	 * @return returns the elements size of array list
+	 */
 	public int size() {
 		return size;
 	}
 
+	/**
+	 * Purpose: method for checking the array list is empty or not
+	 * 
+	 * @return returns true if empty else false
+	 */
 	public boolean isEmpty() {
 		return size == 0;
 	}
 
+	/**
+	 * Purpose: Hash function is implemented for getting index hashed upon key
+	 * 
+	 * @param key key is passed to get hash index code
+	 * @return returns hash code index
+	 */
 	public int hashFunction(K key) {
 		int hashCod = (int) key;
 		return hashCod % P6HashSlot.arrSize;
 	}
 
 	// Returns value for a key
+	/**
+	 * Purpose: method for returning key value
+	 * 
+	 * @param key input from user
+	 * @return returns the key value
+	 */
 	public V get(K key) {
 		// Find head of chain for given key
 		int hashIndex = hashFunction(key);
@@ -54,6 +92,12 @@ public class HashMap<K, V> {
 	}
 
 	// function for adding key and value
+	/**
+	 * Purpose: method for adding new key and value into array list
+	 * 
+	 * @param key   key is input from user
+	 * @param value value is input from user
+	 */
 	public void add(K key, V value) {
 		int hashIndex = hashFunction(key);
 		// Get head of chain
@@ -92,6 +136,12 @@ public class HashMap<K, V> {
 	}
 
 	// method for removing node from chain
+	/**
+	 * Purpose: method for removing the key from array list
+	 * 
+	 * @param key key is passed from user
+	 * @return returns the value of key which is deleted
+	 */
 	public V remove(K key) {
 		// Apply hash function to find index for given key
 		int hashIndex = hashFunction(key);
@@ -127,6 +177,9 @@ public class HashMap<K, V> {
 		return head.value;
 	}
 
+	/**
+	 * Purpose: this method will show all the array list which contains the data
+	 */
 	public void show() {
 		// System.out.println(chainArray.get(3));
 		for (int i = 0; i < arrList.size(); i++) {
@@ -147,6 +200,34 @@ public class HashMap<K, V> {
 		}
 
 		// Get head of chain
+
+	}
+
+	/**
+	 * Purpose: getting the array list and pass in string to main program
+	 * 
+	 * @return returns the list in string
+	 */
+	public String returnListInString() {
+		String str = "";
+		// System.out.println(chainArray.get(3));
+		for (int i = 0; i < arrList.size(); i++) {
+			try {
+				if (!(arrList.get(i) == null)) {
+					str += "\narray index : " + i;
+					HashNode<K, V> head = arrList.get(i);
+					while (head != null) {
+						str += head.value + " ";
+						head = head.next;
+					}
+
+				}
+			} catch (Exception e) {
+				System.err.println(e);
+			}
+
+		}
+		return str;
 
 	}
 

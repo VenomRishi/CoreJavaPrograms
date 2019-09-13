@@ -31,7 +31,7 @@ public class P6HashSlot {
 		}
 		String[] str = readMessage.split(",");
 		arr = new int[str.length];
-		arrSize=arr.length;
+		arrSize = arr.length;
 		for (int i = 0; i < arr.length; i++) {
 			arr[i] = Integer.parseInt(str[i]);
 		}
@@ -41,11 +41,15 @@ public class P6HashSlot {
 			hashmap.add(arr[i], arr[i]);
 		}
 		hashmap.show();
+		try {
+			utility.writeFile(
+					"/home/admin1/eclipse-workspace/BridgeLabzFellowshipPrograms/src/com/bridgelabz/files/hashlistoutput",
+					hashmap.returnListInString());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-	}
-
-	public static int hashFunction(int key) {
-		return key % arr.length;
 	}
 
 }
