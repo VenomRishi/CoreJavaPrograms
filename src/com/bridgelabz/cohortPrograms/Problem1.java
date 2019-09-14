@@ -1,3 +1,13 @@
+/******************************************************************************
+ *  Purpose: Cohort Program about finding solution to problem (problem is
+ *  		 documented into class only)
+ *
+ *  @author  Rishikesh Mhatre
+ *  @version 1.0
+ *  @since   11-09-2019
+ *
+ ******************************************************************************/
+
 package com.bridgelabz.cohortPrograms;
 
 import java.util.Scanner;

@@ -21,6 +21,11 @@ public class Queue<T> {
 	Scanner scanner = new Scanner(System.in);
 	int counter=1;
 
+	/**
+	 * Purpose: method for enqueue the element
+	 * 
+	 * @param data	element which is to add
+	 */
 	public void enQueue(T data) {
 		queue[rear] = data;
 		rear = (rear + 1) % 5;
@@ -30,6 +35,11 @@ public class Queue<T> {
 		}
 	}
 
+	/**
+	 * Purpose: method for dequeue the element
+	 * 
+	 * @return	returns the element which is deleted
+	 */
 	public T deQueue() {
 		@SuppressWarnings("unchecked")
 		T data = (T) queue[front];
@@ -44,6 +54,9 @@ public class Queue<T> {
 
 	}
 
+	/**
+	 * Purpose: method for showing the whole queue
+	 */
 	public void show() {
 		System.out.print("Element : ");
 		int length = queue.length;
@@ -65,18 +78,36 @@ public class Queue<T> {
 
 	}
 
+	/**
+	 * Purpose: method for getting size of queue
+	 * 
+	 * @return		returns the size of queue
+	 */
 	public int getSize() {
 		return size;
 	}
 
+	/**
+	 * Purpose: method for checking queue is empty
+	 * 
+	 * @return	returns true if empty else returns false
+	 */
 	public boolean isEmpty() {
 		return getSize() == 0;
 	}
 
+	/**
+	 * Purpose: method for checking queue is full
+	 * 
+	 * @return	returns true if full else returns false
+	 */
 	public boolean isFull() {
 		return getSize() == 5;
 	}
 
+	/**
+	 * Purpose: method for serving people who are in queue
+	 */
 	public void service() {
 
 		System.out.println("Token number is : " + counter);

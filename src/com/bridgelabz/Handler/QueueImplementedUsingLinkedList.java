@@ -9,30 +9,78 @@ public class QueueImplementedUsingLinkedList<T> {
 	Scanner scanner = new Scanner(System.in);
 	int counter = 1;
 
+	/**
+	 * Purpose: method for getting the size of queue
+	 * 
+	 * @return returns the size
+	 */
+	public int size() {
+		return index;
+	}
+
+	/**
+	 * Purpose: method for enqueue the element
+	 * 
+	 * @param data getting the data from user
+	 */
 	public void enQueue(T data) {
 		queue.add(data);
 		index++;
 	}
 
+	/**
+	 * Purpose: method for dequeue the element
+	 */
 	public void deQueue() {
 		index--;
 		queue.deleteAt(index);
 	}
 
+	/**
+	 * Purpose: method for printing queue
+	 */
 	public void show() {
 		queue.show();
 	}
-	public void showCalendar() {
-		queue.showCalendar();
+
+	/**
+	 * Purpose: method for printing queue without spaces
+	 */
+	public void showQueueWithoutSpace() {
+		queue.showListWithoutSpaces();
 	}
 
+	/**
+	 * Purpose: checking wether queue is empty or not
+	 * 
+	 * @return returns the true if empty else false
+	 */
 	public boolean isEmpty() {
 		return queue.isEmpty();
 	}
+
+	/**
+	 * Purpose: getting the value of last index
+	 * 
+	 * @return returns the value
+	 */
 	public T get() {
 		return queue.get(index);
 	}
 
+	/**
+	 * Purpose: getting the value of particular index
+	 * 
+	 * @param ind index value provided by user
+	 * @return returns the value
+	 */
+	public T get(int ind) {
+		return queue.get(ind);
+	}
+
+	/**
+	 * Purpose: method for serving people who are in queue
+	 */
 	public void service() {
 
 		System.out.println("Token number is : " + counter);
@@ -63,4 +111,5 @@ public class QueueImplementedUsingLinkedList<T> {
 		counter++;
 
 	}
+
 }

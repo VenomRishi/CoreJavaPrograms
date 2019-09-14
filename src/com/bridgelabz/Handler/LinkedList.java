@@ -111,13 +111,16 @@ public class LinkedList<T> {
 			}
 			n1 = n.next;
 			n.next = n1.next;
-			System.out.println("Node deleted is: " + n1.data);
+//			System.out.println("Node deleted is: " + n1.data);
 			n1 = null;
 		}
 		size--;
 
 	}
 
+	/**
+	 * Purpose: method for deleting node at last index
+	 */
 	public void deleteAtEnd() {
 		if (!isEmpty()) {
 			Node<T> n = head;
@@ -146,7 +149,11 @@ public class LinkedList<T> {
 		}
 		System.out.println(n.data);
 	}
-	public void showCalendar() {
+
+	/**
+	 * Purpose: printing the list without using spaces
+	 */
+	public void showListWithoutSpaces() {
 		Node<T> n = head;
 		while (n.next != null) {
 			System.out.print(n.data);
@@ -234,14 +241,22 @@ public class LinkedList<T> {
 		}
 	}
 
+	/**
+	 * Purpose: method for checking list is empty or not
+	 * 
+	 * @return returns true if empty else returns false
+	 */
 	public boolean isEmpty() {
 		return head == null;
 	}
 
+	/**
+	 * Purpose: method for getting the size of linked list
+	 * 
+	 * @return returns the size of linked list
+	 */
 	public int size() {
 		return size;
 	}
-
-	
 
 }

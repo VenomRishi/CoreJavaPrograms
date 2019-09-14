@@ -20,6 +20,10 @@ import java.util.Scanner;
 public class AlgorithmUtility {
 	public final long start;
 
+	/**
+	 * Purpose: constructor of class
+	 * 
+	 */
 	public AlgorithmUtility() {
 		start = System.currentTimeMillis();
 	}
@@ -420,8 +424,8 @@ public class AlgorithmUtility {
 
 	/**
 	 * Purpose: This method will calculate the EMI for the month on the basis of
-	 * loan amount for particular year and it will be depend upon the rate of
-	 * interest given for the loan.
+	 * 			loan amount for particular year and it will be depend upon the rate of
+	 * 			interest given for the loan.
 	 * 
 	 * @param principalLoanAmount input taken for principal amount of loan
 	 * @param year                input taken for how much year of loan
@@ -459,11 +463,24 @@ public class AlgorithmUtility {
 		return t;
 	}
 
+	/**
+	 * Purpose: adding extra bit into binary number and swap from middle
+	 * 
+	 * @param decToBinary decimal number input from program
+	 * @return returns swap binary numbers
+	 */
 	public int SwapNibbles(int decToBinary) {
 		return (((decToBinary & 0x0F) << 4) | ((decToBinary & 0xF0) >> 4));
 
 	}
 
+	/**
+	 * Purpose: merge sort method for dividing
+	 * 
+	 * @param arr   input from user
+	 * @param start start index of array
+	 * @param end   end index of array
+	 */
 	public void mergeSort(String[] arr, int start, int end) {
 		if (start < end) {
 			int mid = (start + end) / 2;
@@ -475,6 +492,14 @@ public class AlgorithmUtility {
 
 	}
 
+	/**
+	 * Purpose: method for compare the value and conquer the array
+	 * 
+	 * @param arr   input from mergeSort method
+	 * @param start input from mergeSort method
+	 * @param mid   input from mergeSort method
+	 * @param end   input from mergeSort method
+	 */
 	private void merge(String[] arr, int start, int mid, int end) {
 		int p = start, q = mid + 1;
 		String[] newArr = new String[end - start + 1];

@@ -1,8 +1,13 @@
 package com.bridgelabz.Handler;
 
+/**
+ * @author admin1
+ *
+ * @param <T>
+ */
 public class StackImplementUsingLinkedList<T> {
 	LinkedList<T> stack = new LinkedList<T>();
-	int top;
+	public static int top;
 
 	/**
 	 * Purpose: push the element into stack
@@ -38,7 +43,7 @@ public class StackImplementUsingLinkedList<T> {
 	 * 
 	 * @return returns top data
 	 */
-	@SuppressWarnings("unchecked")
+
 	public T peek() {
 		T data;
 		data = (T) stack.get(top);
@@ -56,24 +61,41 @@ public class StackImplementUsingLinkedList<T> {
 	}
 
 	/**
-	 * Purpose: check stack is full or not
+	 * Purpose: check stack is full or not (not applicable in linked list)
 	 * 
 	 * @return return true if full else true
 	 */
-//	public boolean isFull() {
-//
-//		return top == stack.length;
-//	}
+	/*
+	 * public boolean isFull() {
+	 * 
+	 * return top == stack.length; }
+	 */
 
 	/**
 	 * Purpose: show stack values
 	 */
 	public void show() {
-//		for (Object num : stack) {
-//			System.out.print(num + " ");
-//		}
-//		System.out.println();
+		/*
+		 * for (Object num : stack) { System.out.print(num + " "); }
+		 * System.out.println();
+		 */
 		stack.show();
+	}
+
+	/**
+	 * Purpose: method for showing list of stack without spaces
+	 */
+	public void showStackWithoutSpace() {
+		stack.showListWithoutSpaces();
+	}
+
+	/**
+	 * Purpose: method for returning the string of stack list
+	 * 
+	 * @return	returns the stack list without spaces
+	 */
+	public String returnStackWithoutSpaces() {
+		return stack.returnListInString();
 	}
 
 	/**
