@@ -11,12 +11,12 @@ package com.bridgelabz.dataStructure;
 
 import java.util.Scanner;
 
-import com.bridgelabz.Handler.Queue;
+import com.bridgelabz.Handler.QueueImplementedUsingLinkedList;
 
 public class P4CashCounter {
 
 	public static void main(String[] args) {
-		Queue<Integer> queue = new Queue<>();
+		QueueImplementedUsingLinkedList<Integer> queue = new QueueImplementedUsingLinkedList<Integer>();
 		System.out.println("Enter people size");
 		Scanner scanner = new Scanner(System.in);
 		int people = scanner.nextInt();

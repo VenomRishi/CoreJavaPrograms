@@ -17,6 +17,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import com.bridgelabz.Handler.QueueImplementedUsingLinkedList;
+
 public class DataStructureUtility {
 
 	/**
@@ -45,7 +47,7 @@ public class DataStructureUtility {
 		BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path));
 		bufferedWriter.write(str);
 		bufferedWriter.close();
-		System.out.println("File is Written...");
+		System.out.println("\nFile is Written...");
 	}
 
 	/**
@@ -85,7 +87,7 @@ public class DataStructureUtility {
 	 * @param days days of the month
 	 */
 	public static void printCalendar(int day, int days) {
-		System.out.println("SUN MON TUE WED THU FRI SAT");
+		
 		String[][] cal = new String[6][7];
 		int temp;
 		switch (day) {
@@ -276,6 +278,124 @@ public class DataStructureUtility {
 			System.out.println();
 		}
 
+	}
+
+	public static void printCalendarUsingQueue(int day, int days) {
+		QueueImplementedUsingLinkedList<String> weekDayQueue = new QueueImplementedUsingLinkedList<String>();
+		QueueImplementedUsingLinkedList<String> weekDateQueue = new QueueImplementedUsingLinkedList<String>();
+		String weekdaystr = "SUN MON TUE WED THU FRI SAT";
+		String[] weekdaystrarr = weekdaystr.split(" ");
+		for (int i = 0; i < weekdaystrarr.length; i++) {
+			weekDayQueue.enQueue(weekdaystrarr[i]);
+		}
+		weekDayQueue.show();
+		switch (day) {
+		case 0:
+			
+			for (int i = 1; i <= days; i++) {
+				if (i <= 9) {
+					weekDateQueue.enQueue(i + "   ");
+				} else {
+					weekDateQueue.enQueue(i + "  ");
+				}
+				if (i % 7 == 0) {
+					weekDateQueue.enQueue("\n");
+				}
+			}
+			break;
+		case 1:
+			
+			System.out.print("    ");
+			for (int i = 1; i <= days; i++) {
+
+				if (i <= 9) {
+					weekDateQueue.enQueue(i + "   ");
+				} else {
+					weekDateQueue.enQueue(i + "  ");
+				}
+				if (i == 6 || i == 13 || i == 20 || i == 27) {
+					weekDateQueue.enQueue("\n");
+				}
+			}
+			break;
+		case 2:
+			
+			System.out.print("        ");
+			for (int i = 1; i <= days; i++) {
+
+				if (i <= 9) {
+					weekDateQueue.enQueue(i + "   ");
+				} else {
+					weekDateQueue.enQueue(i + "  ");
+				}
+				if (i == 5 || i == 12 || i == 19 || i == 26) {
+					weekDateQueue.enQueue("\n");
+				}
+			}
+			break;
+		case 3:
+			
+			System.out.print("            ");
+			for (int i = 1; i <= days; i++) {
+
+				if (i <= 9) {
+					weekDateQueue.enQueue(i + "   ");
+				} else {
+					weekDateQueue.enQueue(i + "  ");
+				}
+				if (i == 4 || i == 11 || i == 18 || i == 25) {
+					weekDateQueue.enQueue("\n");
+				}
+			}
+			break;
+		case 4:
+			
+			System.out.print("                ");
+			for (int i = 1; i <= days; i++) {
+
+				if (i <= 9) {
+					weekDateQueue.enQueue(i + "   ");
+				} else {
+					weekDateQueue.enQueue(i + "  ");
+				}
+				if (i == 3 || i == 10 || i == 17 || i == 24) {
+					weekDateQueue.enQueue("\n");
+				}
+			}
+			break;
+		case 5:
+			
+			System.out.print("                    ");
+			for (int i = 1; i <= days; i++) {
+
+				if (i <= 9) {
+					weekDateQueue.enQueue(i + "   ");
+				} else {
+					weekDateQueue.enQueue(i + "  ");
+				}
+				if (i == 2 || i == 9 || i == 16 || i == 23 || i == 30) {
+					weekDateQueue.enQueue("\n");
+				}
+			}
+			break;
+		case 6:
+			
+			System.out.print("                        ");
+			for (int i = 1; i <= days; i++) {
+
+				if (i <= 9) {
+					weekDateQueue.enQueue(i + "   ");
+				} else {
+					weekDateQueue.enQueue(i + "  ");
+				}
+				if (i == 1 || i == 8 || i == 15 || i == 22 || i == 29) {
+					weekDateQueue.enQueue("\n");
+				}
+			}
+			break;
+		}
+		
+		weekDateQueue.showCalendar();
 	}
 
 }

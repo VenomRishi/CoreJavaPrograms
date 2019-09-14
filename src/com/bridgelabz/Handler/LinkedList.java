@@ -11,6 +11,8 @@ package com.bridgelabz.Handler;
 
 public class LinkedList<T> {
 	Node<T> head;
+	public Object deleteAt;
+	int size = 0;
 
 	/**
 	 * Purpose: method for insert node
@@ -20,14 +22,18 @@ public class LinkedList<T> {
 	public void add(T data) {
 		Node<T> nodenew = new Node<T>();
 		nodenew.data = data;
-		if (head == null)
+		if (head == null) {
 			head = nodenew;
+			size++;
+		}
+
 		else {
 			Node<T> n = head;
 			while (n.next != null) {
 				n = n.next;
 			}
 			n.next = nodenew;
+			size++;
 		}
 	}
 
@@ -42,6 +48,7 @@ public class LinkedList<T> {
 		nodenew.next = null;
 		nodenew.next = head;
 		head = nodenew;
+		size++;
 	}
 
 	/**
@@ -63,8 +70,9 @@ public class LinkedList<T> {
 			nodenew.next = n.next;
 			n.next = nodenew;
 		}
+		size++;
 	}
-	
+
 	public T get(int index) {
 		if (index == 0)
 			return head.data;
@@ -74,10 +82,9 @@ public class LinkedList<T> {
 				n = n.next;
 			}
 			return n.data;
-			
+
 		}
-		
-		
+
 	}
 
 	/**
@@ -85,6 +92,7 @@ public class LinkedList<T> {
 	 */
 	public void deleteAtStart() {
 		head = head.next;
+		size--;
 	}
 
 	/**
@@ -106,7 +114,25 @@ public class LinkedList<T> {
 			System.out.println("Node deleted is: " + n1.data);
 			n1 = null;
 		}
+		size--;
 
+	}
+
+	public void deleteAtEnd() {
+		if (!isEmpty()) {
+			Node<T> n = head;
+			Node<T> n1 = null;
+			while (n.next != null) {
+				n = n.next;
+			}
+			n1 = n.next;
+			n.next = n1.next;
+			System.out.println("Node deleted is: " + n1.data);
+			n1 = null;
+		} else {
+			System.out.println("Linked list is empty nothing to delete");
+		}
+		size--;
 	}
 
 	/**
@@ -116,6 +142,14 @@ public class LinkedList<T> {
 		Node<T> n = head;
 		while (n.next != null) {
 			System.out.print(n.data + " ");
+			n = n.next;
+		}
+		System.out.println(n.data);
+	}
+	public void showCalendar() {
+		Node<T> n = head;
+		while (n.next != null) {
+			System.out.print(n.data);
 			n = n.next;
 		}
 		System.out.println(n.data);
@@ -199,5 +233,15 @@ public class LinkedList<T> {
 			n1 = n.next;
 		}
 	}
+
+	public boolean isEmpty() {
+		return head == null;
+	}
+
+	public int size() {
+		return size;
+	}
+
+	
 
 }

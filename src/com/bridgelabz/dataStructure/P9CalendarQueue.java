@@ -1,9 +1,9 @@
 /******************************************************************************
- *  Purpose: Program is for calendar implemented using 2D array
+ *  Purpose: Program is for calendar implemented using Queue
  *
  *  @author  Rishikesh Mhatre
  *  @version 1.0
- *  @since   13-09-2019
+ *  @since   14-09-2019
  *
  ******************************************************************************/
 
@@ -13,10 +13,9 @@ import java.util.Scanner;
 
 import com.bridgelabz.utility.DataStructureUtility;
 
-public class P8Calendar {
+public class P9CalendarQueue {
 
 	public static void main(String[] args) {
-
 		Scanner scanner = new Scanner(System.in);
 		int year, month;
 		boolean isLeapYear;
@@ -33,12 +32,12 @@ public class P8Calendar {
 				if (isLeapYear && month == 2) {
 					days = 29;
 					day = DataStructureUtility.calculateDayOfWeek(1, month, year);
-					DataStructureUtility.printCalendar(day, days);
+					DataStructureUtility.printCalendarUsingQueue(day, days);
 
 				} else {
 					days = daysPerYear[month - 1];
 					day = DataStructureUtility.calculateDayOfWeek(1, month, year);
-					DataStructureUtility.printCalendar(day, days);
+					DataStructureUtility.printCalendarUsingQueue(day, days);
 				}
 			} else
 				System.out.println("please enter valid year");

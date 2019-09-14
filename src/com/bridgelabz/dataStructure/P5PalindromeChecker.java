@@ -9,7 +9,7 @@
 
 package com.bridgelabz.dataStructure;
 
-import com.bridgelabz.Handler.Deque;
+import com.bridgelabz.Handler.DequeImplementedUsingLinkedList;
 
 public class P5PalindromeChecker {
 
@@ -17,19 +17,8 @@ public class P5PalindromeChecker {
 		String str = "madam";
 		String revFront = "";
 		String revRear = "";
-		Deque<Character> deque = new Deque<Character>(str.length());
+		DequeImplementedUsingLinkedList<Character> deque = new DequeImplementedUsingLinkedList<Character>();
 		// inserting element in deque
-		for (int i = 0; i < str.length(); i++) {
-			deque.insertRear(str.charAt(i));
-		}
-
-		// removing element from front and getting the front values
-		for (int i = 0; i < str.length(); i++) {
-			revFront += deque.getFront();
-			deque.deleteFront();
-		}
-
-		// inserting element again in deque
 		for (int i = 0; i < str.length(); i++) {
 			deque.insertRear(str.charAt(i));
 		}
@@ -37,12 +26,21 @@ public class P5PalindromeChecker {
 		// removing element from rear and getting the rear values
 		for (int i = 0; i < str.length(); i++) {
 			revRear += deque.getRear();
-			deque.deleteRear();
+			deque.removeRear();
 		}
-		System.out.println("Front delete : " + revFront);
+		// inserting element again in deque
+		for (int i = 0; i < str.length(); i++) {
+			deque.insertRear(str.charAt(i));
+		}
+		// removing element from front and getting the front values
+		for (int i = 0; i < str.length(); i++) {
+			revFront += deque.getFront();
+			deque.removeFront();
+		}
+		// System.out.println("Front delete : " + revFront);
 		System.out.println("Rear delete : " + revRear);
-
-		if (revFront.equals(revRear)) {
+		System.out.println("Front delete : " + revFront);
+		if (revRear.equals(revFront)) {
 			System.out.println("String is palindrome");
 		} else {
 			System.out.println("String is not palindrome");
