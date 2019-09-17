@@ -1,0 +1,30 @@
+{
+	"parle": [
+		{
+			"stock_name": "parle_company",
+			"number_of_shares": 120,
+			"share_price": 5
+		}
+	],
+	"marie": [
+		{
+			"stock_name": "britania_company",
+			"number_of_shares": 150,
+			"share_price": 10
+		}
+	],
+	"oreo": [
+		{
+			"stock_name": "oreo_company",
+			"number_of_shares": 110,
+			"share_price": 20
+		}
+	],
+	"tiger": [
+		{
+			"stock_name": "tiger_company",
+			"number_of_shares": 150,
+			"share_price": 10
+		}
+	]
+}

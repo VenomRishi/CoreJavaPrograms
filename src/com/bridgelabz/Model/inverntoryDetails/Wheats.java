@@ -1,6 +1,6 @@
-package com.bridgelabz.Model.InverntoryDetails;
+package com.bridgelabz.Model.inverntoryDetails;
 
-public class Pulses {
+public class Wheats {
 	private int price_per_kg;
 
 	private String name;

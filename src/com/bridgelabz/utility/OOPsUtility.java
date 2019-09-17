@@ -88,12 +88,12 @@ public class OOPsUtility {
 		Matcher matcher = pattern.matcher(password);
 		return matcher.matches();
 	}
-	
+
 	/**
 	 * Purpose: shuffles the card of deck
 	 * 
-	 * @param arr	array of cards
-	 * @return	returns shuffle array
+	 * @param arr array of cards
+	 * @return returns shuffle array
 	 */
 	public static String[] shuffleCardsDeck(String[] arr) {
 		Random random = new Random();
@@ -110,6 +110,17 @@ public class OOPsUtility {
 		}
 		return arr;
 
+	}
+
+	/**
+	 * Purpose: method for calculate total value of stock
+	 * 
+	 * @param numberOfShares input from program
+	 * @param sharePrice     input from program
+	 * @return returns the multiplication of numberOfShares sharePrice
+	 */
+	public static int calculateTotalValueOfStock(int numberOfShares, int sharePrice) {
+		return numberOfShares * sharePrice;
 	}
 
 }
