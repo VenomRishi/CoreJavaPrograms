@@ -1,3 +1,12 @@
+/******************************************************************************
+ *  Purpose: Program is written for shuffle and distribute card of deck
+ *
+ *  @author  Rishikesh Mhatre
+ *  @version 1.0
+ *  @since   16-09-2019
+ *
+ ******************************************************************************/
+
 package com.bridgelabz.OOPs;
 
 import com.bridgelabz.utility.OOPsUtility;

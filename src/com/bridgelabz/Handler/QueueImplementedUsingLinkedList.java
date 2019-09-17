@@ -46,8 +46,8 @@ public class QueueImplementedUsingLinkedList<T> {
 	/**
 	 * Purpose: method for printing queue without spaces
 	 */
-	public void showQueueWithoutSpace() {
-		queue.showListWithoutSpaces();
+	public String showQueueWithoutSpace() {
+		return queue.showListWithoutSpaces();
 	}
 
 	/**

@@ -1,3 +1,12 @@
+/******************************************************************************
+ *  Purpose: Program is written for validating user form using regex
+ *
+ *  @author  Rishikesh Mhatre
+ *  @version 1.0
+ *  @since   17-09-2019
+ *
+ ******************************************************************************/
+
 package com.bridgelabz.OOPs;
 
 import java.util.Scanner;
@@ -7,6 +16,7 @@ import com.bridgelabz.utility.OOPsUtility;
 public class P2UserFormRegex {
 
 	public static void main(String[] args) {
+		//J@vaC0deG##ks
 		OOPsUtility utility = new OOPsUtility();
 		String fname, lname, email, phone, company, userid, password;
 		Scanner scanner = new Scanner(System.in);

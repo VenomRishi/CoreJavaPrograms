@@ -153,13 +153,15 @@ public class LinkedList<T> {
 	/**
 	 * Purpose: printing the list without using spaces
 	 */
-	public void showListWithoutSpaces() {
+	public String showListWithoutSpaces() {
+		String str="";
 		Node<T> n = head;
 		while (n.next != null) {
-			System.out.print(n.data);
+			str+=n.data;
 			n = n.next;
 		}
-		System.out.println(n.data);
+		str+=n.data;
+		return str;
 	}
 
 	/**

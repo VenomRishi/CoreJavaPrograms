@@ -1,19 +1,23 @@
 {
-  "inventory_detail":{
-    "Rice":{
-        "name":"basmati",
-        "weight":1,
-        "price_per_kg":64
-    },
-    "Pulses":{
-      "name":"maharaja",
-        "weight":1,
-        "price_per_kg":60
-    },
-    "Wheats":{
-      "name":"silver_coin",
-      "weight":5,
-      "price_per_kg":110
-    }
-  }
+	"rice": [
+		{
+			"price_per_kg": 60,
+			"name": "basmati",
+			"weight": 7
+		}
+	],
+	"wheats": [
+		{
+			"price_per_kg": 45,
+			"name": "chakki_fresh",
+			"weight": 5
+		}
+	],
+	"pulses": [
+		{
+			"price_per_kg": 65,
+			"name": "greens",
+			"weight": 3
+		}
+	]
 }
