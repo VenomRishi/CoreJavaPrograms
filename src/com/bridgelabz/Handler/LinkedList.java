@@ -78,9 +78,15 @@ public class LinkedList<T> {
 			return head.data;
 		else {
 			Node<T> n = head;
-			for (int i = 0; i < index - 1; i++) {
-				n = n.next;
+			for (int i = 0; i < index; i++) {
+				if (n.next != null) {
+					n = n.next;
+				} else {
+					return null;
+				}
+
 			}
+//			n = n.next;
 			return n.data;
 
 		}
@@ -124,14 +130,13 @@ public class LinkedList<T> {
 	public void deleteAtEnd() {
 		if (!isEmpty()) {
 			Node<T> n = head;
-			Node<T> n1 = null;
+
 			while (n.next != null) {
 				n = n.next;
 			}
-			n1 = n.next;
-			n.next = n1.next;
-			System.out.println("Node deleted is: " + n1.data);
-			n1 = null;
+			System.out.println("Node deleted is: " + n.data);
+			n.next = null;
+
 		} else {
 			System.out.println("Linked list is empty nothing to delete");
 		}
@@ -154,13 +159,13 @@ public class LinkedList<T> {
 	 * Purpose: printing the list without using spaces
 	 */
 	public String showListWithoutSpaces() {
-		String str="";
+		String str = "";
 		Node<T> n = head;
 		while (n.next != null) {
-			str+=n.data;
+			str += n.data;
 			n = n.next;
 		}
-		str+=n.data;
+		str += n.data;
 		return str;
 	}
 

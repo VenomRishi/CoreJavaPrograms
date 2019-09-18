@@ -1,5 +1,5 @@
 /******************************************************************************
-oreo *  Purpose: Program is written for Parsing json of inventory details
+ *  Purpose: Program is written for Parsing json of inventory details
  *
  *  @author  Rishikesh Mhatre
  *  @version 1.0
@@ -16,7 +16,7 @@ import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 
-import com.bridgelabz.Model.inverntoryDetails.InventoryDetail;
+import com.bridgelabz.Model.InventoryDetail;
 
 
 public class P1InventoryDetails {

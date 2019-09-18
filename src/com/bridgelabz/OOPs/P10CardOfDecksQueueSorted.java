@@ -42,7 +42,8 @@ public class P10CardOfDecksQueueSorted {
 				j2++;
 
 			}
-			// System.out.println(Arrays.toString(temp));
+			System.out.println(Arrays.toString(temp));
+			System.out.println();
 			for (int i1 = 0; i1 < temp.length - 1; i1++) {
 				for (int j1 = 0; j1 < temp.length - i - 1; j1++) {
 					temp1 = temp[j1];
@@ -59,9 +60,13 @@ public class P10CardOfDecksQueueSorted {
 						temp[j1 + 1] = temp3;
 
 					}
+					
 				}
+				
+				
 			}
-			// System.out.println(Arrays.toString(temp));
+			System.out.println(Arrays.toString(temp));
+			System.out.println();
 			for (int j = 0; j < 9; j++) {
 				temp4 = temp[j].substring(0, temp[j].length() - 2);
 				// System.out.print(temp4+"-->");

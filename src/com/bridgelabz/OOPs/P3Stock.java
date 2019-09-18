@@ -15,7 +15,8 @@ import java.io.IOException;
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
-import com.bridgelabz.Model.stock.StockModel;
+
+import com.bridgelabz.Model.StockModel;
 import com.bridgelabz.utility.OOPsUtility;
 
 public class P3Stock {
@@ -27,7 +28,7 @@ public class P3Stock {
 		ObjectMapper mapper = new ObjectMapper();
 
 		StockModel data = mapper.readValue(new File(path), StockModel.class);
-
+		
 		int totalValueOfParle = OOPsUtility.calculateTotalValueOfStock(data.getParle().get(0).getNumber_of_shares(),
 				data.getParle().get(0).getShare_price());
 		System.out.println("Total value of Stock Parle -->" + totalValueOfParle);
@@ -52,6 +53,7 @@ public class P3Stock {
 		int totalValueOfAllStock = totalValueOfParle + totalValueOfMarie + totalValueOfOreo + totalValueOfTiger;
 
 		data.setTotalValueOfAllStock(totalValueOfAllStock);
+		System.out.println("Total count of all stocks -->"+totalValueOfAllStock);
 
 		// code for writing all details into new file
 		mapper.writeValue(new File(outputPath), data);

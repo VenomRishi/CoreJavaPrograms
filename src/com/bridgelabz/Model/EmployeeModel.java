@@ -3,6 +3,10 @@ package com.bridgelabz.Model;
 import java.io.Serializable;
 
 public class EmployeeModel implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int empNo;
 	private String name;
 	private double salary;

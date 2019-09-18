@@ -5,6 +5,7 @@
  *  @author  Rishikesh Mhatre
  *  @version 1.0
  *  @since   11-09-2019
+ *  @week	 1
  *
  ******************************************************************************/
 
@@ -12,7 +13,7 @@ package com.bridgelabz.cohortPrograms;
 
 import java.util.Arrays;
 
-public class Problem3 {
+public class P3NegPosSequence {
 	public static void main(String[] args) {
 		/**
 		 * Problem statement:

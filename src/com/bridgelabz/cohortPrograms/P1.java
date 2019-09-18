@@ -5,6 +5,7 @@
  *  @author  Rishikesh Mhatre
  *  @version 1.0
  *  @since   11-09-2019
+ *  @week	 1
  *
  ******************************************************************************/
 
@@ -12,7 +13,7 @@ package com.bridgelabz.cohortPrograms;
 
 import java.util.Scanner;
 
-public class Problem1 {
+public class P1 {
 
 	public static void main(String[] args) {
 		/**

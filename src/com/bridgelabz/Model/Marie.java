@@ -1,7 +1,6 @@
-package com.bridgelabz.Model.stock;
+package com.bridgelabz.Model;
 
-public class Parle {
-
+public class Marie {
 	private String stock_name;
 	private int number_of_shares;
 	private int share_price;

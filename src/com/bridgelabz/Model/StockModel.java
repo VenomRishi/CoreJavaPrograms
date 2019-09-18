@@ -1,4 +1,4 @@
-package com.bridgelabz.Model.stock;
+package com.bridgelabz.Model;
 
 import java.util.List;
 

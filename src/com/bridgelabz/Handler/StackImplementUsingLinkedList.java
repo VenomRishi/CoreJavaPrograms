@@ -7,7 +7,7 @@ package com.bridgelabz.Handler;
  */
 public class StackImplementUsingLinkedList<T> {
 	LinkedList<T> stack = new LinkedList<T>();
-	public static int top;
+	public static int top = -1;
 
 	/**
 	 * Purpose: push the element into stack
@@ -31,8 +31,8 @@ public class StackImplementUsingLinkedList<T> {
 		if (isEmpty()) {
 			System.out.println("Stack is underflow");
 		} else {
-			top--;
 			stack.deleteAt(top);
+			top--;
 
 		}
 
@@ -92,7 +92,7 @@ public class StackImplementUsingLinkedList<T> {
 	/**
 	 * Purpose: method for returning the string of stack list
 	 * 
-	 * @return	returns the stack list without spaces
+	 * @return returns the stack list without spaces
 	 */
 	public String returnStackWithoutSpaces() {
 		return stack.returnListInString();

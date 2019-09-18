@@ -1,4 +1,4 @@
-package com.bridgelabz.Model.stock;
+package com.bridgelabz.Model;
 
 public class Oreo {
 	private String stock_name;

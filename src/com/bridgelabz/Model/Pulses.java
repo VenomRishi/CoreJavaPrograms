@@ -1,4 +1,4 @@
-package com.bridgelabz.Model.inverntoryDetails;
+package com.bridgelabz.Model;
 
 public class Pulses {
 	private int price_per_kg;

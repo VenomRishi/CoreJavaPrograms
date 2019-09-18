@@ -1,4 +1,4 @@
-package com.bridgelabz.Model.inverntoryDetails;
+package com.bridgelabz.Model;
 
 import java.util.List;
 
