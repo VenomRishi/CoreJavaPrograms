@@ -45,11 +45,11 @@ public class DataStructureUtility {
 	 * @param str  input from user end
 	 * @throws IOException checking exception for file operation
 	 */
-	public void writeFile(String path, String str) throws IOException {
+	public String writeFile(String path, String str) throws IOException {
 		BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path));
 		bufferedWriter.write(str);
 		bufferedWriter.close();
-		System.out.println("\nFile is Written...");
+		return "\nFile is Written...";
 	}
 
 	/**
@@ -171,7 +171,7 @@ public class DataStructureUtility {
 
 			for (int i = 0; i < cal.length; i++) {
 				for (int j = 0; j < cal[i].length; j++) {
-					if (i == 0 && j <= 0 || i == 0 && j >= 2) {
+					if (i == 0 && j >= 0 || i == 0 && j <= 2) {
 						cal[i][j] = "    ";
 					} else {
 						if (temp <= 9) {
@@ -197,7 +197,7 @@ public class DataStructureUtility {
 
 			for (int i = 0; i < cal.length; i++) {
 				for (int j = 0; j < cal[i].length; j++) {
-					if (i == 0 && j <= 0 || i == 0 && j >= 3) {
+					if (i == 0 && j >= 0 || i == 0 && j <= 3) {
 						cal[i][j] = "    ";
 					} else {
 						if (temp <= 9) {
@@ -223,7 +223,7 @@ public class DataStructureUtility {
 
 			for (int i = 0; i < cal.length; i++) {
 				for (int j = 0; j < cal[i].length; j++) {
-					if (i == 0 && j <= 0 || i == 0 && j >= 4) {
+					if (i == 0 && j >= 0 || i == 0 && j <= 4) {
 						cal[i][j] = "    ";
 					} else {
 						if (temp <= 9) {
@@ -249,7 +249,7 @@ public class DataStructureUtility {
 
 			for (int i = 0; i < cal.length; i++) {
 				for (int j = 0; j < cal[i].length; j++) {
-					if (i == 0 && j <= 0 || i == 0 && j >= 5) {
+					if (i == 0 && j >= 0 || i == 0 && j <= 5) {
 						cal[i][j] = "    ";
 					} else {
 						if (temp <= 9) {
@@ -405,7 +405,7 @@ public class DataStructureUtility {
 			break;
 		}
 
-		weekDateQueue.showQueueWithoutSpace();
+		System.out.println(weekDateQueue.showQueueWithoutSpace());
 	}
 
 	/**
@@ -427,14 +427,16 @@ public class DataStructureUtility {
 		for (int i = 0; i < weekdaystrarr.length; i++) {
 			weekDayQueue.enQueue(weekdaystrarr[i]);
 		}
+		//weekDayQueue.show();
 		for (int i = 0; i < weekdaystrarr.length; i++) {
 			String str = weekDayQueue.get();
 			weekDayQueue.deQueue();
 			weekDayStack1.push(str);
 		}
+		//weekDayStack1.show();
 		for (int i = 0; i < weekdaystrarr.length; i++) {
-			weekDayStack2.push(weekDayStack1.peek());
-			if (!weekDayStack2.isEmpty()) {
+			if (!weekDayStack1.isEmpty()) {
+				weekDayStack2.push(weekDayStack1.peek());
 				weekDayStack1.pop();
 			}
 

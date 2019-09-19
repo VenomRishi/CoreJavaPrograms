@@ -11,8 +11,7 @@ package com.bridgelabz.handler;
 
 public class DequeImplementedUsingLinkedList<T> {
 	LinkedList<T> deque = new LinkedList<T>();
-	int front = 0;
-	int rear = 0;
+	int size=0;
 
 	/**
 	 * Purpose: insert data from front
@@ -21,7 +20,7 @@ public class DequeImplementedUsingLinkedList<T> {
 	 */
 	public void insertFront(T data) {
 		deque.addAtStart(data);
-		front++;
+		size++;
 	}
 
 	/**
@@ -31,7 +30,7 @@ public class DequeImplementedUsingLinkedList<T> {
 	 */
 	public void insertRear(T data) {
 		deque.add(data);
-		rear++;
+		size++;
 	}
 
 	/**
@@ -39,15 +38,15 @@ public class DequeImplementedUsingLinkedList<T> {
 	 */
 	public void removeFront() {
 		deque.deleteAtStart();
-		front--;
+		size--;
 	}
 
 	/**
 	 * Purpose: remove element from rear
 	 */
 	public void removeRear() {
-		rear--;
 		deque.deleteAtEnd();
+		size--;
 	}
 
 	/**
@@ -56,7 +55,7 @@ public class DequeImplementedUsingLinkedList<T> {
 	 * @return returns the value
 	 */
 	public T getFront() {
-		return deque.get(--front);
+		return deque.get(--size);
 	}
 
 	/**
@@ -65,7 +64,7 @@ public class DequeImplementedUsingLinkedList<T> {
 	 * @return returns the value
 	 */
 	public T getRear() {
-		return deque.get(--rear);
+		return deque.get(size-1);
 	}
 
 }

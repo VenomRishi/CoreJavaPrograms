@@ -78,7 +78,7 @@ public class LinkedList<T> {
 			return head.data;
 		else {
 			Node<T> n = head;
-			for (int i = 0; i < index; i++) {
+			for (int i = 0; i < index - 1; i++) {
 				if (n.next != null) {
 					n = n.next;
 				} else {
@@ -134,7 +134,7 @@ public class LinkedList<T> {
 			while (n.next != null) {
 				n = n.next;
 			}
-			System.out.println("Node deleted is: " + n.data);
+
 			n.next = null;
 
 		} else {

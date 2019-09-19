@@ -7,7 +7,7 @@ package com.bridgelabz.handler;
  */
 public class StackImplementUsingLinkedList<T> {
 	LinkedList<T> stack = new LinkedList<T>();
-	public static int top = -1;
+	public static int top = 0;
 
 	/**
 	 * Purpose: push the element into stack
@@ -31,7 +31,7 @@ public class StackImplementUsingLinkedList<T> {
 		if (isEmpty()) {
 			System.out.println("Stack is underflow");
 		} else {
-			stack.deleteAt(top);
+			stack.deleteAtEnd();
 			top--;
 
 		}
@@ -45,9 +45,13 @@ public class StackImplementUsingLinkedList<T> {
 	 */
 
 	public T peek() {
-		T data;
-		data = (T) stack.get(top);
-		return data;
+		if (!isEmpty()) {
+			T data;
+			data = (T) stack.get(top);
+			return data;
+		}
+		return null;
+
 	}
 
 	/**

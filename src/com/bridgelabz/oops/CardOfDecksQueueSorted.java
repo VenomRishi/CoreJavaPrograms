@@ -50,7 +50,7 @@ public class CardOfDecksQueueSorted {
 				for (int j = 0; j < arr.length - i - 1; j++) {
 					temp1 = arr[j];
 					temp2 = arr[j + 1];
-					
+
 					last1[0] = temp1.charAt(temp1.length() - 2);
 					last1[1] = temp1.charAt(temp1.length() - 1);
 					last2[0] = temp2.charAt(temp2.length() - 2);
@@ -61,13 +61,13 @@ public class CardOfDecksQueueSorted {
 						arr[j + 1] = temp3;
 
 					}
-					
+
 				}
-				
-				
+
 			}
 //			System.out.println(Arrays.toString(arr));
 //			System.out.println();
+			queue.enQueue("For Player " + p + " : \n");
 			for (int j = 0; j < 9; j++) {
 				temp4 = arr[j].substring(0, arr[j].length() - 2);
 				// System.out.print(temp4+"-->");
@@ -78,7 +78,7 @@ public class CardOfDecksQueueSorted {
 		}
 		// printing the queue
 		System.out.println(queue.showQueueWithoutSpace());
-		
+
 	}
 
 }

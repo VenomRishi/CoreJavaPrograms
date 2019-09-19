@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class QueueImplementedUsingLinkedList<T> {
 	LinkedList<T> queue = new LinkedList<T>();
-	int index;
+	int index=0;
 	public int bankBalance = 500000;
 	Scanner scanner = new Scanner(System.in);
 	int counter = 1;

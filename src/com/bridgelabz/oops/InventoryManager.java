@@ -1,6 +1,6 @@
 package com.bridgelabz.oops;
 
-public class InventoryManagement {
+public class InventoryManager {
 
 	public static void main(String[] args) {
 		
