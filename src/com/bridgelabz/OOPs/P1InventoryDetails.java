@@ -16,7 +16,7 @@ import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 
-import com.bridgelabz.Model.InventoryDetail;
+import com.bridgelabz.Model.InventoryDetailModel;
 
 
 public class P1InventoryDetails {
@@ -37,7 +37,7 @@ public class P1InventoryDetails {
 		 * rice.setWeight(7); ArrayList<Rice> list = new ArrayList<Rice>();
 		 * list.add(rice); obj.setRice(list); mapper.writeValue(new File(path), obj);
 		 */
-		InventoryDetail data = mapper.readValue(new File(path), InventoryDetail.class);
+		InventoryDetailModel data = mapper.readValue(new File(path), InventoryDetailModel.class);
 
 		int total = 0;
 		System.out.println("Rice : " + data.getRice().get(0).getName());

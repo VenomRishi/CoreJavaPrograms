@@ -2,7 +2,7 @@ package com.bridgelabz.Model;
 
 import java.util.List;
 
-public class InventoryDetail {
+public class InventoryDetailModel {
 	private List<Wheats> Wheats;
 
 	private List<Pulses> Pulses;
