@@ -18,8 +18,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 
-import com.bridgelabz.Handler.QueueImplementedUsingLinkedList;
-import com.bridgelabz.Handler.StackImplementUsingLinkedList;
+import com.bridgelabz.handler.QueueImplementedUsingLinkedList;
+import com.bridgelabz.handler.StackImplementUsingLinkedList;
 
 public class DataStructureUtility {
 
@@ -92,6 +92,8 @@ public class DataStructureUtility {
 
 		String[][] cal = new String[6][7];
 		int temp;
+		String weekdaystr = "SUN MON TUE WED THU FRI SAT";
+		System.out.println(weekdaystr);
 		switch (day) {
 		case 0:
 			temp = 1;
