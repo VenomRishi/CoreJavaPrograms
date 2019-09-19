@@ -33,31 +33,32 @@ public class P10CardOfDecksQueueSorted {
 
 		cardDeck = OOPsUtility.shuffleCardsDeck(cardDeck);
 //		 System.out.println(Arrays.toString(cardDeck));
-		String[] temp = new String[9];
+		String[] arr = new String[9];
+		char[] last1 = new char[2];
+		char[] last2 = new char[2];
 		j2 = 0;
 		String temp1, temp2, temp3, temp4;
-		for (int i = 0; i < 4; i++) {
+		for (int p = 0; p < 4; p++) {
 			for (int j = 0; j < 9; j++) {
-				temp[j] = cardDeck[j2];
+				arr[j] = cardDeck[j2];
 				j2++;
 
 			}
-			System.out.println(Arrays.toString(temp));
-			System.out.println();
-			for (int i1 = 0; i1 < temp.length - 1; i1++) {
-				for (int j1 = 0; j1 < temp.length - i - 1; j1++) {
-					temp1 = temp[j1];
-					temp2 = temp[j1 + 1];
-					char[] last1 = new char[2];
-					char[] last2 = new char[2];
+//			System.out.println(Arrays.toString(arr));
+//			System.out.println();
+			for (int i = 0; i < arr.length - 1; i++) {
+				for (int j = 0; j < arr.length - i - 1; j++) {
+					temp1 = arr[j];
+					temp2 = arr[j + 1];
+					
 					last1[0] = temp1.charAt(temp1.length() - 2);
 					last1[1] = temp1.charAt(temp1.length() - 1);
 					last2[0] = temp2.charAt(temp2.length() - 2);
 					last2[1] = temp2.charAt(temp2.length() - 1);
 					if (Arrays.compare(last1, last2) > 0) {
-						temp3 = temp[j1];
-						temp[j1] = temp[j1 + 1];
-						temp[j1 + 1] = temp3;
+						temp3 = arr[j];
+						arr[j] = arr[j + 1];
+						arr[j + 1] = temp3;
 
 					}
 					
@@ -65,10 +66,10 @@ public class P10CardOfDecksQueueSorted {
 				
 				
 			}
-			System.out.println(Arrays.toString(temp));
-			System.out.println();
+//			System.out.println(Arrays.toString(arr));
+//			System.out.println();
 			for (int j = 0; j < 9; j++) {
-				temp4 = temp[j].substring(0, temp[j].length() - 2);
+				temp4 = arr[j].substring(0, arr[j].length() - 2);
 				// System.out.print(temp4+"-->");
 				queue.enQueue(temp4 + "-->");
 			}

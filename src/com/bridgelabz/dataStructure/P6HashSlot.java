@@ -11,13 +11,13 @@ package com.bridgelabz.dataStructure;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Scanner;
 
 import com.bridgelabz.Handler.HashMap;
 import com.bridgelabz.utility.DataStructureUtility;
 
 public class P6HashSlot {
 	static int[] arr;
-	public static int arrSize;
 
 	public static void main(String[] args) {
 		DataStructureUtility utility = new DataStructureUtility();
@@ -31,7 +31,7 @@ public class P6HashSlot {
 		}
 		String[] str = readMessage.split(",");
 		arr = new int[str.length];
-		arrSize = arr.length;
+
 		for (int i = 0; i < arr.length; i++) {
 			arr[i] = Integer.parseInt(str[i]);
 		}
@@ -41,12 +41,21 @@ public class P6HashSlot {
 			hashmap.add(arr[i], arr[i]);
 		}
 		hashmap.show();
+		System.out.println("\nEnter key to search: ");
+		Scanner scanner = new Scanner(System.in);
+		int key = scanner.nextInt();
+		if (hashmap.get(key) != null) {
+			hashmap.remove(key);
+		} else {
+			hashmap.add(key, key);
+		}
+		scanner.close();
+		hashmap.show();
 		try {
 			utility.writeFile(
 					"/home/admin1/eclipse-workspace/BridgeLabzFellowshipPrograms/src/com/bridgelabz/files/hashlistoutput",
 					hashmap.returnListInString());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

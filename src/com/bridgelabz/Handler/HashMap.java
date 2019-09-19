@@ -14,8 +14,6 @@ package com.bridgelabz.Handler;
 
 import java.util.ArrayList;
 
-import com.bridgelabz.dataStructure.P6HashSlot;
-
 //hash table class
 
 public class HashMap<K, V> {
@@ -65,7 +63,7 @@ public class HashMap<K, V> {
 	 */
 	public int hashFunction(K key) {
 		int hashCod = (int) key;
-		return hashCod % P6HashSlot.arrSize;
+		return hashCod % 11;
 	}
 
 	// Returns value for a key
