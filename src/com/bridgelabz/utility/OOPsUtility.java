@@ -17,7 +17,7 @@ import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
 
-public class OOPsUtility<T> {
+public class OOPsUtility {
 	static Scanner scanner = new Scanner(System.in);
 
 	/**

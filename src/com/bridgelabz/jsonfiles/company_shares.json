@@ -1,0 +1,41 @@
+{
+	"companyshares": [
+		{
+			"company_symbol": 1000,
+			"company_name": "TCS",
+			"company_shares": 250,
+			"company_share_price": 2000,
+			"company_total_value": 500000
+		},
+		{
+			"company_symbol": 1001,
+			"company_name": "wipro",
+			"company_shares": 200,
+			"company_share_price": 1800,
+			"company_total_value": 360000
+		},
+		{
+			"company_symbol": 1002,
+			"company_name": "accenture",
+			"company_shares": 300,
+			"company_share_price": 2400,
+			"company_total_value": 720000
+		},
+		{
+			"company_symbol": 1003,
+			"company_name": "IBM",
+			"company_shares": 320,
+			"company_share_price": 2490,
+			"company_total_value": 796800
+		},
+		{
+			"company_symbol": 1004,
+			"company_name": "infosys",
+			"company_shares": 210,
+			"company_share_price": 1700,
+			"company_total_value": 357000
+		}
+	]
+}
+  
+  

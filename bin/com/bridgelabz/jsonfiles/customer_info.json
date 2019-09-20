@@ -1,0 +1,36 @@
+{
+	"customerinfo": [
+		{
+			"customer_symbol": 1,
+			"customer_name": "Rishikesh",
+			"customer_shares": 50,
+			"customer_balance": 100000
+		},
+		{
+			"customer_symbol": 2,
+			"customer_name": "Abhishek",
+			"customer_shares": 45,
+			"customer_balance": 99000
+		},
+		{
+			"customer_symbol": 3,
+			"customer_name": "Vishnu",
+			"customer_shares": 60,
+			"customer_balance": 111000
+		},
+		{
+			"customer_symbol": 4,
+			"customer_name": "Mark",
+			"customer_shares": 30,
+			"customer_balance": 84000
+		},
+		{
+			"customer_symbol": 5,
+			"customer_name": "Priyanka",
+			"customer_shares": 59,
+			"customer_balance": 105020
+		}
+	]
+}
+  
+  
