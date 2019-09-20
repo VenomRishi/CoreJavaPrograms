@@ -15,8 +15,22 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
+import java.util.Scanner;
 
 public class OOPsUtility {
+	static Scanner scanner = new Scanner(System.in);
+
+	/**
+	 * Purpose: for scanning integer from user
+	 * 
+	 * @return
+	 */
+	public static int integerScanner() {
+		return scanner.nextInt();
+	}
+	public static String stringScanner() {
+		return scanner.next();
+	}
 
 	/**
 	 * Purpose: shuffles the card of deck

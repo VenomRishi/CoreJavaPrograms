@@ -1,0 +1,29 @@
+{
+	"total": 0,
+	"rice": [
+		{
+			"price_per_kg": 60,
+			"name": "basmati",
+			"weight": 7
+		},
+		{
+			"price_per_kg": 5000,
+			"name": "rice",
+			"weight": 50
+		}
+	],
+	"pulses": [
+		{
+			"price_per_kg": 65,
+			"name": "greens",
+			"weight": 3
+		}
+	],
+	"wheats": [
+		{
+			"price_per_kg": 45,
+			"name": "chakki_fresh",
+			"weight": 5
+		}
+	]
+}

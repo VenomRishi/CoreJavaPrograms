@@ -2,10 +2,17 @@ package com.bridgelabz.model;
 
 public class Pulses {
 	private int price_per_kg;
-
 	private String name;
-
 	private int weight;
+	private int totalPriceOfWeight;
+
+	public int getTotalPriceOfWeight() {
+		return totalPriceOfWeight;
+	}
+
+	public void setTotalPriceOfWeight(int totalPriceOfWeight) {
+		this.totalPriceOfWeight = totalPriceOfWeight;
+	}
 
 	public int getPrice_per_kg() {
 		return price_per_kg;

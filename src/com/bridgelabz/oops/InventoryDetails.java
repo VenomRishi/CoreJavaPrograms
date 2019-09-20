@@ -37,23 +37,23 @@ public class InventoryDetails {
 		 * rice.setWeight(7); ArrayList<Rice> list = new ArrayList<Rice>();
 		 * list.add(rice); obj.setRice(list); mapper.writeValue(new File(path), obj);
 		 */
-		InventoryDetailModel data = mapper.readValue(new File(path), InventoryDetailModel.class);
+		InventoryDetailModel model = mapper.readValue(new File(path), InventoryDetailModel.class);
 
 		int total = 0;
-		System.out.println("Rice : " + data.getRice().get(0).getName());
-		System.out.println("Price : " + data.getRice().get(0).getPrice_per_kg());
-		total += data.getRice().get(0).getPrice_per_kg();
-		System.out.println("wheats : " + data.getWheats().get(0).getName());
-		System.out.println("Price : " + data.getWheats().get(0).getPrice_per_kg());
-		total += data.getWheats().get(0).getPrice_per_kg();
-		System.out.println("pulses : " + data.getPulses().get(0).getName());
-		System.out.println("Price : " + data.getPulses().get(0).getPrice_per_kg());
-		total += data.getPulses().get(0).getPrice_per_kg();
+		System.out.println("Rice : " + model.getRice().get(0).getName());
+		System.out.println("Price : " + model.getRice().get(0).getPrice_per_kg());
+		total += model.getRice().get(0).getPrice_per_kg();
+		System.out.println("wheats : " + model.getWheats().get(0).getName());
+		System.out.println("Price : " + model.getWheats().get(0).getPrice_per_kg());
+		total += model.getWheats().get(0).getPrice_per_kg();
+		System.out.println("pulses : " + model.getPulses().get(0).getName());
+		System.out.println("Price : " + model.getPulses().get(0).getPrice_per_kg());
+		total += model.getPulses().get(0).getPrice_per_kg();
 		System.out.println("\nTotal : " + total);
 
 		// code for writing all details into new file
-		data.setTotal(total);
-		mapper.writeValue(new File(path2), data);
+		model.setTotal(total);
+		mapper.writeValue(new File(path2), model);
 		System.out.println("\nWrite into file is completed!!!");
 	}
 }
