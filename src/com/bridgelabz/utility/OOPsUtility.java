@@ -17,17 +17,27 @@ import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
 
-public class OOPsUtility {
+public class OOPsUtility<T> {
 	static Scanner scanner = new Scanner(System.in);
 
 	/**
 	 * Purpose: for scanning integer from user
 	 * 
-	 * @return
+	 * Identifier: json
+	 * 
+	 * @return returns int which is taken from console
 	 */
 	public static int integerScanner() {
 		return scanner.nextInt();
 	}
+
+	/**
+	 * Purpose: for scanning String from user
+	 * 
+	 * Identifier: json
+	 * 
+	 * @return returns string which is taken from console
+	 */
 	public static String stringScanner() {
 		return scanner.next();
 	}

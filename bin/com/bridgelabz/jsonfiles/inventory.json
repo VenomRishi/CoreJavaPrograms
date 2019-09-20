@@ -1,29 +1,33 @@
 {
-	"total": 0,
+	"total": 1309,
 	"rice": [
 		{
 			"price_per_kg": 60,
 			"name": "basmati",
-			"weight": 7
+			"weight": 7,
+			"totalPriceOfWeight": 420
 		},
 		{
-			"price_per_kg": 5000,
-			"name": "rice",
-			"weight": 50
+			"price_per_kg": 67,
+			"name": "abc",
+			"weight": 7,
+			"totalPriceOfWeight": 469
 		}
 	],
 	"pulses": [
 		{
 			"price_per_kg": 65,
 			"name": "greens",
-			"weight": 3
+			"weight": 3,
+			"totalPriceOfWeight": 195
 		}
 	],
 	"wheats": [
 		{
 			"price_per_kg": 45,
 			"name": "chakki_fresh",
-			"weight": 5
+			"weight": 5,
+			"totalPriceOfWeight": 225
 		}
 	]
 }
