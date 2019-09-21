@@ -1,10 +1,15 @@
+/**
+ * Purpose: Stack class implemented for stack functionality using linked list
+ * 
+ *  @author  Rishikesh Mhatre
+ *  @version 1.0
+ *  @since   14-09-2019
+ *
+ * @param <T> generic type class
+ */
+
 package com.bridgelabz.handler;
 
-/**
- * @author admin1
- *
- * @param <T>
- */
 public class StackImplementUsingLinkedList<T> {
 	LinkedList<T> stack = new LinkedList<T>();
 	public static int top = 0;

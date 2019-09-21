@@ -36,18 +36,24 @@ public class OrderedList {
 			list.add(integerArr[i]);
 		}
 		int size = integerArr.length;
-		list.show();
+		System.out.println(list.show());
 		System.out.println("\nSorting");
 		list.sort(size);
-		list.show();
+		System.out.println(list.show());
+		
 		System.out.println("\nEnter key to search in list:");
 		Scanner scanner = new Scanner(System.in);
 		int key = scanner.nextInt();
 		size = list.searchNode(key, size);
+		
+		
+		
 		scanner.close();
+		
 		System.out.println("\nSorting");
 		list.sort(size);
-		list.show();
+
+		System.out.println(list.show());
 		String str = list.returnListInString();
 		try {
 			utility.writeFile(

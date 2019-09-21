@@ -32,13 +32,13 @@ public class UnOrderedList {
 		for (int i = 0; i < strArray.length; i++) {
 			list.add(strArray[i]);
 		}
-		list.show();
+		System.out.println(list.show());
 
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter key to search");
 		String key = scanner.next();
 		size = list.searchNode(key, size);
-		list.show();
+		System.out.println(list.show());
 
 		try {
 			utility.writeFile(

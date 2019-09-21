@@ -81,7 +81,7 @@ public class LinkedList<T> {
 			return head.data;
 		else {
 			Node<T> n = head;
-			for (int i = 0; i < index - 1; i++) {
+			for (int i = 0; i < index; i++) {
 				if (n.next != null) {
 					n = n.next;
 				} else {
