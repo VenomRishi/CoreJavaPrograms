@@ -1,3 +1,12 @@
+/******************************************************************************
+ *  Purpose: Program is written for Stock account maintain using LinkedList
+ *
+ *  @author  Rishikesh Mhatre
+ *  @version 1.0
+ *  @since   21-09-2019
+ *
+ ******************************************************************************/
+
 package com.bridgelabz.oops;
 
 import java.io.File;
@@ -12,7 +21,7 @@ import com.bridgelabz.model.Companyshares;
 import com.bridgelabz.model.CompanysharesModel;
 import com.bridgelabz.utility.OOPsUtility;
 
-public class StockAccountUsingLinkedList {
+public class StockAccountUsingLinkedListCompanyShares {
 
 	public static void main(String[] args) throws JsonParseException, JsonMappingException, IOException {
 

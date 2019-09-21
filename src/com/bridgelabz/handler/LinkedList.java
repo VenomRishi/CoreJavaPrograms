@@ -276,6 +276,11 @@ public class LinkedList<T> {
 		return size;
 	}
 
+	/**
+	 * Purpose: method to add all data into linked list
+	 * 
+	 * @param list data is provided in the form of list
+	 */
 	public void addAll(List<T> list) {
 
 		for (int i = 0; i < list.size(); i++) {

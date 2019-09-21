@@ -1,3 +1,12 @@
+/******************************************************************************
+ *  Purpose: Program is written for Stock account maintain using json
+ *
+ *  @author  Rishikesh Mhatre
+ *  @version 1.0
+ *  @since   21-09-2019
+ *
+ ******************************************************************************/
+
 package com.bridgelabz.oops;
 
 import java.io.File;

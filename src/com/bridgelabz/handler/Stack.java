@@ -10,6 +10,8 @@
 
 package com.bridgelabz.handler;
 
+import java.util.List;
+
 public class Stack<T> {
 	Object[] stack = new Object[6];
 	int top;
@@ -19,12 +21,24 @@ public class Stack<T> {
 	 * 
 	 * @param data push data into stack
 	 */
-	public void push(T data) {
+	public void push(Object data) {
 		if (isFull()) {
 			System.out.println("Stack is overflow");
 		} else {
 			stack[top] = data;
 			top++;
+		}
+
+	}
+
+	/**
+	 * Purpose: this method will push all the object into linked list
+	 * 
+	 * @param list list of object is provided from user
+	 */
+	public void pushAll(List<T> list) {
+		for (int i = 0; i < list.size(); i++) {
+			push(list.get(i));
 		}
 
 	}
@@ -96,4 +110,5 @@ public class Stack<T> {
 	public int size() {
 		return top;
 	}
+
 }

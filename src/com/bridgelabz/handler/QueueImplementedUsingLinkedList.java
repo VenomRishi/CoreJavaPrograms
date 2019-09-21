@@ -1,10 +1,21 @@
+/**
+ * Purpose: Queue class implemented for Queue functionality using linked list
+ * 
+ *  @author  Rishikesh Mhatre
+ *  @version 1.0
+ *  @since   14-09-2019
+ *
+ * @param <T> generic type class
+ */
+
 package com.bridgelabz.handler;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class QueueImplementedUsingLinkedList<T> {
 	LinkedList<T> queue = new LinkedList<T>();
-	int index=0;
+	int index = 0;
 	public int bankBalance = 500000;
 	Scanner scanner = new Scanner(System.in);
 	int counter = 1;
@@ -26,6 +37,12 @@ public class QueueImplementedUsingLinkedList<T> {
 	public void enQueue(T data) {
 		queue.add(data);
 		index++;
+	}
+
+	public void enQueueAll(List<T> list) {
+		for (int i = 0; i < list.size(); i++) {
+			enQueue(list.get(i));
+		}
 	}
 
 	/**
