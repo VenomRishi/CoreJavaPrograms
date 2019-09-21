@@ -1,5 +1,6 @@
 package com.bridgelabz.oops;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -49,6 +50,11 @@ public class StockAccount {
 		// code for fetching the customer info
 		custModel = (CustomerinfoModel) JsonUtil.readMapper(pathOfCustomerInfo, custModel);
 
+		File file = new File(pathOfTransaction);
+		if (file.length() != 0) {
+			transModel = (TransactionModel) JsonUtil.readMapper(pathOfTransaction, transModel);
+		}
+
 		ArrayList<Customerinfo> custList = new ArrayList<Customerinfo>();
 		ArrayList<Companyshares> compList = new ArrayList<Companyshares>();
 		ArrayList<Transactions> transList = new ArrayList<Transactions>();
@@ -56,7 +62,7 @@ public class StockAccount {
 		custList.addAll(custModel.getCustomerinfo());
 		compList.addAll(compModel.getCompanyshares());
 
-		if (!transList.isEmpty()) {
+		if (!transModel.getTransactions().isEmpty()) {
 			transList.addAll(transModel.getTransactions());
 		}
 
@@ -73,7 +79,7 @@ public class StockAccount {
 		}
 		if (isCustomerFound) {
 			while (!isExit) {
-
+				System.out.println("Hello: " + custList.get(indexOfCustomer).getCustomer_name());
 				System.out.println("Please select options\n" + "1. buy shares\n" + "2. sell shares\n"
 						+ "3. print report\n" + "4. exit");
 				choice = OOPsUtility.integerScanner();
@@ -95,8 +101,14 @@ public class StockAccount {
 							break;
 						}
 					}
+					System.out
+							.println("The company you selected is: " + compList.get(indexOfCompany).getCompany_name());
+					System.out.println("Company shares: " + compList.get(indexOfCompany).getCompany_shares());
+					System.out.println("Company share price: " + compList.get(indexOfCompany).getCompany_share_price());
 					int customerBalance = custList.get(indexOfCustomer).getCustomer_balance();
+					System.out.println("You have Balance: " + customerBalance);
 					if (isCompanyFound) {
+						System.out.println();
 						System.out.println("Please enter how much shares to buy: ");
 						numOfCompanyShareToBuy = OOPsUtility.integerScanner();
 
@@ -138,12 +150,14 @@ public class StockAccount {
 								transList.add(trans);
 
 								int saveOrNot;
-								System.out.println("You want to save press 1\n 2 for not save");
+								System.out.println("Press\n" + "1. for save \n2. for not save");
 								saveOrNot = OOPsUtility.integerScanner();
 								if (saveOrNot == 1) {
 									JsonUtil.writeMapper(pathOfCompanyShares2, compModel.getCompanyshares());
 									JsonUtil.writeMapper(pathOfCustomerInfo2, custModel.getCustomerinfo());
-									JsonUtil.writeMapper(pathOfTransaction, transModel.getTransactions());
+									transModel.setTransactions(transList);
+									transModel.setTransaction("Transactions");
+									JsonUtil.writeMapper(pathOfTransaction, transModel);
 									System.out.println("Transaction has saved");
 								} else if (saveOrNot == 2) {
 									System.out.println("Transaction not saved");
@@ -184,7 +198,13 @@ public class StockAccount {
 
 					// if company is valid
 					if (isCompanyFound2) {
+						System.out.println(
+								"The company you selected is: " + compList.get(indexOfCompany).getCompany_name());
+						System.out.println("Company shares: " + compList.get(indexOfCompany).getCompany_shares());
+						System.out.println(
+								"Company share price: " + compList.get(indexOfCompany).getCompany_share_price());
 						int amountToGet = share * compList.get(indexOfCompany).getCompany_share_price();
+						System.out.println("Amount you will get: " + amountToGet);
 						// company share increase
 						if (share <= custList.get(indexOfCustomer).getCustomer_shares()) {
 							compList.get(indexOfCompany)
@@ -219,12 +239,14 @@ public class StockAccount {
 							transList.add(trans);
 
 							int saveOrNot;
-							System.out.println("You want to save press 1\n 2 for not save");
+							System.out.println("Press\n" + "1. for save \n2. for not save");
 							saveOrNot = OOPsUtility.integerScanner();
 							if (saveOrNot == 1) {
 								JsonUtil.writeMapper(pathOfCompanyShares2, compModel.getCompanyshares());
 								JsonUtil.writeMapper(pathOfCustomerInfo2, custModel.getCustomerinfo());
-								JsonUtil.writeMapper(pathOfTransaction, transModel.getTransactions());
+								transModel.setTransactions(transList);
+								transModel.setTransaction("Transactions");
+								JsonUtil.writeMapper(pathOfTransaction, transModel);
 								System.out.println("Transaction has saved");
 							} else if (saveOrNot == 2) {
 								System.out.println("Transaction not saved");
@@ -249,7 +271,40 @@ public class StockAccount {
 				case 3:
 					// print report
 					System.out.println("****************report***************");
+					System.out.println();
+					System.out.println();
+					boolean hasValue = false;
+					for (int i = 0; i < transList.size(); i++) {
+						if (Character.getNumericValue(transList.get(i).getTransaction_id().charAt(6)) == customerId) {
+							hasValue = true;
+							break;
+						}
+					}
+					if (hasValue) {
+						for (int i = 0; i < transList.size(); i++) {
+							if (i == 0) {
+								System.out.print("Transaction_ID\t");
+								System.out.print("Buyer\t\t");
+								System.out.print("Seller\t\t\t");
+								System.out.print("Trans_Amt\t");
+								System.out.println("DateTime\t");
+							}
+							if (Character
+									.getNumericValue(transList.get(i).getTransaction_id().charAt(6)) == customerId) {
+								System.out.print(transList.get(i).getTransaction_id() + "\t");
+								System.out.print(transList.get(i).getBuyer() + "\t\t");
+								System.out.print(transList.get(i).getSeller() + "\t\t");
+								System.out.print(transList.get(i).getTransaction_amount() + "\t");
+								System.out.println(transList.get(i).getDatetime() + "\t");
 
+							}
+
+						}
+					} else
+						System.out.println("You dont have any transactions!!!");
+
+					System.out.println();
+					System.out.println();
 					System.out.println("****************report***************");
 					break;
 				case 4:

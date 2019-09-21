@@ -9,6 +9,8 @@
  */
 package com.bridgelabz.handler;
 
+import java.util.List;
+
 public class LinkedList<T> {
 	Node<T> head;
 	public Object deleteAt;
@@ -19,9 +21,10 @@ public class LinkedList<T> {
 	 * 
 	 * @param data input from user
 	 */
-	public void add(T data) {
+	@SuppressWarnings("unchecked")
+	public void add(Object data) {
 		Node<T> nodenew = new Node<T>();
-		nodenew.data = data;
+		nodenew.data = (T) data;
 		if (head == null) {
 			head = nodenew;
 			size++;
@@ -146,13 +149,20 @@ public class LinkedList<T> {
 	/**
 	 * Purpose: method for display the nodes
 	 */
-	public void show() {
+	public String show() {
+		String str = "";
 		Node<T> n = head;
-		while (n.next != null) {
-			System.out.print(n.data + " ");
-			n = n.next;
+		if (head == null) {
+			return "no data";
+		} else {
+			while (n.next != null) {
+				str += n.data + " ";
+				n = n.next;
+			}
+			str += n.data;
 		}
-		System.out.println(n.data);
+
+		return str;
 	}
 
 	/**
@@ -264,6 +274,14 @@ public class LinkedList<T> {
 	 */
 	public int size() {
 		return size;
+	}
+
+	public void addAll(List<T> list) {
+
+		for (int i = 0; i < list.size(); i++) {
+			add(list.get(i));
+		}
+
 	}
 
 }
