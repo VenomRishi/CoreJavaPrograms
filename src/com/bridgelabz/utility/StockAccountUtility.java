@@ -54,8 +54,7 @@ public class StockAccountUtility {
 	 */
 	public static Object buyShare(TransactionModel model, int customerId, int companySymbol,
 			int numOfCompanyShareToBuy) {
-		int sharesCompany;
-		int customerValue;
+
 		
 		
 		return model;

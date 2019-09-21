@@ -1,0 +1,145 @@
+{
+	"addressbook": [
+		{
+			"statename": "dl",
+			"dl": [
+				{
+					"id": 6,
+					"firstname": "vaibhav",
+					"lastname": "ghorpade",
+					"address": {
+						"city": "dn",
+						"state": "Delhi",
+						"zip": 210206
+					},
+					"mobile": "8850222645"
+				},
+				{
+					"id": 7,
+					"firstname": "supriya",
+					"lastname": "borde",
+					"address": {
+						"city": "dn",
+						"state": "Delhi",
+						"zip": 210206
+					},
+					"mobile": "8850222646"
+				},
+				{
+					"id": 8,
+					"firstname": "prath",
+					"lastname": "jadhav",
+					"address": {
+						"city": "dn",
+						"state": "Delhi",
+						"zip": 210206
+					},
+					"mobile": "8850222647"
+				},
+				{
+					"id": 9,
+					"firstname": "mohit",
+					"lastname": "jadhav",
+					"address": {
+						"city": "dn",
+						"state": "Delhi",
+						"zip": 410204
+					},
+					"mobile": "8850222648"
+				}
+			]
+		},
+		{
+			"statename": "gj",
+			"gj": [
+				{
+					"id": 10,
+					"firstname": "rohit",
+					"lastname": "sharma",
+					"address": {
+						"city": "surat",
+						"state": "Gujrat",
+						"zip": 710204
+					},
+					"mobile": "8850222649"
+				}
+			]
+		},
+		{
+			"statename": "hr",
+			"hr": [
+				{
+					"id": 11,
+					"firstname": "messi",
+					"lastname": "dseuza",
+					"address": {
+						"city": "viher",
+						"state": "Haryana",
+						"zip": 810204
+					},
+					"mobile": "8850222789"
+				}
+			]
+		},
+		{
+			"statename": "mh",
+			"mh": [
+				{
+					"id": 1,
+					"firstname": "rishi",
+					"lastname": "mhatre",
+					"address": {
+						"city": "panvel",
+						"state": "maharashtra",
+						"zip": 410206
+					},
+					"mobile": "8850222545"
+				},
+				{
+					"id": 2,
+					"firstname": "abhi",
+					"lastname": "mhatre",
+					"address": {
+						"city": "panvel",
+						"state": "maharashtra",
+						"zip": 410206
+					},
+					"mobile": "8850222546"
+				},
+				{
+					"id": 3,
+					"firstname": "karan",
+					"lastname": "mhatre",
+					"address": {
+						"city": "panvel",
+						"state": "maharashtra",
+						"zip": 410206
+					},
+					"mobile": "8850222547"
+				},
+				{
+					"id": 4,
+					"firstname": "keval",
+					"lastname": "thakur",
+					"address": {
+						"city": "turbhe",
+						"state": "maharashtra",
+						"zip": 410204
+					},
+					"mobile": "8850222548"
+				},
+				{
+					"id": 5,
+					"firstname": "sagar",
+					"lastname": "uparkar",
+					"address": {
+						"city": "sai-nagar",
+						"state": "maharashtra",
+						"zip": 410206
+					},
+					"mobile": "8850222549"
+				}
+			]
+		}
+	]
+}
