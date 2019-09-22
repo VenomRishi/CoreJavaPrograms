@@ -39,7 +39,29 @@ public class OOPsUtility {
 	 * @return returns string which is taken from console
 	 */
 	public static String stringScanner() {
+		return scanner.nextLine();
+	}
+
+	/**
+	 * Purpose: for scanning String single word from user
+	 * 
+	 * Identifier: json
+	 * 
+	 * @return returns string which is taken from console
+	 */
+	public static String stringSingleWordScanner() {
 		return scanner.next();
+	}
+
+	/**
+	 * Purpose: for scanning Char from user
+	 * 
+	 * Identifier: json
+	 * 
+	 * @return returns char which is taken from console
+	 */
+	public static char charScanner() {
+		return scanner.next().charAt(0);
 	}
 
 	/**

@@ -3,7 +3,7 @@ package com.bridgelabz.model;
 public class PersonModel {
 	private String firstname;
 	private String lastname;
-	private Address address;
+	private Address addressObj;
 	private String mobile;
 
 	public String getFirstname() {
@@ -22,12 +22,12 @@ public class PersonModel {
 		this.lastname = lastname;
 	}
 
-	public Address getAddress() {
-		return address;
+	public Address getAddressObj() {
+		return addressObj;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setAddressObj(Address addressObj) {
+		this.addressObj = addressObj;
 	}
 
 	public String getMobile() {
@@ -36,12 +36,6 @@ public class PersonModel {
 
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
-	}
-
-	@Override
-	public String toString() {
-		return "PersonModel [firstname=" + firstname + ", lastname=" + lastname + ", address=" + address + ", mobile="
-				+ mobile + "]";
 	}
 
 }

@@ -32,7 +32,7 @@ public class AddressBookDemo {
 		address.setCity("panvel");
 		address.setState("mh");
 		address.setZip(410206);
-		person.setAddress(address);
+		person.setAddressObj(address);
 		person.setMobile("8850222545");
 
 		person2.setFirstname("Vishnu");
@@ -41,14 +41,14 @@ public class AddressBookDemo {
 		address2.setCity("latur");
 		address2.setState("mh");
 		address2.setZip(414030);
-		person2.setAddress(address2);
+		person2.setAddressObj(address2);
 		person2.setMobile("7755333555");
 
 		persons.add(person);
 		persons.add(person2);
 
 		model.setPersons(persons);
-		model.setStatename("mh");
+		// model.setStatename("mh");
 
 		// edit person
 
@@ -66,8 +66,8 @@ public class AddressBookDemo {
 		}
 
 		if (isFoundPerson) {
-			persons.get(indexOfPerson).getAddress().setCity("new panve");
-			persons.get(indexOfPerson).getAddress().setZip(410207);
+			persons.get(indexOfPerson).getAddressObj().setCity("new panve");
+			persons.get(indexOfPerson).getAddressObj().setZip(410207);
 			persons.get(indexOfPerson).setMobile("1234567899");
 			System.out.println("Edit completed");
 		} else
@@ -115,7 +115,7 @@ public class AddressBookDemo {
 		for (int i = 0; i < persons.size() - 1; i++) {
 			for (int j = 0; j < persons.size() - i - 1; j++) {
 
-				if (persons.get(j).getAddress().getZip() > persons.get(j + 1).getAddress().getZip()) {
+				if (persons.get(j).getAddressObj().getZip() > persons.get(j + 1).getAddressObj().getZip()) {
 					Object temp = persons.get(j);
 					persons.set(j, persons.get(j + 1));
 					persons.set(j + 1, (PersonModel) temp);
