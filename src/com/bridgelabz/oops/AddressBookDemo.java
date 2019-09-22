@@ -1,0 +1,132 @@
+package com.bridgelabz.oops;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import org.codehaus.jackson.JsonParseException;
+import org.codehaus.jackson.map.JsonMappingException;
+
+import com.bridgelabz.helper.JsonUtil;
+import com.bridgelabz.model.Address;
+import com.bridgelabz.model.AddressBookModel;
+import com.bridgelabz.model.PersonModel;
+import com.bridgelabz.utility.OOPsUtility;
+
+public class AddressBookDemo {
+
+	public static void main(String[] args) throws JsonParseException, JsonMappingException, IOException {
+		AddressBookModel model = new AddressBookModel();
+
+		String path = "/home/admin1/eclipse-workspace/BridgeLabzFellowshipPrograms/src/com/bridgelabz/jsonfiles/addressbookout.json";
+
+		ArrayList<PersonModel> persons = new ArrayList<PersonModel>();
+
+		// adding person
+
+		PersonModel person = new PersonModel();
+		PersonModel person2 = new PersonModel();
+
+		person.setFirstname("Rishikesh");
+		person.setLastname("zhatre");
+		Address address = new Address();
+		address.setCity("panvel");
+		address.setState("mh");
+		address.setZip(410206);
+		person.setAddress(address);
+		person.setMobile("8850222545");
+
+		person2.setFirstname("Vishnu");
+		person2.setLastname("shelke");
+		Address address2 = new Address();
+		address2.setCity("latur");
+		address2.setState("mh");
+		address2.setZip(414030);
+		person2.setAddress(address2);
+		person2.setMobile("7755333555");
+
+		persons.add(person);
+		persons.add(person2);
+
+		model.setPersons(persons);
+		model.setStatename("mh");
+
+		// edit person
+
+		System.out.println("Enter Persons mobile number you want to edit:");
+		String search = OOPsUtility.stringScanner();
+		int indexOfPerson = 0;
+		boolean isFoundPerson = false;
+		for (int i = 0; i < persons.size(); i++) {
+			if (search.equals(persons.get(i).getMobile())) {
+				isFoundPerson = true;
+				indexOfPerson = i;
+				System.out.println("Person found");
+				break;
+			}
+		}
+
+		if (isFoundPerson) {
+			persons.get(indexOfPerson).getAddress().setCity("new panve");
+			persons.get(indexOfPerson).getAddress().setZip(410207);
+			persons.get(indexOfPerson).setMobile("1234567899");
+			System.out.println("Edit completed");
+		} else
+			System.out.println("Person not found");
+
+		// delete person
+
+		// commenting because dont want to delete now
+
+//		System.out.println("Enter Persons mobile number you want to delete:");
+//		search = OOPsUtility.stringScanner();
+//		
+//		for (int i = 0; i < persons.size(); i++) {
+//			if (search.equals(persons.get(i).getMobile())) {
+//				isFoundPerson = true;
+//				indexOfPerson = i;
+//				System.out.println("Person found");
+//				break;
+//			}
+//		}
+//		
+//		if (isFoundPerson) {
+//			persons.remove(indexOfPerson);
+//			System.out.println("Person deleted");
+//		}else
+//			System.out.println("Person not found");
+
+		// sorting by last name
+
+		for (int i = 0; i < persons.size() - 1; i++) {
+			for (int j = 0; j < persons.size() - i - 1; j++) {
+
+				if (persons.get(j).getLastname().compareTo(persons.get(j + 1).getLastname()) > 0) {
+					Object temp = persons.get(j);
+					persons.set(j, persons.get(j + 1));
+					persons.set(j + 1, (PersonModel) temp);
+
+				}
+			}
+		}
+		model.setPersons(persons);
+
+		// sorting by zip
+
+		for (int i = 0; i < persons.size() - 1; i++) {
+			for (int j = 0; j < persons.size() - i - 1; j++) {
+
+				if (persons.get(j).getAddress().getZip() > persons.get(j + 1).getAddress().getZip()) {
+					Object temp = persons.get(j);
+					persons.set(j, persons.get(j + 1));
+					persons.set(j + 1, (PersonModel) temp);
+
+				}
+			}
+		}
+		model.setPersons(persons);
+
+		JsonUtil.writeMapper(path, model);
+
+	}
+
+}

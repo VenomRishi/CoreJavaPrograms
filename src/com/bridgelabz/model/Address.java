@@ -1,11 +1,6 @@
 package com.bridgelabz.model;
 
 public class Address {
-	@Override
-	public String toString() {
-		return "Address [city=" + city + ", state=" + state + ", zip=" + zip + "]";
-	}
-
 	private String city;
 	private String state;
 	private int zip;
@@ -32,5 +27,10 @@ public class Address {
 
 	public void setZip(Integer zip) {
 		this.zip = zip;
+	}
+
+	@Override
+	public String toString() {
+		return "Address [city=" + city + ", state=" + state + ", zip=" + zip + "]";
 	}
 }

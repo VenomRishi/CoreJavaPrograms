@@ -3,19 +3,23 @@ package com.bridgelabz.model;
 import java.util.List;
 
 public class AddressBookModel {
-	private List<AddressBook> addressbook;
+	private List<PersonModel> persons;
+	private String statename;
 
-	public List<AddressBook> getAddressbook() {
-		return addressbook;
+	public List<PersonModel> getPersons() {
+		return persons;
 	}
 
-	@Override
-	public String toString() {
-		return "AddressBookModel [addressbook=" + addressbook + "]";
+	public void setPersons(List<PersonModel> persons) {
+		this.persons = persons;
 	}
 
-	public void setAddressbook(List<AddressBook> addressbook) {
-		this.addressbook = addressbook;
+	public String getStatename() {
+		return statename;
+	}
+
+	public void setStatename(String statename) {
+		this.statename = statename;
 	}
 
 }

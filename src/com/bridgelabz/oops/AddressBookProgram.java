@@ -29,7 +29,7 @@ public class AddressBookProgram {
 	public static void main(String[] args) throws JsonParseException, JsonMappingException, IOException {
 
 		String path = "/home/admin1/eclipse-workspace/BridgeLabzFellowshipPrograms/src/com/bridgelabz/jsonfiles/addressbook.json";
-		String pathout = "/home/admin1/eclipse-workspace/BridgeLabzFellowshipPrograms/src/com/bridgelabz/jsonfiles/addressbookout.json";
+		//String pathout = "/home/admin1/eclipse-workspace/BridgeLabzFellowshipPrograms/src/com/bridgelabz/jsonfiles/addressbookout.json";
 
 		/*
 		 * reading the json file
@@ -45,7 +45,7 @@ public class AddressBookProgram {
 		CustomizedLinkedList<HR> hrList = new CustomizedLinkedList<HR>();
 		CustomizedLinkedList<MH> mhList = new CustomizedLinkedList<MH>();
 
-		addressBookList.addAll(model.getAddressbook());
+		//addressBookList.addAll(model.getAddressbook());
 		dlList.addAll(addressBookList.get(0).getDl());
 		gjList.addAll(addressBookList.get(1).getGj());
 		hrList.addAll(addressBookList.get(2).getHr());
@@ -100,6 +100,9 @@ public class AddressBookProgram {
 					book.setStatename(stateName);
 					
 					addressBookList.add(book);
+					
+					//model.setAddressbook(addressbook);
+					
 				} else
 					System.out.println("state already available cannot create new state");
 

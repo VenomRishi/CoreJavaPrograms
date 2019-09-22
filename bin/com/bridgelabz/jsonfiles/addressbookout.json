@@ -1,1 +1,25 @@
-{"mh":null,"dl":null,"hr":null,"gj":null,"statename":"ml"}
+{
+	"persons": [
+		{
+			"firstname": "Rishikesh",
+			"lastname": "zhatre",
+			"address": {
+				"city": "new panve",
+				"state": "mh",
+				"zip": 410207
+			},
+			"mobile": "1234567899"
+		},
+		{
+			"firstname": "Vishnu",
+			"lastname": "shelke",
+			"address": {
+				"city": "latur",
+				"state": "mh",
+				"zip": 414030
+			},
+			"mobile": "7755333555"
+		}
+	],
+	"statename": "mh"
+}
