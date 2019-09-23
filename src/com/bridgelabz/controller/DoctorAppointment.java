@@ -419,11 +419,11 @@ public class DoctorAppointment {
 					for (int i = 0; i < doctors.size(); i++) {
 						if (str.equals(doctors.get(i).getDrspecialization())) {
 							isFound = true;
-							// index = i;
+							index = i;
 
 						}
 						if (isFound) {
-							System.out.println(str + "Dr->");
+							System.out.println(str + " Dr->");
 							DoctorAppointmentUtil.showDoctorList(doctors, index, j++);
 							isFirst = true;
 							isFound = false;
@@ -433,65 +433,70 @@ public class DoctorAppointment {
 						System.out.println("No doctor found");
 					} else {
 						System.out.println("Enter doctor no. ");
-						index = scanner.nextInt();
+						index = scanner.nextInt() - 1;
+
+						System.out.println(doctors.get(index).getDrname());
 
 						System.out.println("Enter timing");
 
-						System.out.println("\nTime format is of 24 hr");
-						System.out.println("Date format is dd/MM/yyyy\n");
+						System.out.println("Dr. available on: " + doctors.get(index).getDravailability().getDate());
+						System.out.println("proceed (yes/no)");
+						if (scanner.next().toLowerCase().equals("yes")) {
+							System.out.println("Enter time");
+							int time = scanner.nextInt();
+							boolean timeIsAvailable = false;
 
-						System.out.println("Enter date: ");
-						String date = scanner.next();
-						System.out.println("Enter time");
-						int time = scanner.nextInt();
-						boolean timeIsAvailable = false;
+							if ((time >= doctors.get(index).getDravailability().getTimein()
+									&& time <= doctors.get(index).getDravailability().getTimeout())) {
+								timeIsAvailable = true;
+							}
+							if (timeIsAvailable) {
+								System.out.println("Time is available");
+								// check appointmetn of doctor not exceed 5 patient at a time
+								if (doctors.get(index).getNoofpatient() <= 5) {
+									boolean patientexit = false;
+									int id;
+									while (!patientexit) {
+										System.out.println("Enter patient id: ");
+										id = scanner.nextInt();
+										for (int i = 0; i < patients.size(); i++) {
+											if (patients.get(i).getPtid() == id) {
+												patientexit = true;
+												System.out.println("To book appointment press (y/n)");
+												if (scanner.next().charAt(0) == 'y') {
+													Appointment appointment = new Appointment();
+													appointmentid++;
+													appointment.setAptid(appointmentid);
+													appointment.setDrid(doctors.get(index).getDrid());
+													appointment.setDrname(doctors.get(index).getDrname());
+													appointment.setDravailability(
+															doctors.get(index).getDravailability().getDate());
+													appointment.setPtid(id);
+													appointment.setPtassignname(patients.get(i).getPtname());
+													appointment.setPtassignmobile(patients.get(i).getPtmobile());
 
-						if (date.equals(doctors.get(index).getDravailability().getDate())
-								&& (time >= doctors.get(index).getDravailability().getTimein()
-										&& time <= doctors.get(index).getDravailability().getTimeout())) {
-							timeIsAvailable = true;
-						}
+													doctors.get(index)
+															.setNoofpatient(doctors.get(index).getNoofpatient() + 1);
 
-						if (timeIsAvailable) {
-							System.out.println("Time is available");
-							//check appointmetn of doctor not exceed 5 patient at a time
-							if(doctors.get(index).getNoofpatient()<=5) {
-								boolean patientexit = false;
-								int id;
-								while (!patientexit) {
-									System.out.println("Enter patient id: ");
-									id = scanner.nextInt();
-									for (int i = 0; i < patients.size(); i++) {
-										if (patients.get(i).getPtid() == id) {
-											patientexit = true;
-											System.out.println("To book appointment press (y/n)");
-											if (scanner.next().charAt(0) == 'y') {
-												Appointment appointment = new Appointment();
-												appointment.setAptid(appointmentid++);
-												appointment.setDrid(doctors.get(index).getDrid());
-												appointment.setDrname(doctors.get(index).getDrname());
-												appointment.setDravailability(date + " " + time);
-												appointment.setPtid(id);
-												appointment.setPtassignname(patients.get(i).getPtname());
-												appointment.setPtassignmobile(patients.get(i).getPtmobile());
+													appointments.add(appointment);
 
-												doctors.get(index).setNoofpatient(doctors.get(index).getNoofpatient() + 1);
+													// modelAppointment.setAppointments(appointments);
+													modelAppointment.setAppointments(appointments);
+													JsonUtil.writeMapper(pathAppointmentJson, modelAppointment);
+													System.out.println("Appointment Booked...");
 
-												appointments.add(appointment);
+													break;
 
-												System.out.println("Appointment Booked...");
-												break;
-
+												}
 											}
 										}
 									}
-								}
-							}else
-								System.out.println("Doctor appointment is full..");
-							
+								} else
+									System.out.println("Doctor appointment is full..");
 
-						} else
-							System.out.println("Cannot able to book doctor because of timing");
+							} else
+								System.out.println("Cannot able to book doctor because of timing");
+						}
 
 					}
 

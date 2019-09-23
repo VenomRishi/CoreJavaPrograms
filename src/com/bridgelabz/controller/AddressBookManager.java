@@ -23,6 +23,7 @@ import com.bridgelabz.model.Address;
 import com.bridgelabz.model.AddressBookModel;
 import com.bridgelabz.model.PersonModel;
 import com.bridgelabz.repository.JsonUtil;
+import com.bridgelabz.services.AddressBookUtil;
 
 public class AddressBookManager {
 
@@ -205,20 +206,11 @@ public class AddressBookManager {
 
 							if (counter > 1) {
 								System.out.println("Sorting by Last name is selected");
-								for (int i = 0; i < persons.size() - 1; i++) {
-									for (int j = 0; j < persons.size() - i - 1; j++) {
 
-										if (persons.get(j).getLastname()
-												.compareTo(persons.get(j + 1).getLastname()) > 0) {
-											Object temp = persons.get(j);
-											persons.set(j, persons.get(j + 1));
-											persons.set(j + 1, (PersonModel) temp);
+								persons = AddressBookUtil.sortByLastName(persons);
 
-										}
-									}
-								}
 								System.out.println("Please wait...");
-								Thread.sleep(3000);
+								Thread.sleep(2000);
 								System.out.println("Sorting is completed to see the result select print option");
 							} else
 								System.out.println("Less records to sort");
@@ -228,20 +220,11 @@ public class AddressBookManager {
 							// sort by zip
 							if (counter > 1) {
 								System.out.println("Sorting by zip");
-								for (int i = 0; i < persons.size() - 1; i++) {
-									for (int j = 0; j < persons.size() - i - 1; j++) {
 
-										if (persons.get(j).getAddressObj().getZip() > persons.get(j + 1).getAddressObj()
-												.getZip()) {
-											Object temp = persons.get(j);
-											persons.set(j, persons.get(j + 1));
-											persons.set(j + 1, (PersonModel) temp);
+								persons = AddressBookUtil.sortByZip(persons);
 
-										}
-									}
-								}
 								System.out.println("Please wait...");
-								Thread.sleep(3000);
+								Thread.sleep(2000);
 								System.out.println("Sorting is completed to see the result select print option");
 							} else
 								System.out.println("Less records to sort");
@@ -251,20 +234,9 @@ public class AddressBookManager {
 							// print
 							if (counter > 0) {
 								System.out.println("Printing all records...");
-								System.out.println("Person detail");
-								for (int i = 0; i < persons.size(); i++) {
-									if (!statename.isEmpty()
-											&& statename.equals(persons.get(i).getAddressObj().getState())) {
-										System.out.print(persons.get(i).getFirstname() + " ");
-										System.out.print(persons.get(i).getLastname() + " ");
-										System.out.print(persons.get(i).getAddressObj().getAddressLocal() + " ");
-										System.out.print(persons.get(i).getAddressObj().getCity() + " ");
-										System.out.print(persons.get(i).getAddressObj().getState() + " ");
-										System.out.print(persons.get(i).getAddressObj().getZip() + " ");
-										System.out.println(persons.get(i).getMobile() + " ");
-									}
 
-								}
+								System.out.println(AddressBookUtil.PrintPersonDetails(persons, statename));
+
 							} else
 								System.out.println("There is no record to print...");
 
@@ -414,18 +386,9 @@ public class AddressBookManager {
 							// sort by last name
 							if (counter > 1) {
 								System.out.println("Sorting by Last name is selected");
-								for (int i = 0; i < persons.size() - 1; i++) {
-									for (int j = 0; j < persons.size() - i - 1; j++) {
 
-										if (persons.get(j).getLastname()
-												.compareTo(persons.get(j + 1).getLastname()) > 0) {
-											Object temp = persons.get(j);
-											persons.set(j, persons.get(j + 1));
-											persons.set(j + 1, (PersonModel) temp);
+								persons = AddressBookUtil.sortByLastName(persons);
 
-										}
-									}
-								}
 								System.out.println("Please wait...");
 								Thread.sleep(2000);
 								System.out.println("Sorting is completed to see the result select 6 option");
@@ -437,18 +400,9 @@ public class AddressBookManager {
 							// sort by zip
 							if (counter > 1) {
 								System.out.println("Sorting by zip");
-								for (int i = 0; i < persons.size() - 1; i++) {
-									for (int j = 0; j < persons.size() - i - 1; j++) {
 
-										if (persons.get(j).getAddressObj().getZip() > persons.get(j + 1).getAddressObj()
-												.getZip()) {
-											Object temp = persons.get(j);
-											persons.set(j, persons.get(j + 1));
-											persons.set(j + 1, (PersonModel) temp);
+								persons = AddressBookUtil.sortByZip(persons);
 
-										}
-									}
-								}
 								System.out.println("Please wait...");
 								Thread.sleep(2000);
 								System.out.println("Sorting is completed to see the result select 6 option");
@@ -460,20 +414,9 @@ public class AddressBookManager {
 							// print
 							if (counter > 0) {
 								System.out.println("Printing all records...");
-								System.out.println("Person detail");
-								for (int i = 0; i < persons.size(); i++) {
-									if (!statename.isEmpty()
-											&& statename.equals(persons.get(i).getAddressObj().getState())) {
-										System.out.print(persons.get(i).getFirstname() + " ");
-										System.out.print(persons.get(i).getLastname() + " ");
-										System.out.print(persons.get(i).getAddressObj().getAddressLocal() + " ");
-										System.out.print(persons.get(i).getAddressObj().getCity() + " ");
-										System.out.print(persons.get(i).getAddressObj().getState() + " ");
-										System.out.print(persons.get(i).getAddressObj().getZip() + " ");
-										System.out.println(persons.get(i).getMobile() + " ");
-									}
+								
+								System.out.println(AddressBookUtil.PrintPersonDetails(persons, statename));
 
-								}
 							} else
 								System.out.println("There is no record to print...");
 
