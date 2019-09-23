@@ -118,6 +118,7 @@ public class DoctorAppointment {
 			switch (scanner.nextInt()) {
 			case 1:
 				// add doctor
+				System.out.println();
 				System.out.println("-------------------------add doctor-----------------------");
 				System.out.println();
 
@@ -143,6 +144,7 @@ public class DoctorAppointment {
 					System.out.println("Enter doctor date");
 					availability.setDate(scanner.next());
 					doctor.setDravailability(availability);
+					doctor.setNoofpatient(0);
 					doctorid++;
 					doctors.add(doctor);
 
@@ -163,6 +165,7 @@ public class DoctorAppointment {
 				break;
 			case 2:
 				// add patient
+				System.out.println();
 				System.out.println("-------------------------add patient-----------------------");
 				System.out.println();
 
@@ -197,6 +200,7 @@ public class DoctorAppointment {
 				break;
 			case 3:
 				// search doctor by id
+				System.out.println();
 				System.out.println("-------------------------search doctor by id-----------------------");
 				System.out.println();
 
@@ -224,6 +228,7 @@ public class DoctorAppointment {
 				break;
 			case 4:
 				// search doctor by name
+				System.out.println();
 				System.out.println("-------------------------search doctor by name-----------------------");
 				System.out.println();
 
@@ -250,6 +255,7 @@ public class DoctorAppointment {
 				break;
 			case 5:
 				// search doctor by specialization
+				System.out.println();
 				System.out.println("-------------------------search doctor by specialization-----------------------");
 				System.out.println();
 
@@ -276,6 +282,7 @@ public class DoctorAppointment {
 				break;
 			case 6:
 				// search doctor by availability
+				System.out.println();
 				System.out.println("-------------------------search doctor by availability-----------------------");
 				System.out.println();
 
@@ -287,18 +294,25 @@ public class DoctorAppointment {
 					System.out.println("Enter time to");
 					int timeto = scanner.nextInt();
 					isFound = false;
-
+					boolean isFirst = true;
 					for (int i = 0; i < doctors.size(); i++) {
-						if (str.equals(doctors.get(i).getDrspecialization())) {
+						if (str.equals(doctors.get(i).getDravailability().getDate())
+								&& (timefrom >= doctors.get(i).getDravailability().getTimein()
+										&& timeto <= doctors.get(i).getDravailability().getTimeout())) {
+
 							isFound = true;
 							index = i;
-							break;
+
+						}
+						if (isFound) {
+							DoctorAppointmentUtil.showDoctorList(doctors, index, isFirst);
+							isFirst = false;
+							isFound = false;
 						}
 					}
-					if (isFound) {
-						DoctorAppointmentUtil.showDoctorList(doctors, index, true);
-					} else
+					if (!isFirst) {
 						System.out.println("No record found associated with this specialization");
+					}
 				} else
 					System.out.println("No records to search");
 
@@ -307,16 +321,55 @@ public class DoctorAppointment {
 				break;
 			case 7:
 				// search patient by id
+				System.out.println();
 				System.out.println("-------------------------search patient by id-----------------------");
 				System.out.println();
+
+				if (patients.size() > 0) {
+					System.out.println("Instruction->Patient id starts from 1000 range");
+					System.out.println("Enter patient id to search: ");
+					isFound = false;
+					num = scanner.nextInt();
+					for (int i = 0; i < patients.size(); i++) {
+						if (num == patients.get(i).getPtid()) {
+							isFound = true;
+							index = i;
+							break;
+						}
+					}
+					if (isFound) {
+						DoctorAppointmentUtil.showPatientList(patients, index, true);
+					} else
+						System.out.println("No record found associated with this id");
+				} else
+					System.out.println("No records to search");
 
 				System.out.println("-------------------------search patient by id-----------------------");
 				System.out.println();
 				break;
 			case 8:
 				// search patient by name
+				System.out.println();
 				System.out.println("-------------------------search patient by name-----------------------");
 				System.out.println();
+
+				if (patients.size() > 0) {
+					System.out.println("Enter patient name to search: ");
+					isFound = false;
+					str = scanner.next();
+					for (int i = 0; i < patients.size(); i++) {
+						if (str.equals(patients.get(i).getPtname())) {
+							isFound = true;
+							index = i;
+							break;
+						}
+					}
+					if (isFound) {
+						DoctorAppointmentUtil.showPatientList(patients, index, true);
+					} else
+						System.out.println("No record found associated with this name");
+				} else
+					System.out.println("No records to search");
 
 				System.out.println("-------------------------search patient by name-----------------------");
 				System.out.println();
@@ -326,13 +379,116 @@ public class DoctorAppointment {
 				System.out.println("-------------------------search patient by mobile-----------------------");
 				System.out.println();
 
+				if (patients.size() > 0) {
+					System.out.println("Enter patient mobile to search: ");
+					isFound = false;
+					str = scanner.next();
+					for (int i = 0; i < patients.size(); i++) {
+						if (str.equals(patients.get(i).getPtmobile())) {
+							isFound = true;
+							index = i;
+							break;
+						}
+					}
+					if (isFound) {
+						DoctorAppointmentUtil.showPatientList(patients, index, true);
+					} else
+						System.out.println("No record found associated with this id");
+				} else
+					System.out.println("No records to search");
+
 				System.out.println("-------------------------search patient by mobile-----------------------");
 				System.out.println();
 				break;
 			case 10:
 				// add appointment
+				System.out.println();
 				System.out.println("-------------------------add appointment-----------------------");
 				System.out.println();
+
+				if (doctors.size() > 0) {
+					isFound = false;
+					boolean isFirst = true;
+					System.out.println("Enter specialized doctor to treat from: ");
+					str = scanner.next();
+					System.out.println("Searching doctors...");
+					Thread.sleep(2000);
+					int j = 1;
+					for (int i = 0; i < doctors.size(); i++) {
+						if (str.equals(doctors.get(i).getDrspecialization())) {
+							isFound = true;
+							// index = i;
+
+						}
+						if (isFound) {
+							DoctorAppointmentUtil.showDoctorList(doctors, index, j++);
+							isFirst = false;
+							isFound = false;
+						}
+					}
+					if (isFirst) {
+						System.out.println("No doctor found");
+					} else {
+						System.out.println("Enter doctor no. ");
+						index = scanner.nextInt();
+						System.out.println("Enter timing");
+
+						System.out.println("Time format is of 24 hr");
+						System.out.println("Date format is dd/MM/yyyy");
+
+						System.out.println("Enter date: ");
+						String date = scanner.next();
+						System.out.println("Enter time");
+						int time = scanner.nextInt();
+						boolean timeIsAvailable = false;
+
+						if (date.equals(doctors.get(index).getDravailability().getDate())
+								&& (time >= doctors.get(index).getDravailability().getTimein()
+										&& time <= doctors.get(index).getDravailability().getTimeout()
+										&& doctors.get(index).getNoofpatient() < 6)) {
+							timeIsAvailable = true;
+						}
+
+						if (timeIsAvailable) {
+							System.out.println("Time is available");
+							boolean patientexit = false;
+							int id;
+							while (!patientexit) {
+								System.out.println("Enter patient id: ");
+								id = scanner.nextInt();
+								for (int i = 0; i < patients.size(); i++) {
+									if (patients.get(i).getPtid() == id) {
+										patientexit = true;
+										System.out.println("To book appointment press (y/n)");
+										if (scanner.next().charAt(0) == 'y') {
+											Appointment appointment = new Appointment();
+											appointment.setAptid(appointmentid++);
+											appointment.setDrid(doctors.get(index).getDrid());
+											appointment.setDrname(doctors.get(index).getDrname());
+											appointment.setDravailability(date + " " + time);
+											appointment.setPtid(id);
+											appointment.setPtassignname(patients.get(i).getPtname());
+											appointment.setPtassignmobile(patients.get(i).getPtmobile());
+
+											doctors.get(index).setNoofpatient(doctors.get(index).getNoofpatient() + 1);
+
+											appointments.add(appointment);
+
+											System.out.println("Appointment Booked...");
+											break;
+
+										}
+									}
+								}
+							}
+
+						} else
+							System.out.println("Cannot able to book doctor because of timing or no of patient books");
+
+					}
+
+				} else
+					System.out.println("No records to book appointment");
 
 				System.out.println("-------------------------add appointment-----------------------");
 				System.out.println();
