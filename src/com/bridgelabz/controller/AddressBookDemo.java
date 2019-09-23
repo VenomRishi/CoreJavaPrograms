@@ -1,4 +1,4 @@
-package com.bridgelabz.oops;
+package com.bridgelabz.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 
-import com.bridgelabz.helper.JsonUtil;
 import com.bridgelabz.model.Address;
 import com.bridgelabz.model.AddressBookModel;
 import com.bridgelabz.model.PersonModel;
+import com.bridgelabz.repository.JsonUtil;
 import com.bridgelabz.utility.OOPsUtility;
 
 public class AddressBookDemo {

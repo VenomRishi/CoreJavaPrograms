@@ -7,7 +7,7 @@
  *
  ******************************************************************************/
 
-package com.bridgelabz.oops;
+package com.bridgelabz.controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,9 +16,9 @@ import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 
 import com.bridgelabz.handler.LinkedList;
-import com.bridgelabz.helper.JsonUtil;
 import com.bridgelabz.model.Companyshares;
 import com.bridgelabz.model.CompanysharesModel;
+import com.bridgelabz.repository.JsonUtil;
 import com.bridgelabz.utility.OOPsUtility;
 
 public class StockAccountUsingLinkedListCompanyShares {

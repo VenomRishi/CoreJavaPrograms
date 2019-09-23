@@ -1,0 +1,37 @@
+{
+	"persons": [
+		{
+			"firstname": "rishi",
+			"lastname": "mhatre",
+			"addressObj": {
+				"addressLocal": "murlidhar",
+				"city": "panvel",
+				"state": "maharashtra",
+				"zip": 410206
+			},
+			"mobile": "8850222545"
+		},
+		{
+			"firstname": "abhishek",
+			"lastname": "rawat",
+			"addressObj": {
+				"addressLocal": "hanumannagar",
+				"city": "bhandup",
+				"state": "gujarat",
+				"zip": 400078
+			},
+			"mobile": "9888502222"
+		},
+		{
+			"firstname": "vishnu",
+			"lastname": "shelke",
+			"addressObj": {
+				"addressLocal": "lat",
+				"city": "latur",
+				"state": "maharashtra",
+				"zip": 400789
+			},
+			"mobile": "8850222546"
+		}
+	]
+}

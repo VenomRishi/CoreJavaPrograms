@@ -15,8 +15,8 @@ import java.io.IOException;
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 
-import com.bridgelabz.helper.JsonUtil;
 import com.bridgelabz.model.TransactionModel;
+import com.bridgelabz.repository.JsonUtil;
 
 public class StockAccountUtility {
 

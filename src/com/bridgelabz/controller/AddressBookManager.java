@@ -3,11 +3,11 @@
  *
  *  @author  Rishikesh Mhatre
  *  @version 1.0
- *  @since   23-09-2019
+ *  @since   21-09-2019
  *
  ******************************************************************************/
 
-package com.bridgelabz.oops;
+package com.bridgelabz.controller;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -18,10 +18,10 @@ import java.util.Scanner;
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 
-import com.bridgelabz.helper.JsonUtil;
 import com.bridgelabz.model.Address;
 import com.bridgelabz.model.AddressBookModel;
 import com.bridgelabz.model.PersonModel;
+import com.bridgelabz.repository.JsonUtil;
 
 public class AddressBookManager {
 
@@ -158,30 +158,17 @@ public class AddressBookManager {
 								}
 								if (isFoundPerson) {
 
-									mobile = search;
-									// validating mobile is not taken by anyone
-									isMobileTaken = false;
-									for (int i = 0; i < persons.size(); i++) {
-										if (persons.get(i).getMobile().equals(mobile)) {
-											isMobileTaken = true;
-											break;
-										}
-									}
-									if (isMobileTaken) {
-										System.out.println("Please enter different mobile number");
-									} else {
-										System.out.println("enter new address");
-										persons.get(indexOfPerson).getAddressObj().setAddressLocal(scanner.next());
-										System.out.println("enter new city name");
-										persons.get(indexOfPerson).getAddressObj().setCity(scanner.next());
-										System.out.println("enter new zip");
-										persons.get(indexOfPerson).getAddressObj().setZip(scanner.nextInt());
+									System.out.println("enter new address");
+									persons.get(indexOfPerson).getAddressObj().setAddressLocal(scanner.next());
+									System.out.println("enter new city name");
+									persons.get(indexOfPerson).getAddressObj().setCity(scanner.next());
+									System.out.println("enter new zip");
+									persons.get(indexOfPerson).getAddressObj().setZip(scanner.nextInt());
 
-										persons.get(indexOfPerson).setMobile(mobile);
-										
-										System.out.println();
-										System.out.println("Edit completed");
-									}
+									persons.get(indexOfPerson).setMobile(search);
+
+									System.out.println();
+									System.out.println("Edit completed");
 
 								} else
 									System.out.println("No person found with this number");
@@ -233,7 +220,7 @@ public class AddressBookManager {
 								Thread.sleep(3000);
 								System.out.println("Sorting is completed to see the result select print option");
 							} else
-								System.out.println("No records to sort");
+								System.out.println("Less records to sort");
 
 							break;
 						case 5:
@@ -256,7 +243,7 @@ public class AddressBookManager {
 								Thread.sleep(3000);
 								System.out.println("Sorting is completed to see the result select print option");
 							} else
-								System.out.println("no records to sort");
+								System.out.println("Less records to sort");
 
 							break;
 						case 6:
@@ -289,7 +276,7 @@ public class AddressBookManager {
 					}
 				} else
 					System.out.println("State exist please try again");
-				
+
 				System.out.println("-----------------------New Address Book-----------------------");
 				break;
 			case 2:
@@ -311,7 +298,7 @@ public class AddressBookManager {
 
 					while (!close2) {
 						System.out.println(
-								"Select option: \n1.add\n2.edit\n3.delete\n4.sort by last name\n5.sort by zip\n6.print\n7");
+								"Select option: \n1.add\n2.edit\n3.delete\n4.sort by last name\n5.sort by zip\n6.print\n7.quit");
 						switch (scanner.nextInt()) {
 						case 1:
 							// add person
@@ -373,29 +360,16 @@ public class AddressBookManager {
 								}
 								if (isFoundPerson) {
 
-									mobile = search;
-									// validating mobile is not taken by anyone
-									isMobileTaken = false;
-									for (int i = 0; i < persons.size(); i++) {
-										if (persons.get(i).getMobile().equals(mobile)) {
-											isMobileTaken = true;
-											break;
-										}
-									}
-									if (isMobileTaken) {
-										System.out.println("Please enter different mobile number");
-									} else {
-										System.out.println("enter new address");
-										persons.get(indexOfPerson).getAddressObj().setAddressLocal(scanner.next());
-										System.out.println("enter new city name");
-										persons.get(indexOfPerson).getAddressObj().setCity(scanner.next());
-										System.out.println("enter new zip");
-										persons.get(indexOfPerson).getAddressObj().setZip(scanner.nextInt());
+									System.out.println("enter new address");
+									persons.get(indexOfPerson).getAddressObj().setAddressLocal(scanner.next());
+									System.out.println("enter new city name");
+									persons.get(indexOfPerson).getAddressObj().setCity(scanner.next());
+									System.out.println("enter new zip");
+									persons.get(indexOfPerson).getAddressObj().setZip(scanner.nextInt());
 
-										persons.get(indexOfPerson).setMobile(mobile);
-										System.out.println();
-										System.out.println("Edit completed");
-									}
+									persons.get(indexOfPerson).setMobile(search);
+									System.out.println();
+									System.out.println("Edit completed");
 
 								} else
 									System.out.println("No person found with this number");
@@ -429,40 +403,49 @@ public class AddressBookManager {
 							break;
 						case 4:
 							// sort by last name
-							System.out.println("Sorting by Last name is selected");
-							for (int i = 0; i < persons.size() - 1; i++) {
-								for (int j = 0; j < persons.size() - i - 1; j++) {
+							if (counter > 1) {
+								System.out.println("Sorting by Last name is selected");
+								for (int i = 0; i < persons.size() - 1; i++) {
+									for (int j = 0; j < persons.size() - i - 1; j++) {
 
-									if (persons.get(j).getLastname().compareTo(persons.get(j + 1).getLastname()) > 0) {
-										Object temp = persons.get(j);
-										persons.set(j, persons.get(j + 1));
-										persons.set(j + 1, (PersonModel) temp);
+										if (persons.get(j).getLastname()
+												.compareTo(persons.get(j + 1).getLastname()) > 0) {
+											Object temp = persons.get(j);
+											persons.set(j, persons.get(j + 1));
+											persons.set(j + 1, (PersonModel) temp);
 
+										}
 									}
 								}
-							}
-							System.out.println("Please wait...");
-							Thread.sleep(3000);
-							System.out.println("Sorting is completed to see the result select 6 option");
+								System.out.println("Please wait...");
+								Thread.sleep(2000);
+								System.out.println("Sorting is completed to see the result select 6 option");
+							} else
+								System.out.println("Less records to sort");
+
 							break;
 						case 5:
 							// sort by zip
-							System.out.println("Sorting by zip");
-							for (int i = 0; i < persons.size() - 1; i++) {
-								for (int j = 0; j < persons.size() - i - 1; j++) {
+							if (counter > 1) {
+								System.out.println("Sorting by zip");
+								for (int i = 0; i < persons.size() - 1; i++) {
+									for (int j = 0; j < persons.size() - i - 1; j++) {
 
-									if (persons.get(j).getAddressObj().getZip() > persons.get(j + 1).getAddressObj()
-											.getZip()) {
-										Object temp = persons.get(j);
-										persons.set(j, persons.get(j + 1));
-										persons.set(j + 1, (PersonModel) temp);
+										if (persons.get(j).getAddressObj().getZip() > persons.get(j + 1).getAddressObj()
+												.getZip()) {
+											Object temp = persons.get(j);
+											persons.set(j, persons.get(j + 1));
+											persons.set(j + 1, (PersonModel) temp);
 
+										}
 									}
 								}
-							}
-							System.out.println("Please wait...");
-							Thread.sleep(2000);
-							System.out.println("Sorting is completed to see the result select 6 option");
+								System.out.println("Please wait...");
+								Thread.sleep(2000);
+								System.out.println("Sorting is completed to see the result select 6 option");
+							} else
+								System.out.println("Less records to sort");
+
 							break;
 						case 6:
 							// print
@@ -523,20 +506,12 @@ public class AddressBookManager {
 					System.out.println("Enter the path to store file: ");
 					String pathInput = scanner.next();
 					// checking whether path is valid or not
-					if (new File(pathInput).exists()) {
-						throw new FileNotFoundException("You cannot rewrite existing file");
-					} else {
-						if (pathInput.charAt(pathInput.length() - 1) == '/') {
-							System.out.println("please provide file name: ");
-							pathInput += scanner.next();
 
-							// writing into file
-							System.out.println("->Saving address book into file<-");
-							model.setPersons(persons);
-							JsonUtil.writeMapper(pathInput, model);
-							Thread.sleep(2000);
-							System.out.println();
-							System.out.println("Writing into file successful....");
+					if (pathInput.charAt(pathInput.length() - 1) == '/') {
+						System.out.println("please provide file name: ");
+						pathInput += scanner.next();
+						if (new File(pathInput).exists()) {
+							throw new FileNotFoundException("You cannot rewrite existing file");
 						} else {
 							// writing into file
 							System.out.println("->Saving address book into file<-");
@@ -546,7 +521,17 @@ public class AddressBookManager {
 							System.out.println();
 							System.out.println("Writing into file successful....");
 						}
+
+					} else {
+						// writing into file
+						System.out.println("->Saving address book into file<-");
+						model.setPersons(persons);
+						JsonUtil.writeMapper(pathInput, model);
+						Thread.sleep(2000);
+						System.out.println();
+						System.out.println("Writing into file successful....");
 					}
+
 				} else
 					System.out.println("prefer to choose save option");
 
@@ -557,7 +542,7 @@ public class AddressBookManager {
 				// quit
 				isExitAddressBook = true;
 				System.out.println("Thank you for your time");
-				System.out.println("-----------------------Quit Address Book-----------------------");
+
 				break;
 			default:
 				System.out.println("Invalid option");

@@ -7,7 +7,7 @@
  *
  ******************************************************************************/
 
-package com.bridgelabz.oops;
+package com.bridgelabz.controller;
 
 import java.io.IOException;
 
@@ -15,9 +15,9 @@ import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 
 import com.bridgelabz.handler.QueueUsingLL;
-import com.bridgelabz.helper.JsonUtil;
 import com.bridgelabz.model.TransactionModel;
 import com.bridgelabz.model.Transactions;
+import com.bridgelabz.repository.JsonUtil;
 import com.bridgelabz.utility.OOPsUtility;
 
 public class StockAccountUsingQueueTransactions {
