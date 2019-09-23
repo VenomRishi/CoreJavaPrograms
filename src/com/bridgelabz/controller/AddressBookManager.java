@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 import org.codehaus.jackson.JsonParseException;
@@ -250,16 +251,19 @@ public class AddressBookManager {
 							// print
 							if (counter > 0) {
 								System.out.println("Printing all records...");
-								System.out.println("firstname\t" + "lastname\t" + "address\t" + "city\t" + "state\t"
-										+ "zip\t" + "mobile\t");
+								System.out.println("Person detail");
 								for (int i = 0; i < persons.size(); i++) {
-									System.out.print(persons.get(i).getFirstname() + "\t");
-									System.out.print(persons.get(i).getLastname() + "\t");
-									System.out.print(persons.get(i).getAddressObj().getAddressLocal() + "\t");
-									System.out.print(persons.get(i).getAddressObj().getCity() + "\t");
-									System.out.print(persons.get(i).getAddressObj().getState() + "\t");
-									System.out.print(persons.get(i).getAddressObj().getZip() + "\t");
-									System.out.println(persons.get(i).getMobile() + "\t");
+									if (!statename.isEmpty()
+											&& statename.equals(persons.get(i).getAddressObj().getState())) {
+										System.out.print(persons.get(i).getFirstname() + " ");
+										System.out.print(persons.get(i).getLastname() + " ");
+										System.out.print(persons.get(i).getAddressObj().getAddressLocal() + " ");
+										System.out.print(persons.get(i).getAddressObj().getCity() + " ");
+										System.out.print(persons.get(i).getAddressObj().getState() + " ");
+										System.out.print(persons.get(i).getAddressObj().getZip() + " ");
+										System.out.println(persons.get(i).getMobile() + " ");
+									}
+
 								}
 							} else
 								System.out.println("There is no record to print...");
@@ -282,7 +286,12 @@ public class AddressBookManager {
 			case 2:
 				// open
 				System.out.println("-----------------------Open Address Book-----------------------");
-
+				HashMap<String, String> map = new HashMap<>();
+				;
+				for (int i = 0; i < persons.size(); i++) {
+					map.put(persons.get(i).getAddressObj().getState(), persons.get(i).getAddressObj().getState());
+				}
+				System.out.println("states available " + map.keySet());
 				System.out.println("Enter state");
 				statename = scanner.next();
 				isFoundState = false;
@@ -451,16 +460,19 @@ public class AddressBookManager {
 							// print
 							if (counter > 0) {
 								System.out.println("Printing all records...");
-								System.out.println("firstname\t" + "lastname\t" + "address\t" + "city\t" + "state\t"
-										+ "zip\t" + "mobile\t");
+								System.out.println("Person detail");
 								for (int i = 0; i < persons.size(); i++) {
-									System.out.print(persons.get(i).getFirstname() + "\t");
-									System.out.print(persons.get(i).getLastname() + "\t");
-									System.out.print(persons.get(i).getAddressObj().getAddressLocal() + "\t");
-									System.out.print(persons.get(i).getAddressObj().getCity() + "\t");
-									System.out.print(persons.get(i).getAddressObj().getState() + "\t");
-									System.out.print(persons.get(i).getAddressObj().getZip() + "\t");
-									System.out.println(persons.get(i).getMobile() + "\t");
+									if (!statename.isEmpty()
+											&& statename.equals(persons.get(i).getAddressObj().getState())) {
+										System.out.print(persons.get(i).getFirstname() + " ");
+										System.out.print(persons.get(i).getLastname() + " ");
+										System.out.print(persons.get(i).getAddressObj().getAddressLocal() + " ");
+										System.out.print(persons.get(i).getAddressObj().getCity() + " ");
+										System.out.print(persons.get(i).getAddressObj().getState() + " ");
+										System.out.print(persons.get(i).getAddressObj().getZip() + " ");
+										System.out.println(persons.get(i).getMobile() + " ");
+									}
+
 								}
 							} else
 								System.out.println("There is no record to print...");

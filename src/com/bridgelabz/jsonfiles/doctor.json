@@ -1,0 +1,1 @@
+{"doctors":[{"drid":1,"drname":"Dr. swapna","drspecialization":"dentist","dravailability":{"timein":10,"timeout":12,"date":"24/09/2019"},"noofpatient":0},{"drid":2,"drname":"Dr. vishnu","drspecialization":"ayurved","dravailability":{"timein":13,"timeout":15,"date":"25/09/2019"},"noofpatient":0}]}
