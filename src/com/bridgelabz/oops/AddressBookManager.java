@@ -1,3 +1,12 @@
+/******************************************************************************
+ *  Purpose: Program is written for creating address book
+ *
+ *  @author  Rishikesh Mhatre
+ *  @version 1.0
+ *  @since   23-09-2019
+ *
+ ******************************************************************************/
+
 package com.bridgelabz.oops;
 
 import java.io.File;
@@ -14,7 +23,7 @@ import com.bridgelabz.model.Address;
 import com.bridgelabz.model.AddressBookModel;
 import com.bridgelabz.model.PersonModel;
 
-public class AddressBookManagerFunctionality {
+public class AddressBookManager {
 
 	public static void main(String[] args)
 			throws InterruptedException, JsonParseException, JsonMappingException, IOException {
@@ -46,28 +55,28 @@ public class AddressBookManagerFunctionality {
 		// and getting all the objects and lists of json into program
 
 		// checking whether it is empty or not
-//		File file = new File(path);
-//		if (file.exists() && file.length() != 0) {
-//			model = (AddressBookModel) JsonUtil.readMapper(path, model);
-//			persons.addAll(model.getPersons());
-//
-//		}
+		File file = new File(path);
+		if (file.exists() && file.length() != 0) {
+			model = (AddressBookModel) JsonUtil.readMapper(path, model);
+			persons.addAll(model.getPersons());
+			counter = persons.size();
+
+		}
 
 		String search;
 		int indexOfPerson;
 		boolean isExitAddressBook = false;
+		System.out.println("Address book manager\n");
 		while (!isExitAddressBook) {
-			System.out.println("Address book manager\n\n");
 
 			System.out.println("Select menu");
-			System.out.println("----------------------------------------------");
-
 			System.out.println("1. New Address Book\n2. Open Address Book\n" + "3. Save Address Book\n"
 					+ "4. SaveAs Address Book\n" + "5. Quit");
 			int choice = scanner.nextInt();
 			switch (choice) {
 			case 1:
 				// new address book
+				System.out.println("-----------------------New Address Book-----------------------");
 				System.out.println("Enter state name: ");
 
 				statename = scanner.next();
@@ -121,7 +130,7 @@ public class AddressBookManagerFunctionality {
 								address.setState(statename);
 								System.out.println("Enter zip: ");
 								address.setZip(scanner.nextInt());
-								
+
 								person.setAddressObj(address);
 
 								persons.add(person);
@@ -169,6 +178,7 @@ public class AddressBookManagerFunctionality {
 										persons.get(indexOfPerson).getAddressObj().setZip(scanner.nextInt());
 
 										persons.get(indexOfPerson).setMobile(mobile);
+										
 										System.out.println();
 										System.out.println("Edit completed");
 									}
@@ -204,40 +214,50 @@ public class AddressBookManagerFunctionality {
 							break;
 						case 4:
 							// sort by last name
-							System.out.println("Sorting by Last name is selected");
-							for (int i = 0; i < persons.size() - 1; i++) {
-								for (int j = 0; j < persons.size() - i - 1; j++) {
 
-									if (persons.get(j).getLastname().compareTo(persons.get(j + 1).getLastname()) > 0) {
-										Object temp = persons.get(j);
-										persons.set(j, persons.get(j + 1));
-										persons.set(j + 1, (PersonModel) temp);
+							if (counter > 1) {
+								System.out.println("Sorting by Last name is selected");
+								for (int i = 0; i < persons.size() - 1; i++) {
+									for (int j = 0; j < persons.size() - i - 1; j++) {
 
+										if (persons.get(j).getLastname()
+												.compareTo(persons.get(j + 1).getLastname()) > 0) {
+											Object temp = persons.get(j);
+											persons.set(j, persons.get(j + 1));
+											persons.set(j + 1, (PersonModel) temp);
+
+										}
 									}
 								}
-							}
-							System.out.println("Please wait...");
-							Thread.sleep(3000);
-							System.out.println("Sorting is completed to see the result select print option");
+								System.out.println("Please wait...");
+								Thread.sleep(3000);
+								System.out.println("Sorting is completed to see the result select print option");
+							} else
+								System.out.println("No records to sort");
+
 							break;
 						case 5:
 							// sort by zip
-							System.out.println("Sorting by zip");
-							for (int i = 0; i < persons.size() - 1; i++) {
-								for (int j = 0; j < persons.size() - i - 1; j++) {
+							if (counter > 1) {
+								System.out.println("Sorting by zip");
+								for (int i = 0; i < persons.size() - 1; i++) {
+									for (int j = 0; j < persons.size() - i - 1; j++) {
 
-									if (persons.get(j).getAddressObj().getZip() > persons.get(j + 1).getAddressObj()
-											.getZip()) {
-										Object temp = persons.get(j);
-										persons.set(j, persons.get(j + 1));
-										persons.set(j + 1, (PersonModel) temp);
+										if (persons.get(j).getAddressObj().getZip() > persons.get(j + 1).getAddressObj()
+												.getZip()) {
+											Object temp = persons.get(j);
+											persons.set(j, persons.get(j + 1));
+											persons.set(j + 1, (PersonModel) temp);
 
+										}
 									}
 								}
-							}
-							System.out.println("Please wait...");
-							Thread.sleep(3000);
-							System.out.println("Sorting is completed to see the result select print option");
+								System.out.println("Please wait...");
+								Thread.sleep(3000);
+								System.out.println("Sorting is completed to see the result select print option");
+							} else
+								System.out.println("no records to sort");
+
 							break;
 						case 6:
 							// print
@@ -269,9 +289,12 @@ public class AddressBookManagerFunctionality {
 					}
 				} else
 					System.out.println("State exist please try again");
+				
+				System.out.println("-----------------------New Address Book-----------------------");
 				break;
 			case 2:
 				// open
+				System.out.println("-----------------------Open Address Book-----------------------");
 
 				System.out.println("Enter state");
 				statename = scanner.next();
@@ -322,7 +345,7 @@ public class AddressBookManagerFunctionality {
 								address.setState(statename);
 								System.out.println("Enter zip: ");
 								address.setZip(scanner.nextInt());
-								
+
 								person.setAddressObj(address);
 
 								persons.add(person);
@@ -438,7 +461,7 @@ public class AddressBookManagerFunctionality {
 								}
 							}
 							System.out.println("Please wait...");
-							Thread.sleep(3000);
+							Thread.sleep(2000);
 							System.out.println("Sorting is completed to see the result select 6 option");
 							break;
 						case 6:
@@ -473,20 +496,28 @@ public class AddressBookManagerFunctionality {
 				} else
 					System.out.println("Please create new state of that name\nelse try new state name");
 
+				System.out.println("-----------------------Open Address Book-----------------------");
+
 				break;
 			case 3:
+				System.out.println("-----------------------Save Address Book-----------------------");
+
 				System.out.println("->Saving address book into json<-");
 				model.setPersons(persons);
 				JsonUtil.writeMapper(path, model);
 				Thread.sleep(2000);
 				System.out.println();
 				System.out.println("Writing into file successful....");
+
+				System.out.println("-----------------------Save Address Book-----------------------");
 				// save
 				break;
 			case 4:
 				// saveAs
+				System.out.println("-----------------------Save As Address Book-----------------------");
+
 				System.out.println("->Save as<-");
-				System.out.println("This option requires path where you want to store");
+				System.out.println("This option requires path where you want to store file");
 				System.out.println("for continue press (y/n)");
 				if (scanner.next().charAt(0) == 'y') {
 					System.out.println("Enter the path to store file: ");
@@ -518,11 +549,15 @@ public class AddressBookManagerFunctionality {
 					}
 				} else
 					System.out.println("prefer to choose save option");
+
+				System.out.println("-----------------------Save As Address Book-----------------------");
 				break;
 			case 5:
+				System.out.println("-----------------------Quit Address Book-----------------------");
 				// quit
 				isExitAddressBook = true;
 				System.out.println("Thank you for your time");
+				System.out.println("-----------------------Quit Address Book-----------------------");
 				break;
 			default:
 				System.out.println("Invalid option");
