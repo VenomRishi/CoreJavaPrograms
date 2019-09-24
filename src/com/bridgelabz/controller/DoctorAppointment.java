@@ -452,8 +452,8 @@ public class DoctorAppointment {
 							}
 							if (timeIsAvailable) {
 								System.out.println("Time is available");
-								// check appointmetn of doctor not exceed 5 patient at a time
-								if (doctors.get(index).getNoofpatient() <= 5) {
+								// check appointmetn of doctor not exceed 5 pati`ent at a time
+								if (doctors.get(index).getNoofpatient() < 5) {
 									boolean patientexit = false;
 									int id;
 									while (!patientexit) {
@@ -474,9 +474,11 @@ public class DoctorAppointment {
 													appointment.setPtid(id);
 													appointment.setPtassignname(patients.get(i).getPtname());
 													appointment.setPtassignmobile(patients.get(i).getPtmobile());
+													int nopt = doctors.get(index).getNoofpatient();
+													nopt += 1;
+													doctors.get(index).setNoofpatient(nopt);
 
-													doctors.get(index)
-															.setNoofpatient(doctors.get(index).getNoofpatient() + 1);
+													modelDoctor.setDoctors(doctors);
 
 													appointments.add(appointment);
 

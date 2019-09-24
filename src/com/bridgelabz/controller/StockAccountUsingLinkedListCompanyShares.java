@@ -82,6 +82,8 @@ public class StockAccountUsingLinkedListCompanyShares {
 								"Company share price: " + compList.get(indexOfCompany).getCompany_share_price());
 						System.out.println(
 								"Company Total value: " + compList.get(indexOfCompany).getCompany_total_value());
+
+						JsonUtil.readMapper(pathOfCompanyShares, compModel);
 						break;
 					case 2:
 						// for removing shares
@@ -102,8 +104,10 @@ public class StockAccountUsingLinkedListCompanyShares {
 									"Company share price: " + compList.get(indexOfCompany).getCompany_share_price());
 							System.out.println(
 									"Company Total value: " + compList.get(indexOfCompany).getCompany_total_value());
+							JsonUtil.readMapper(pathOfCompanyShares, compModel);
 						} else
 							System.out.println("Company don't have that much shares to remove");
+
 						break;
 					case 3:
 						isExit = true;
