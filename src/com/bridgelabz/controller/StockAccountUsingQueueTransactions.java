@@ -38,10 +38,9 @@ public class StockAccountUsingQueueTransactions {
 			int size = queue.size();
 			// System.out.println(size);
 			System.out.println("Transactions time");
-			for (int i = size - 1; i >= 0; i--) {
-				System.out.println(queue.get(i).getDatetime());
+			for (int i = 0; i <size; i++) {
+				System.out.println(queue.get(0).getDatetime());
 				queue.deQueue();
-
 			}
 		} else
 			System.out.println("Invalid password");

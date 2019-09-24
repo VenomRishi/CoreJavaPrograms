@@ -60,7 +60,7 @@ public class AlgorithmUtility {
 	 * @param num input from user
 	 * @return returns true if prime else not prime
 	 */
-	public boolean isPrime(int num) {
+	public static boolean isPrime(int num) {
 		if (num == 0 || num == 1) {
 			return false;
 		}

@@ -61,6 +61,11 @@ public class QueueUsingLL<T> {
 			return null;
 		}
 	}
+	
+	public T get() {
+		T data=queue.get(size-1);
+		return data;
+	}
 
 	/**
 	 * Purpose: getting size of queue
@@ -78,6 +83,10 @@ public class QueueUsingLL<T> {
 	 */
 	public boolean isEmpty() {
 		return size == 0;
+	}
+	
+	public String show() {
+		return queue.show();
 	}
 
 }
