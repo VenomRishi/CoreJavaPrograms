@@ -212,7 +212,7 @@ public class AlgorithmUtility {
 	 * @param arr array from user
 	 * @return returns sorted array
 	 */
-	public static void intBubbleSort(int[] arr) {
+	public static int[] intBubbleSort(int[] arr) {
 		for (int i = 0; i < arr.length - 1; i++) {
 			for (int j = 0; j < arr.length - i - 1; j++) {
 				if (arr[j] > arr[j + 1]) {
@@ -222,6 +222,8 @@ public class AlgorithmUtility {
 				}
 			}
 		}
+		
+		return arr;
 
 	}
 
