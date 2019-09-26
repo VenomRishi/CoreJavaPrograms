@@ -37,4 +37,11 @@ public class Patient {
 	public void setPtmobile(String ptmobile) {
 		this.ptmobile = ptmobile;
 	}
+
+	@Override
+	public String toString() {
+		return "Patient [ptid=" + ptid + ", ptname=" + ptname + ", ptage=" + ptage + ", ptmobile=" + ptmobile + "]";
+	}
+	
+	
 }

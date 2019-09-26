@@ -83,6 +83,9 @@ public class ImplCliniqueUtil implements ICliniqueUtil {
 
 	}
 
+	/**
+	 * Purpose: method for adding doctor
+	 */
 	@Override
 	public void addDoctor() {
 		System.out.println("->adding doctor<-");
@@ -125,6 +128,9 @@ public class ImplCliniqueUtil implements ICliniqueUtil {
 
 	}
 
+	/**
+	 * Purpose: method for adding patient
+	 */
 	@Override
 	public void addPatient() {
 		boolean close = false;
@@ -155,77 +161,61 @@ public class ImplCliniqueUtil implements ICliniqueUtil {
 		}
 	}
 
+	/**
+	 * Purpose: method for searching doctor by id
+	 */
 	@Override
 	public void searchDoctorById() {
 		if (doctors.size() > 0) {
 			System.out.println("Instruction->Doctor id starts from 1");
 			System.out.println("Enter doctor id to search: ");
-			var isFound = false;
-			var index = 0;
+
 			var num = scanner.nextInt();
-			for (int i = 0; i < doctors.size(); i++) {
-				if (num == doctors.get(i).getDrid()) {
-					isFound = true;
-					index = i;
-					break;
-				}
-			}
-			if (isFound) {
-				showDoctorList(index, true);
-			} else
-				System.out.println("No record found associated with this id");
-		} else
-			System.out.println("No records to search");
+			doctors.forEach(i -> {
+				if (num == i.getDrid())
+					System.out.println(i);
+			});
+		}
 
 	}
 
+	/**
+	 * Purpose: method for searching doctor by name
+	 */
 	@Override
 	public void searchDoctorByName() {
 		if (doctors.size() > 0) {
 			System.out.println("Enter doctor name to search: ");
-			var isFound = false;
-			var str = scanner.next();
-			var index = 0;
-			for (int i = 0; i < doctors.size(); i++) {
 
-				if (str.equals(doctors.get(i).getDrname().substring(4, doctors.get(i).getDrname().length()))) {
-					isFound = true;
-					index = i;
-					break;
-				}
-			}
-			if (isFound) {
-				showDoctorList(index, true);
-			} else
-				System.out.println("No record found associated with this name");
-		} else
-			System.out.println("No records to search");
+			var str = scanner.next();
+			doctors.forEach(i -> {
+				if (str.equals(i.getDrname()))
+					System.out.println(i);
+			});
+		}
 
 	}
 
+	/**
+	 * Purpose: method for searching doctor by specialization
+	 */
 	@Override
 	public void searchDoctorBySpecialization() {
 		if (doctors.size() > 0) {
 			System.out.println("Enter doctor specialization to search: ");
-			var isFound = false;
+
 			var str = scanner.next();
-			var index = 0;
-			for (int i = 0; i < doctors.size(); i++) {
-				if (str.equals(doctors.get(i).getDrspecialization())) {
-					isFound = true;
-					index = i;
-					break;
-				}
-			}
-			if (isFound) {
-				showDoctorList(index, true);
-			} else
-				System.out.println("No record found associated with this specialization");
-		} else
-			System.out.println("No records to search");
+			doctors.forEach(i -> {
+				if (str.equals(i.getDrspecialization()))
+					System.out.println(i);
+			});
+		}
 
 	}
 
+	/**
+	 * Purpose: method for searching doctor by Availability
+	 */
 	@Override
 	public void searchDoctorByAvailability() {
 		if (doctors.size() > 0) {
@@ -234,56 +224,36 @@ public class ImplCliniqueUtil implements ICliniqueUtil {
 			System.out.println("Enter time from");
 			int time = scanner.nextInt();
 
-			var isFound = false;
-			boolean isFirst = true;
-			var index = 0;
-			for (int i = 0; i < doctors.size(); i++) {
-				if (str.equals(doctors.get(i).getDravailability().getDate())
-						&& (time >= doctors.get(i).getDravailability().getTimein()
-								&& time <= doctors.get(i).getDravailability().getTimeout())) {
-
-					isFound = true;
-					index = i;
-
+			doctors.forEach(i -> {
+				if (str.equals(i.getDravailability().getDate())
+						&& (time >= i.getDravailability().getTimein() && time <= i.getDravailability().getTimeout())) {
+					System.out.println(i);
 				}
-				if (isFound) {
-					showDoctorList(index, isFirst);
-					isFirst = false;
-					isFound = false;
-				}
-			}
-			if (!isFirst) {
-				System.out.println("No record found associated with this specialization");
-			}
-		} else
-			System.out.println("No records to search");
+			});
+		}
 
 	}
 
+	/**
+	 * Purpose: method for searching patient by id
+	 */
 	@Override
 	public void searchPatientById() {
 		if (patients.size() > 0) {
 			System.out.println("Instruction->Patient id starts from 1000 range");
 			System.out.println("Enter patient id to search: ");
-			var isFound = false;
 			var num = scanner.nextInt();
-			var index = 0;
-			for (int i = 0; i < patients.size(); i++) {
-				if (num == patients.get(i).getPtid()) {
-					isFound = true;
-					index = i;
-					break;
-				}
-			}
-			if (isFound) {
-				showPatientList(index, true);
-			} else
-				System.out.println("No record found associated with this id");
-		} else
-			System.out.println("No records to search");
+			patients.forEach(i -> {
+				if (num == i.getPtid())
+					System.out.println(i);
+			});
+		}
 
 	}
 
+	/**
+	 * Purpose: method for showing patient list
+	 */
 	@Override
 	public void showPatientList(int index, boolean hasSigleRecord) {
 		if (hasSigleRecord) {
@@ -300,52 +270,41 @@ public class ImplCliniqueUtil implements ICliniqueUtil {
 		}
 	}
 
+	/**
+	 * Purpose: method for searching patient by name
+	 */
 	@Override
 	public void searchPatientByName() {
 		if (patients.size() > 0) {
 			System.out.println("Enter patient name to search: ");
-			var isFound = false;
 			var str = scanner.next();
-			var index = 0;
-			for (int i = 0; i < patients.size(); i++) {
-				if (str.equals(patients.get(i).getPtname())) {
-					isFound = true;
-					index = i;
-					break;
-				}
-			}
-			if (isFound) {
-				showPatientList(index, true);
-			} else
-				System.out.println("No record found associated with this name");
-		} else
-			System.out.println("No records to search");
+			patients.forEach(i -> {
+				if (str.equals(i.getPtname()))
+					System.out.println(i);
+			});
+		}
 
 	}
 
+	/**
+	 * Purpose: method for searching patient by mobile
+	 */
 	@Override
 	public void searchPatientByMobile() {
 		if (patients.size() > 0) {
 			System.out.println("Enter patient mobile to search: ");
-			var isFound = false;
 			var str = scanner.next();
-			var index = 0;
-			for (int i = 0; i < patients.size(); i++) {
-				if (str.equals(patients.get(i).getPtmobile())) {
-					isFound = true;
-					index = i;
-					break;
-				}
-			}
-			if (isFound) {
-				showPatientList(index, true);
-			} else
-				System.out.println("No record found associated with this id");
-		} else
-			System.out.println("No records to search");
+			patients.forEach(i -> {
+				if (str.equals(i.getPtmobile()))
+					System.out.println(i);
+			});
+		}
 
 	}
 
+	/**
+	 * Purpose: method for adding appointment
+	 */
 	@Override
 	public void addAppointment() {
 		if (doctors.size() > 0) {
@@ -457,6 +416,9 @@ public class ImplCliniqueUtil implements ICliniqueUtil {
 
 	}
 
+	/**
+	 * Purpose: saving into json
+	 */
 	@Override
 	public void save() {
 		if (doctors.size() > 0) {
@@ -495,6 +457,9 @@ public class ImplCliniqueUtil implements ICliniqueUtil {
 		}
 	}
 
+	/**
+	 * Purpose: showing all records
+	 */
 	@Override
 	public void showAllRecords() {
 		if (doctors.size() > 0) {
@@ -514,15 +479,7 @@ public class ImplCliniqueUtil implements ICliniqueUtil {
 
 		if (appointments.size() > 0) {
 			System.out.println("Appointment records");
-//			for (int i = 0; i < appointments.size(); i++) {
-//				System.out.print(appointments.get(i).getAptid() + "\t");
-//				System.out.print(appointments.get(i).getDrid() + "\t");
-//				System.out.print(appointments.get(i).getDrname() + "\t");
-//				System.out.print(appointments.get(i).getDravailability() + "\t");
-//				System.out.print(appointments.get(i).getPtid() + "\t");
-//				System.out.print(appointments.get(i).getPtassignname() + "\t");
-//				System.out.println(appointments.get(i).getPtassignmobile());
-//			}
+
 			appointments.forEach(i -> {
 				System.out.println(i.getAptid() + " " + i.getDrid() + " " + i.getDrname() + " " + i.getDravailability()
 						+ " " + i.getPtid() + " " + i.getPtassignname() + " " + i.getPtassignmobile());
@@ -530,6 +487,9 @@ public class ImplCliniqueUtil implements ICliniqueUtil {
 		}
 	}
 
+	/**
+	 * Purpose: method for showing list for particular index
+	 */
 	@Override
 	public void showDoctorList(int index, boolean hasSigleRecord) {
 		if (hasSigleRecord) {
@@ -549,17 +509,12 @@ public class ImplCliniqueUtil implements ICliniqueUtil {
 
 	}
 
+	/**
+	 * Purpose: method for showing list for particular index
+	 */
 	@Override
 	public void showPopularDoctor() {
-		for (int i = 0; i < doctors.size() - 1; i++) {
-			for (int j = 0; j < doctors.size() - i - 1; j++) {
-				if (doctors.get(j).getNoofpatient() < doctors.get(j + 1).getNoofpatient()) {
-					Object temp = doctors.get(j);
-					doctors.set(j, doctors.get(j + 1));
-					doctors.set(j + 1, (Doctor) temp);
-				}
-			}
-		}
+		sortDoctorList();
 		if (doctors.get(0).getNoofpatient() > 0) {
 			System.out.println("Hospital specialization: " + doctors.get(0).getDrspecialization());
 			System.out.println("Dr name is: ");
@@ -569,6 +524,28 @@ public class ImplCliniqueUtil implements ICliniqueUtil {
 			System.out.println("No appointments assign to doctor try again later");
 	}
 
+	/**
+	 * Purpose: method for sorting doctor list on the basis of number of
+	 * appointments
+	 */
+	public void sortDoctorList() {
+		for (int i = 0; i < doctors.size() - 1; i++) {
+			for (int j = 0; j < doctors.size() - i - 1; j++) {
+				if (doctors.get(j).getNoofpatient() < doctors.get(j + 1).getNoofpatient()) {
+					Object temp = doctors.get(j);
+					doctors.set(j, doctors.get(j + 1));
+					doctors.set(j + 1, (Doctor) temp);
+				}
+			}
+		}
+	}
+
+	/**
+	 * Purpose: method for showing the list with associated numbers
+	 * 
+	 * @param index input from program
+	 * @param num   input from program
+	 */
 	public static void showDoctorList(int index, int num) {
 
 		System.out.print(doctors.get(index).getDrid() + ". " + doctors.get(index).getDrname() + "\t");

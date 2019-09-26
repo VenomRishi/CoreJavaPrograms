@@ -48,4 +48,12 @@ public class Doctor {
 		this.dravailability = dravailability;
 	}
 
+	@Override
+	public String toString() {
+		return "Doctor [drid=" + drid + ", drname=" + drname + ", drspecialization=" + drspecialization
+				+ ", dravailability=" + dravailability + ", noofpatient=" + noofpatient + "]";
+	}
+	
+	
+
 }

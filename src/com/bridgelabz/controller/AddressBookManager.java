@@ -59,7 +59,7 @@ public class AddressBookManager {
 				break;
 			case 2:
 				// open
-				//opening address book
+				// opening address book
 				util.openAddressBook();
 
 				break;
