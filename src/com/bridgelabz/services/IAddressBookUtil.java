@@ -16,5 +16,6 @@ public interface IAddressBookUtil {
 	void openAddressBook();
 	
 	void save();
+
 	void saveAs() throws FileNotFoundException;
 }

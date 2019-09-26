@@ -39,9 +39,10 @@ public class CardOfDecks {
 		System.out.println("**************************************");
 
 		// printing cards for 4 players
+
 		int j2 = 0;
 		for (int i = 0; i < 4; i++) {
-			System.out.print("For Player " + i + 1 + ": \n");
+			System.out.print("For Player " + i + ": \n");
 			for (int j = 0; j < 9; j++) {
 
 				System.out.print(cardsArray[j2] + "-->");

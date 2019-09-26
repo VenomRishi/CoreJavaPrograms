@@ -9,13 +9,13 @@ public class AddressBookModel {
 //		this.statename = statename;
 //	}
 
-	private List<PersonModel> persons;
+	private List<Person> persons;
 
-	public List<PersonModel> getPersons() {
+	public List<Person> getPersons() {
 		return persons;
 	}
 
-	public void setPersons(List<PersonModel> persons) {
+	public void setPersons(List<Person> persons) {
 		this.persons = persons;
 	}
 

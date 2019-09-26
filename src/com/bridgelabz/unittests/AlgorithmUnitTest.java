@@ -2,7 +2,6 @@ package com.bridgelabz.unittests;
 
 import static org.junit.Assert.*;
 
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.bridgelabz.utility.AlgorithmUtility;
@@ -22,8 +21,8 @@ public class AlgorithmUnitTest {
 		assertFalse(AlgorithmUtility.isPrime(1));
 	}
 
-	@BeforeClass
-	public static void testBinarySearch() {
+	@Test
+	public void testBinarySearch() {
 		String[] arr = { "rishi", "abhya", "vishnya" };
 		assertEquals(AlgorithmUtility.stringBinarySearch(arr, "abhya"), 1);
 	}

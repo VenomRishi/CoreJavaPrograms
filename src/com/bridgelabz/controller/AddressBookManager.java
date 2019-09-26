@@ -9,13 +9,11 @@
 
 package com.bridgelabz.controller;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
-import com.bridgelabz.services.AddressBookUtil;
+import com.bridgelabz.services.ImplAddressBookUtil;
 
 public class AddressBookManager {
 
@@ -37,7 +35,7 @@ public class AddressBookManager {
 		 * quit()
 		 * 
 		 */
-		AddressBookUtil util = new AddressBookUtil();
+		ImplAddressBookUtil util = new ImplAddressBookUtil();
 		util.readJson();
 
 		Scanner scanner = new Scanner(System.in);
@@ -65,17 +63,16 @@ public class AddressBookManager {
 
 				break;
 			case 3:
-				util.save();
-
 				// save
+				util.save();
 				break;
 			case 4:
 				// saveAs
 				util.saveAs();
 				break;
 			case 5:
-				System.out.println("-----------------------Quit Address Book-----------------------");
 				// quit
+				System.out.println("-----------------------Quit Address Book-----------------------");
 				isExitAddressBook = true;
 				System.out.println("Thank you for your time");
 

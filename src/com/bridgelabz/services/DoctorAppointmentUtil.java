@@ -27,20 +27,7 @@ public class DoctorAppointmentUtil {
 	 */
 	public static void showDoctorList(ArrayList<Doctor> doctors, int index, boolean hasSigleRecord) {
 
-		if (hasSigleRecord) {
-			System.out.println("Dr details");
-			System.out.print(doctors.get(index).getDrname() + "\t");
-			System.out.print(doctors.get(index).getDrspecialization() + "\t");
-			System.out.print(doctors.get(index).getDravailability().getDate() + "\t");
-			System.out.print(doctors.get(index).getDravailability().getTimein() + "\t");
-			System.out.print(doctors.get(index).getDravailability().getTimeout() + "\t");
-		} else {
-			System.out.print(doctors.get(index).getDrname() + "\t");
-			System.out.print(doctors.get(index).getDrspecialization() + "\t");
-			System.out.print(doctors.get(index).getDravailability().getDate() + "\t");
-			System.out.print(doctors.get(index).getDravailability().getTimein() + "\t");
-			System.out.println(doctors.get(index).getDravailability().getTimeout() + "\t");
-		}
+		
 
 	}
 

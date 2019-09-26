@@ -1,6 +1,10 @@
 package com.bridgelabz.model;
 
 public class Address {
+	@Override
+	public String toString() {
+		return "Address [addressLocal=" + addressLocal + ", city=" + city + ", state=" + state + ", zip=" + zip + "]";
+	}
 	private String addressLocal;
 	private String city;
 	private String state;

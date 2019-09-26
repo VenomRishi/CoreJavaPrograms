@@ -37,7 +37,7 @@ public class StockAccountUsingLinkedListCompanyShares {
 			compModel = (CompanysharesModel) JsonUtil.readMapper(pathOfCompanyShares, compModel);
 		}
 
-		LinkedList<Companyshares> compList = new LinkedList<Companyshares>();
+		LinkedList<Companyshares> compList = new LinkedList<>();
 
 		compList.addAll(compModel.getCompanyshares());
 		boolean isExit = false;

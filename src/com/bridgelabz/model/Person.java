@@ -1,10 +1,16 @@
 package com.bridgelabz.model;
 
-public class PersonModel {
+public class Person {
+	@Override
+	public String toString() {
+		return "Person [firstname=" + firstname + ", lastname=" + lastname + ", addressObj=" + addressObj + ", mobile="
+				+ mobile + "]";
+	}
+
 	private String firstname;
 	private String lastname;
 	private Address addressObj;
-	private String mobile;
+	private Long mobile;
 
 	public String getFirstname() {
 		return firstname;
@@ -30,12 +36,14 @@ public class PersonModel {
 		this.addressObj = addressObj;
 	}
 
-	public String getMobile() {
+	public Long getMobile() {
 		return mobile;
 	}
 
-	public void setMobile(String mobile) {
+	public void setMobile(Long mobile) {
 		this.mobile = mobile;
 	}
+
+	
 
 }

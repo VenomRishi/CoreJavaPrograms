@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
@@ -64,9 +65,9 @@ public class StockAccount {
 			transModel = (TransactionModel) JsonUtil.readMapper(pathOfTransaction, transModel);
 		}
 
-		ArrayList<Customerinfo> custList = new ArrayList<Customerinfo>();
-		ArrayList<Companyshares> compList = new ArrayList<Companyshares>();
-		ArrayList<Transactions> transList = new ArrayList<Transactions>();
+		List<Customerinfo> custList = new ArrayList<>();
+		List<Companyshares> compList = new ArrayList<>();
+		List<Transactions> transList = new ArrayList<>();
 
 		custList.addAll(custModel.getCustomerinfo());
 		compList.addAll(compModel.getCompanyshares());

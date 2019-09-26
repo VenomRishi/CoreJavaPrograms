@@ -41,6 +41,10 @@ public class OOPsUtility {
 	public static String stringScanner() {
 		return scanner.nextLine();
 	}
+	
+	public static long longScanner() {
+		return scanner.nextLong();
+	}
 
 	/**
 	 * Purpose: for scanning String single word from user
