@@ -4,21 +4,24 @@
 		{
 			"price_per_kg": 60,
 			"name": "basmati",
-			"weight": 7
+			"weight": 7,
+			"totalPriceOfWeight": 0
 		}
 	],
 	"wheats": [
 		{
 			"price_per_kg": 45,
 			"name": "chakki_fresh",
-			"weight": 5
+			"weight": 5,
+			"totalPriceOfWeight": 0
 		}
 	],
 	"pulses": [
 		{
 			"price_per_kg": 65,
 			"name": "greens",
-			"weight": 3
+			"weight": 3,
+			"totalPriceOfWeight": 0
 		}
 	]
 }

@@ -15,10 +15,8 @@ import com.bridgelabz.utility.AlgorithmUtility;
 public class PrimeNumber {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		AlgorithmUtility utility = new AlgorithmUtility();
 		for (int i = 0; i <= 1000; i++) {
-			if (utility.isPrime(i)) {
+			if (AlgorithmUtility.isPrime(i)) {
 				System.out.print(i + " ");
 			}
 			

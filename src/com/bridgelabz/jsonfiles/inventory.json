@@ -1,5 +1,5 @@
 {
-	"total": 1309,
+	"total": 1340,
 	"rice": [
 		{
 			"price_per_kg": 60,
@@ -8,10 +8,10 @@
 			"totalPriceOfWeight": 420
 		},
 		{
-			"price_per_kg": 67,
-			"name": "abc",
-			"weight": 7,
-			"totalPriceOfWeight": 469
+			"price_per_kg": 100,
+			"name": "basmati",
+			"weight": 5,
+			"totalPriceOfWeight": 500
 		}
 	],
 	"pulses": [

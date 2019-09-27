@@ -1,5 +1,13 @@
 {
 	"totalValueOfAllStock": 5800,
+	"parle": [
+		{
+			"stock_name": "parle_company",
+			"number_of_shares": 120,
+			"share_price": 5,
+			"totalValueOfStock": 600
+		}
+	],
 	"marie": [
 		{
 			"stock_name": "britania_company",
@@ -14,14 +22,6 @@
 			"number_of_shares": 110,
 			"share_price": 20,
 			"totalValueOfStock": 2200
-		}
-	],
-	"parle": [
-		{
-			"stock_name": "parle_company",
-			"number_of_shares": 120,
-			"share_price": 5,
-			"totalValueOfStock": 600
 		}
 	],
 	"tiger": [

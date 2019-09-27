@@ -39,7 +39,7 @@ public class OOPsUtility {
 	 * @return returns string which is taken from console
 	 */
 	public static String stringScanner() {
-		return scanner.nextLine();
+		return scanner.next();
 	}
 	
 	public static long longScanner() {
